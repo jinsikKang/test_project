@@ -14,10 +14,10 @@
                 <th>ID</th><td>{{ instance.id}}</td>
             </tr>
             <tr>
-                <th>image</th><td>{{ instance.image}}</td>
+                <th>이미지</th><td>{{ instance.image}}</td>
             </tr>
             <tr>
-                <th>키 이름</th><td>{{instance.key_name if instance.key_name == "-" else None}}</td>
+                <th>키 이름</th><td>{{ instance.key_name}}</td>
             </tr>
             <tr>
                 <th>locked</th><td>{{ instance.locked}}</td>
