@@ -7,7 +7,6 @@ from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getInstanceList
 from sdsecgui.cmodels.instance import Instance
 
-#로그불러왓!
 setLogDir()
 logger = getLogger()
 
