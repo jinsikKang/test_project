@@ -14,6 +14,44 @@
                 <th>ID</th><td>{{ instance.id}}</td>
             </tr>
             <tr>
+                <th>Status</th><td>{{ instance.status }}</td>
+            </tr>
+            <tr>
+                <th>os_ext_az:가용 구역</th><td>{{ instance.os_ext_az.availability_zone }}</td>
+            </tr>
+            <tr>
+                <th>생성됨</th><td>{{ instance.created }}</td>
+            </tr>
+            <tr>
+                <th>updated</th><td>{{ instance.updated }}</td>
+            </tr>
+            <tr>
+                <th>os_ext_srv_attr</th>
+                <td>
+                    ramdisk_id:{{ instance.os_ext_srv_attr.ramdisk_id }}<br/>
+                    kernel_id:{{ instance.os_ext_srv_attr.kernel_id }}<br/>
+                    hostname:{{ instance.os_ext_srv_attr.hostname }}<br/>
+                    launch_index:{{ instance.os_ext_srv_attr.launch_index }}<br/>
+                    user_data:{{ instance.os_ext_srv_attr.user_data }}<br/>
+                    instance_name:{{ instance.os_ext_srv_attr.instance_name }}<br/>
+                    호스트:{{ instance.os_ext_srv_attr.host }}<br/>
+                    root_device_name:{{ instance.os_ext_srv_attr.root_device_name }}<br/>
+                    hypervisor_hostnam:{{ instance.os_ext_srv_attr.hypervisor_hostnam }}<br/>
+                    reservation_id:{{ instance.os_ext_srv_attr.reservation_id }}
+                </td>
+            </tr>
+            <tr>
+                <th>os_ext_sts</th>
+                <td>
+                    Status:{{ instance.os_ext_sts.vm_state }}<br/>
+                    task_state:{{ instance.os_ext_sts.task_state }}<br/>
+                    power_state:{{ instance.os_ext_sts.power_state }}
+                </td>
+            </tr>
+            <tr>
+                <th>flavor 이름</th><td>{{ instance.flavor }}</td>
+            </tr>
+            <tr>
                 <th>이미지</th><td>{{ instance.image}}</td>
             </tr>
             <tr>
@@ -26,42 +64,16 @@
                 <th>metadata</th><td>{{ instance.metadata}}</td>
             </tr>
             <tr>
-                <th>name</th><td>{{ instance.name}}</td>
+                <th>볼륨:연결된 곳</th><td>{{ instance.os_extended_volumes.volumes_attached}}</td>
             </tr>
             <tr>
-                <th>os_extended_volumes:volumes_attached</th><td>{{ instance.os_extended_volumes.volumes_attached}}</td>
+                <th>os_extended_volume</th><td>{{ instance.os_extended_volume }}</td>
             </tr>
             <tr>
                 <th>progress</th><td>{{ instance.progress}}</td>
             </tr>
             <tr>
-                <th>os_dc:diskConfig</th><td>{{ instance.os_dce.diskConfig }}</td>
-            </tr>
-            <tr>
-                <th>os_ext_az:availability_zone</th><td>{{ instance.os_ext_az.availability_zone }}</td>
-            </tr>
-            <tr>
-                <th>os_ext_srv_attr</th>
-                <td>
-                    ramdisk_id:{{ instance.os_ext_srv_attr.ramdisk_id }}<br/>
-                    kernel_id:{{ instance.os_ext_srv_attr.kernel_id }}<br/>
-                    hostname:{{ instance.os_ext_srv_attr.hostname }}<br/>
-                    launch_index:{{ instance.os_ext_srv_attr.launch_index }}<br/>
-                    user_data:{{ instance.os_ext_srv_attr.user_data }}<br/>
-                    instance_name:{{ instance.os_ext_srv_attr.instance_name }}<br/>
-                    host:{{ instance.os_ext_srv_attr.host }}<br/>
-                    root_device_name:{{ instance.os_ext_srv_attr.root_device_name }}<br/>
-                    hypervisor_hostnam:{{ instance.os_ext_srv_attr.hypervisor_hostnam }}<br/>
-                    reservation_id:{{ instance.os_ext_srv_attr.reservation_id }}
-                </td>
-            </tr>
-            <tr>
-                <th>os_ext_sts</th>
-                <td>
-                    vm_state:{{ instance.os_ext_sts.vm_state }}<br/>
-                    task_state:{{ instance.os_ext_sts.task_state }}<br/>
-                    power_state:{{ instance.os_ext_sts.power_state }}
-                </td>
+                <th>os_dce:diskConfig</th><td>{{ instance.os_dce.diskConfig }}</td>
             </tr>
             <tr>
                 <th>os_srv_usg</th>
@@ -69,9 +81,6 @@
                     terminated_at:{{ instance.os_srv_usg.terminated_at }}<br/>
                     launched_at:{{ instance.os_srv_usg.launched_at }}
                 </td>
-            </tr>
-            <tr>
-                <th>os_extended_volumes:volumes_attached</th><td>{{ instance.os_extended_volumes.volumes_attached }}</td>
             </tr>
             <tr>
                 <th>accessIPv4</th><td>{{ instance.accessIPv4 }}</td>
@@ -83,13 +92,7 @@
                 <th>config_drive</th><td>{{ instance.config_drive }}</td>
             </tr>
             <tr>
-                <th>created</th><td>{{ instance.created }}</td>
-            </tr>
-            <tr>
                 <th>description</th><td>{{ instance.description }}</td>
-            </tr>
-            <tr>
-                <th>flavor</th><td>{{ instance.flavor }}</td>
             </tr>
             <tr>
                 <th>hostId</th><td>{{ instance.hostId }}</td>
@@ -98,46 +101,16 @@
                 <th>host_status</th><td>{{ instance.host_status }}</td>
             </tr>
             <tr>
-                <th>id</th><td>{{ instance.id }}</td>
-            </tr>
-            <tr>
-                <th>image</th><td>{{ instance.image }}</td>
-            </tr>
-            <tr>
-                <th>key_name</th><td>{{ instance.key_name }}</td>
-            </tr>
-            <tr>
-                <th>locked</th><td>{{ instance.locked }}</td>
-            </tr>
-            <tr>
-                <th>metadata</th><td>{{ instance.metadata }}</td>
-            </tr>
-            <tr>
-                <th>name</th><td>{{ instance.name }}</td>
-            </tr>
-            <tr>
-                <th>os_extended_volume</th><td>{{ instance.os_extended_volume }}</td>
-            </tr>
-            <tr>
-                <th>progress</th><td>{{ instance.progress }}</td>
-            </tr>
-            <tr>
                 <th>public_network</th><td>{{ instance.public_network }}</td>
             </tr>
             <tr>
                 <th>security_groups</th><td>{{ instance.security_groups }}</td>
             </tr>
             <tr>
-                <th>status</th><td>{{ instance.status }}</td>
-            </tr>
-            <tr>
                 <th>tags</th><td>{{ instance.tags }}</td>
             </tr>
             <tr>
                 <th>tenant_id</th><td>{{ instance.tenant_id }}</td>
-            </tr>
-            <tr>
-                <th>updated</th><td>{{ instance.updated }}</td>
             </tr>
             <tr>
                 <th>user_id</th><td>{{ instance.user_id }}</td>
