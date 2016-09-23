@@ -14,10 +14,10 @@ logger = getLogger()
 def retrieveInstanceList(request):
     logger.info("retrieveInstanceList")
     instanceList = getInstanceList()
-    return render(request, 'instance/index.html', { 'instanceList' : instanceList })
+    return render(request, 'instances/index.html', { 'instanceList' : instanceList })
 
 def retrieveInstanceById(request, instance_id):
     logger.info("retrieveInstanceById")
     instance = Instance()
     instance.setById(instance_id)
-    return render(request, 'instance/info.html', { 'instance' : instance })
+    return render(request, 'instances/info.html', { 'instance' : instance })
