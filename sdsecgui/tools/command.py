@@ -51,10 +51,6 @@ def parsingOutputToList(output):
 
 def getInstanceList():
     logger.debug("getInstanceList")
-    excuteCmd("export OS_USERNAME=admin")
-    excuteCmd("export OS_PASSWORD=chiron")
-    excuteCmd("export OS_AUTH_URL=http://192.168.10.6:35357/v2.0")
-    excuteCmd("export OS_TENANT_NAME=admin")
 
     output = excuteCmd("nova list --all-tenants")
     instanceList = parsingOutputToList(output)

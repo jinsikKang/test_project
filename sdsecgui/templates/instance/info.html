@@ -29,28 +29,49 @@
                 <th>name</th><td>{{ instance.name}}</td>
             </tr>
             <tr>
-                <th>os_extended_volumes</th><td>{{ instance.os_extended_volumes}}</td>
+                <th>os_extended_volumes:volumes_attached</th><td>{{ instance.os_extended_volumes.volumes_attached}}</td>
             </tr>
             <tr>
                 <th>progress</th><td>{{ instance.progress}}</td>
             </tr>
             <tr>
-                <th>os_dce</th><td>{{ instance.os_dce }}</td>
+                <th>os_dc:diskConfig</th><td>{{ instance.os_dce.diskConfig }}</td>
             </tr>
             <tr>
-                <th>os_ext_az</th><td>{{ instance.os_ext_az }}</td>
+                <th>os_ext_az:availability_zone</th><td>{{ instance.os_ext_az.availability_zone }}</td>
             </tr>
             <tr>
-                <th>os_ext_srv_attr</th><td>{{ instance.os_ext_srv_attr }}</td>
+                <th>os_ext_srv_attr</th>
+                <td>
+                    ramdisk_id:{{ instance.os_ext_srv_attr.ramdisk_id }}<br/>
+                    kernel_id:{{ instance.os_ext_srv_attr.kernel_id }}<br/>
+                    hostname:{{ instance.os_ext_srv_attr.hostname }}<br/>
+                    launch_index:{{ instance.os_ext_srv_attr.launch_index }}<br/>
+                    user_data:{{ instance.os_ext_srv_attr.user_data }}<br/>
+                    instance_name:{{ instance.os_ext_srv_attr.instance_name }}<br/>
+                    host:{{ instance.os_ext_srv_attr.host }}<br/>
+                    root_device_name:{{ instance.os_ext_srv_attr.root_device_name }}<br/>
+                    hypervisor_hostnam:{{ instance.os_ext_srv_attr.hypervisor_hostnam }}<br/>
+                    reservation_id:{{ instance.os_ext_srv_attr.reservation_id }}
+                </td>
             </tr>
             <tr>
-                <th>os_ext_sts</th><td>{{ instance.os_ext_sts }}</td>
+                <th>os_ext_sts</th>
+                <td>
+                    vm_state:{{ instance.os_ext_sts.vm_state }}
+                    task_state:{{ instance.os_ext_sts.task_state }}
+                    power_state:{{ instance.os_ext_sts.power_state }}
+                </td>
             </tr>
             <tr>
-                <th>os_srv_usg</th><td>{{ instance.os_srv_usg }}</td>
+                <th>os_srv_usg</th>
+                <td>
+                    terminated_at:{{ instance.os_srv_usg.terminated_at }}
+                    launched_at:{{ instance.os_srv_usg.launched_at }}
+                </td>
             </tr>
             <tr>
-                <th>os_extended_volumes</th><td>{{ instance.os_extended_volumes }}</td>
+                <th>os_extended_volumes:volumes_attached</th><td>{{ instance.os_extended_volumes.volumes_attached }}</td>
             </tr>
             <tr>
                 <th>accessIPv4</th><td>{{ instance.accessIPv4 }}</td>
