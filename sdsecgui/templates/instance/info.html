@@ -11,13 +11,13 @@
                 <th>이름</th><td>{{ instance.name }}</td>
             </tr>
             <tr>
-                <th>id</th><td>{{ instance.id}}</td>
+                <th>ID</th><td>{{ instance.id}}</td>
             </tr>
             <tr>
                 <th>image</th><td>{{ instance.image}}</td>
             </tr>
             <tr>
-                <th>key_name</th><td>{{ instance.key_name}}</td>
+                <th>키 이름</th><td>{{instance.key_name if instance.key_name == "-" else None}}</td>
             </tr>
             <tr>
                 <th>locked</th><td>{{ instance.locked}}</td>
