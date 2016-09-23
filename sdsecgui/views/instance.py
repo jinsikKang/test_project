@@ -19,6 +19,6 @@ def retrieveInstanceList(request):
 
 def retrieveInstanceById(request, instance_id):
     logger.info("retrieveInstanceById")
-    instanceId = instance_id
-    instance = Instance(instanceId)
+    instance = Instance()
+    instance.setById(instance_id)
     return render(request, 'instance/info.html', { 'instance' : instance })
