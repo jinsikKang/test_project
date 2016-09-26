@@ -22,7 +22,6 @@ class Instance:
     def showInfoById(self, id):
         # id로 인스턴스를 찾는다.
         logger.debug("showInstanceById")
-        login("admin", "chiron", "admin", "192.168.10.6")
         output = excuteCmd("nova show " + id)
 
         outputList = output.splitlines()

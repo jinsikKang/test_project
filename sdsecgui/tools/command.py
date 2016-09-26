@@ -57,6 +57,14 @@ def getInstanceList():
 
     return instanceList
 
+def getImageList():
+    logger.debug("getImageList")
+
+    output = excuteCmd("glance image-list")
+    imageList = parsingOutputToList(output)
+
+    return imageList
+
 def login(username, password, tenant_name, auth_url):
     excuteCmd("export OS_USERNAME=" + username)
     excuteCmd("export OS_PASSWORD=" + password)
