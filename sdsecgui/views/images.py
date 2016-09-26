@@ -13,11 +13,13 @@ logger = getLogger()
 def retrieveImageList(request):
     logger.info("retrieveInstanceList")
     imageList = getImageList()
+    tempList = []
     for image in imageList:
         image_id = image["id"]
         image = Image()
         image.setById(image_id)
-    print imageList
+        tempList.append(image)
+    print tempList
 
     return render(request, 'images/index.html', { 'imageList' : imageList })
 
