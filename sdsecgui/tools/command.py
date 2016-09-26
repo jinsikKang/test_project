@@ -56,3 +56,9 @@ def getInstanceList():
     instanceList = parsingOutputToList(output)
 
     return instanceList
+
+def login(username, password, tenant_name, auth_url):
+    excuteCmd("export OS_USERNAME=" + username)
+    excuteCmd("export OS_PASSWORD=" + password)
+    excuteCmd("export OS_TENANT_NAME=" + tenant_name)
+    excuteCmd("export OS_AUTH_URL=http://" + auth_url + ":35357/v2.0")
