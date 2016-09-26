@@ -12,7 +12,7 @@ logger = getLogger()
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
-    logger.debug("excuteCmd")
+    logger.debug("excuteCmd>> "+command)
     f = os.popen(command)
     result = f.read()
     logger.debug(result)
