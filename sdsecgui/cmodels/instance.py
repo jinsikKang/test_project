@@ -22,6 +22,8 @@ class Instance:
     def showInfoById(self, id):
         # id로 인스턴스를 찾는다.
         logger.debug("showInstanceById")
+        excuteCmd("export OS_TENANT_NAME=amin")
+        excuteCmd("export OS_AUTH_URL=http://192.168.10.6:35357/v2.0")
         output = excuteCmd("nova show " + id)
 
         outputList = output.splitlines()
