@@ -5,6 +5,7 @@ import os
 from django.shortcuts import render
 
 from sdsec.log_handler import setLogDir, getLogger
+from sdsecgui.tools.command import login
 
 setLogDir()
 logger = getLogger()
@@ -18,5 +19,6 @@ def retrieveUsage(request):
 
     start = request.start
     end = request.end
+    login("admin", "chiron", "admin", "192.168.10.6")
     f = os.popen("openstack useage list --start " + start + " --end " + end)
     str =  f.read()
