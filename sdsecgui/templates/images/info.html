@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <th>소유자</th><td>{{ image.owner }}</td>
+            </tr>
+            <tr>
+                <th>이름</th><td><a href="/images/{{image.id}}">{{ image.name }}</a></td>
+            </tr>
+            <tr>
+                <th>유형</th><td>이미지</td>
+            </tr>
+            <tr>
+                <th>상태</th><td>{{ image.status }}</td>
+            </tr>
+            <tr>
+                <th>가시성</th><td>{{ image.visibility }}</td>
+            </tr>
+            <tr>
+                <th>보호됨</th><td>{{ image.protected }}</td>
+            </tr>
+            <tr>
+                <th>디스크포멧</th><td>{{ image.disk_format }}</td>
+            </tr>
+            <tr>
+                <th>크기</th><td>{{ image.size }}</td>
+            </tr>
+        </table>
+        <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
+        <!--<p>{{ imageList }}</p>-->
+    </div>
+</body>
+</html>
