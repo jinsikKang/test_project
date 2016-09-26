@@ -66,10 +66,14 @@ def getImageList():
     return imageList
 
 def login(username, password, tenant_name, auth_url):
-    excuteCmd("export OS_USERNAME=" + username)
-    os.environ["OS_USERNAME"] = "chiron"
-    s = os.environ["OS_USERNAME"]
-    print s
-    excuteCmd("export OS_PASSWORD=" + password)
-    excuteCmd("export OS_TENANT_NAME=" + tenant_name)
-    excuteCmd("export OS_AUTH_URL=http://" + auth_url + ":35357/v2.0")
+    logger.debug("login")
+    os.environ["OS_USERNAME"] = username
+    os.environ["OS_PASSWORD"] = password
+    os.environ["OS_TENANT_NAME"] = tenant_name
+    os.environ["OS_AUTH_URL"] = "http://" + auth_url + ":35357/v2.0"
+    logger.debug(
+        os.environ["OS_USERNAME"]+
+        os.environ["OS_PASSWORD"]+
+        os.environ["OS_TENANT_NAME"]+
+        os.environ["OS_AUTH_URL"]
+    )
