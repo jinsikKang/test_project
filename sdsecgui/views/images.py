@@ -3,8 +3,8 @@
 from django.shortcuts import render
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import getImageList, login
-from sdsecgui.cmodels.images import Image
+from sdsecgui.tools.command import getImageList
+from sdsecgui.cmodels.image import Image
 
 setLogDir()
 logger = getLogger()

@@ -1,7 +1,7 @@
 # _*_coding:utf-8_*_
 
 from sdsec.log_handler import setLogDir, getLogger
-from ..tools.command import excuteCmd, login
+from ..tools.command import excuteCmd
 
 setLogDir()
 logger = getLogger()
@@ -16,7 +16,7 @@ class Image:
         return infoDic
 
     def showInfoById(self, id):
-        # id로 인스턴스를 찾는다.
+        # id로 이미지를 찾는다.
         logger.debug("showImageById")
         output = excuteCmd("glance image-show " + id)
         outputList = output.splitlines()
@@ -69,7 +69,7 @@ class Image:
     def setById(self, id):
         imageDic = self.showInfoById(id)
         if imageDic == None:
-            raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
+            raise Exception, unicode(id).encode("utf-8") + "에 해당하는 이미지가 없습니다."
         self.checksum = imageDic["checksum"]
         self.container_format = imageDic["container_format"]
         self.created_at = imageDic["created_at"]

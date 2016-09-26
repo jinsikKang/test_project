@@ -13,7 +13,6 @@ logger = getLogger()
 
 def retrieveInstanceList(request):
     logger.info("retrieveInstanceList")
-    print "wefihwaeifhawiefhiwaefh"
     login("admin", "chiron", "admin", "192.168.10.6")
     instanceList = getInstanceList()
     return render(request, 'instances/index.html', { 'instanceList' : instanceList })
