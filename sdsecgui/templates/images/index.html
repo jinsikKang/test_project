@@ -8,32 +8,30 @@
     <div>
         <table border="1">
             <tr>
-                <!--<th>소유자</th>-->
-                <!--<th>이름</th>-->
-                <!--<th>유형</th>-->
-                <!--<th>Status</th>-->
-                <!--<th>task</th>-->
-                <!--<th>전원 상태</th>-->
-                <!--<th>생성된 이후 시간</th>-->
+                <th>소유자</th>
+                <th>이름</th>
+                <th>유형</th>
+                <th>상태</th>
+                <th>가시성</th>
+                <th>보호됨</th>
+                <th>디스크포멧</th>
+                <th>크기</th>
             </tr>
-            <!--{% for instance in instanceList%}-->
-                <!--<tr>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td><a href="/instances/{{instance.id}}">{{ instance.name }}</a></td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>{{ instance.networks }}</td>-->
-                    <!--<td>-</td>-->
-                    <!--&lt;!&ndash;<td>{{ instance.id }}</td>&ndash;&gt;-->
-                    <!--<td>{{ instance.status }}</td>-->
-                    <!--<td>{{ instance.task_state }}</td>-->
-                    <!--<td>{{ instance.power_state }}</td>-->
-                    <!--<td>-</td>-->
-                <!--</tr>-->
-            <!--{% endfor %}-->
+            {% for image in imageList%}
+                <tr>
+                    <td>{{ image.owner }}</td>
+                    <td><a href="/images/{{image.id}}">{{ image.name }}</a></td>
+                    <td>{{ image.container_format }}</td>
+                    <td>{{ image.status }}</td>
+                    <td>{{ image.visibility }}</td>
+                    <td>{{ image.protected }}</td>
+                    <td>{{ image.disk_format }}</td>
+                    <td>{{ image.size }}</td>
+                </tr>
+            {% endfor %}
         </table>
         <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
-        <!--<p>{{ instanceList }}</p>-->
+        <!--<p>{{ imageList }}</p>-->
     </div>
 </body>
 </html>

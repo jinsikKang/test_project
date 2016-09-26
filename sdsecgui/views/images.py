@@ -19,7 +19,7 @@ def retrieveImageList(request):
         image = Image()
         image.setById(image_id)
         tempList.append(image)
-    print tempList
+    imageList = tempList
 
     return render(request, 'images/index.html', { 'imageList' : imageList })
 
