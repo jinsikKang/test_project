@@ -1,7 +1,7 @@
 #_*_coding:utf-8_*_
 from django.conf.urls import url
 
-from views import postlist, test, d3test, instances, images, flavors
+from views import postlist, test, d3test, instances, images, flavors, base
 
 urlpatterns = [
     url(r'^$', postlist.post_list, name='post_list'),
@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^dashboard/admin/images/$', images.retrieveImageList, name='imageList'),
     url(r'^dashboard/admin/images/(?P<image_id>[\w\-]+)/$', images.retrieveImageById, name='image'),
     url(r'^dashboard/admin/flavors/$', flavors.retrieveFlavorList, name='flavorList'),
+    url(r'^dashboard/$', base.base, name='base'),
 ]
