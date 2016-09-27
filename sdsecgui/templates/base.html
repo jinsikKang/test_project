@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ETRI SecCurator</title> 
+<title>ETRI SecCurator</title>
+{% load staticfiles %}
 <link href='{% static "provisioning/css/style.css" %}' rel="stylesheet" type="text/css" />
 </head>
 
@@ -166,8 +167,8 @@
         <div class="clear_float"></div>
     </div>
     <div class="contents">
-		{% block content%}
-        {% endblock %}
+		<!--{% block content%}-->
+        <!--{% endblock %}-->
     </div>
 </body>
 </html>
