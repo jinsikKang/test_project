@@ -20,7 +20,7 @@
             {% for image in imageList%}
                 <tr>
                     <td>{{ image.owner }}</td>
-                    <td><a href="/images/{{image.id}}">{{ image.name }}</a></td>
+                    <td><a href="/dashboard/admin/images/{{image.id}}">{{ image.name }}</a></td>
                     <td>이미지</td>
                     <td>{{ image.status }}</td>
                     <td>{{ image.visibility }}</td>
