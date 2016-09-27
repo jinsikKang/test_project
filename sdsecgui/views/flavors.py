@@ -4,7 +4,6 @@ from django.shortcuts import render
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getFlavorList
-from sdsecgui.cmodels.flavor import Flavor
 
 setLogDir()
 logger = getLogger()

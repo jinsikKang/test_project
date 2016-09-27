@@ -72,9 +72,9 @@ def getFlavorList():
     print flavorList
     return flavorList
 
-def login(username, password, tenant_name, auth_url):
+def login(username, password, tenant_name, controller, auth_url):
     logger.debug("login")
     os.environ["OS_USERNAME"] = username
     os.environ["OS_PASSWORD"] = password
     os.environ["OS_TENANT_NAME"] = tenant_name
-    os.environ["OS_AUTH_URL"] = "http://" + auth_url + ":35357/v2.0"
+    os.environ["OS_AUTH_URL"] = "http://" + controller + auth_url
