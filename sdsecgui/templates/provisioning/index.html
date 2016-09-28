@@ -1,172 +1,111 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>ETRI SecCurator</title>
-{% load staticfiles %}
-<link href='{% static "provisioning/css/style.css" %}' rel="stylesheet" type="text/css" />
-</head>
+{% extends 'base.html' %}
 
-<body>
-	<div class="right_pop">
-    	<div class="right_d07">
-            <img class="right_img01" src='{% static "provisioning/img/right_01.png" %}' alt="#">
-            <div class="right_d01">UBUNTU</div>
-            <img class="right_img02" src='{% static "provisioning/img/right_02.png" %}' alt="#">
-            <div class="clear_float"></div>
-        </div>
-        <div class="right_d02">이름</div>
-        <div class="right_d03">
-        	ubuntu
-        </div>
-        <div class="right_d04">ID</div>
-        <div class="right_d03">
-        	675e72dc-1da0-4452-992d-17c203dcdb83
-        </div>
-        <div class="right_d04">Status</div>
-        <div class="right_d03">
-        	Active
-        </div>
-        <div class="right_d04">가용 구역</div>
-        <div class="right_d03">
-        	nova
-        </div>
-        <div class="right_d04">생성됨</div>
-        <div class="right_d03">
-        	2016년 8월 11일 9:19 오전
-        </div>
-        <div class="right_d04">생성된 이후 시간</div>
-        <div class="right_d03">
-        	19시간, 27분
-        </div>
-        <div class="right_d04">호스트</div>
-        <div class="right_d03">
-        	deepbiewslave1
-        </div>
-        <div class="right_d05"></div>
-        <div class="right_d02">Flavor 이름</div>
-        <div class="right_d03">
-        	m1.nano
-        </div>
-        <div class="right_d04">Flavor ID</div>
-        <div class="right_d03">
-        	42
-        </div>
-        <div class="right_d04">RAM</div>
-        <div class="right_d03">
-        	64MB
-        </div>
-        <div class="right_d04">VCPUs</div>
-        <div class="right_d03">
-        	1 VCPU
-        </div>
-        <div class="right_d04">디스크</div>
-        <div class="right_d03">
-        	0GB
-        </div>
-        <div class="right_d05"></div>
-        <div class="right_d02">subnet1</div>
-        <div class="right_d03">
-        	10.0.0.5, 2001:db8:8000:2::5
-        </div>
-        <div class="right_d04">Private</div>
-        <div class="right_d03">
-        	10.0.0.13, fd87:b519:bf75:0:f816:fe4e5dce
-        </div>
-        <div class="right_d05"></div>
-        <div class="right_d02">default</div>
-        <div class="right_d03">
-        	IPv6 to ::/0 허용<br/>
-            IPv4 to 0.0.0/0 허용<br/>
-            IPv6 from default 허용<br/>
-            IPv4 from default 허용
-        </div>
-        <div class="right_d05"></div>
-        <div class="right_d02">키이름</div>
-        <div class="right_d03">
-        	None
-        </div>
-        <div class="right_d04">이미지</div>
-        <div class="right_d03">
-        	None
-        </div>
-        <div class="right_d05"></div>
-        <div class="right_d02">연결된 곳</div>
-        <div class="right_d03">
-        	12fb8796-4183-4430-a80c-177237257e2a on/deb
-        </div>
-        <div class="right_d08"></div>
-        <div class="right_d06">
-        	<img class="right_img03" src='{% static "provisioning/img/right_03.png" %}' alt="#">
-            <img src='{% static "provisioning/img/right_04.png" %}' alt="#">
-        </div>
-    </div>
-	<div class="ind_d01">
-        <div class="header">
-            <a href="#"><img class="head_img01" src='{% static "provisioning/img/logo.png" %}' alt="#"></a>
-            <a href="#">
-                <div class="head_d01_click">
-                    <img class="head_img02" src='{% static "provisioning/img/head_01.png" %}' alt="#">
-                    <div class="head_d02">프로비저닝</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="head_d01">
-                    <img class="head_img02" src='{% static "provisioning/img/head_02.png" %}' alt="#">
-                    <div class="head_d02">그룹</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="head_d01">
-                    <img class="head_img02" src='{% static "provisioning/img/head_03.png" %}' alt="#">
-                    <div class="head_d02">인증</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="head_d01">
-                    <img class="head_img02" src='{% static "provisioning/img/head_04.png" %}' alt="#">
-                    <div class="head_d02">통계/조회</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="head_d01">
-                    <img class="head_img02" src='{% static "provisioning/img/head_05.png" %}' alt="#">
-                    <div class="head_d02">관리</div>
-                </div>
-            </a>
-            <img class="head_img03" src='{% static "provisioning/img/head_06.png" %}' alt="#">
-            <div class="clear_float"></div>
-        </div>
-        
-        <div class="header_title">
-            <div class="header_title_d01">OPENSTACK&DJANGO </div>
-            <div class="header_title_d03">
-                <img class="header_title_img01" src='{% static "provisioning/img/head_07.png" %}' alt="#">
-                <div class="header_title_d02">프로비저닝01</div>
-                <div class="header_title_d02">프로비저닝02</div>
-                <div class="header_title_d02">프로비저닝03</div>
-                <div class="header_title_d02">프로비저닝04</div>
-            </div>
-            <a href="#"><div class="header_title_d04_click">프로비저닝</div></a>
-            <a href="#"><div class="header_title_d05">서비스체이닝</div></a>
-        </div>
-        
-        <div class="clear_float"></div>
-    </div>
-    <div class="left_menu">
-        <img class="left_menu_img03" src='{% static "provisioning/img/left_06.png" %}' alt="#">
-        <img class="left_menu_img01" src='{% static "provisioning/img/left_01.png" %}' alt="#">
-        <div class="left_menu_d01">서브넷</div>
-        <img class="left_menu_img02" src='{% static "provisioning/img/left_02.png" %}' alt="#">
-        <div class="left_menu_d01">라우터</div>
-        <img class="left_menu_img02" src='{% static "provisioning/img/left_03.png" %}' alt="#">
-        <div class="left_menu_d01">가상머신</div>
-        <img class="left_menu_img02" src='{% static "provisioning/img/left_04.png" %}' alt="#">
-        <div class="left_menu_d01">Firewall</div>
-        <img class="left_menu_img02" src='{% static "provisioning/img/left_05.png" %}' alt="#">
-        <div class="left_menu_d01">Loadbalsnvrt</div>
-    </div>
-    <div class="contents">
-    </div>
-</body>
-</html>
+{% block content %}
+{% load staticfiles %}
+<div class="left_menu">
+    <img class="left_menu_img03" src='{% static "provisioning/img/left_06.png" %}' alt="#">
+    <img class="left_menu_img01" src='{% static "provisioning/img/left_01.png" %}' alt="#">
+    <div class="left_menu_d01">서브넷</div>
+    <img class="left_menu_img02" src='{% static "provisioning/img/left_02.png" %}' alt="#">
+    <div class="left_menu_d01">라우터</div>
+    <img class="left_menu_img02" src='{% static "provisioning/img/left_03.png" %}' alt="#">
+    <div class="left_menu_d01">가상머신</div>
+    <img class="left_menu_img02" src='{% static "provisioning/img/left_04.png" %}' alt="#">
+    <div class="left_menu_d01">Firewall</div>
+    <img class="left_menu_img02" src='{% static "provisioning/img/left_05.png" %}' alt="#">
+    <div class="left_menu_d01">Loadbalsnvrt</div>
+</div>
+{% endblock content2 %}
+	<!--<div class="right_pop">-->
+    	<!--<div class="right_d07">-->
+            <!--<img class="right_img01" src='{% static "provisioning/img/right_01.png" %}' alt="#">-->
+            <!--<div class="right_d01">UBUNTU</div>-->
+            <!--<img class="right_img02" src='{% static "provisioning/img/right_02.png" %}' alt="#">-->
+            <!--<div class="clear_float"></div>-->
+        <!--</div>-->
+        <!--<div class="right_d02">이름</div>-->
+        <!--<div class="right_d03">-->
+        	<!--ubuntu-->
+        <!--</div>-->
+        <!--<div class="right_d04">ID</div>-->
+        <!--<div class="right_d03">-->
+        	<!--675e72dc-1da0-4452-992d-17c203dcdb83-->
+        <!--</div>-->
+        <!--<div class="right_d04">Status</div>-->
+        <!--<div class="right_d03">-->
+        	<!--Active-->
+        <!--</div>-->
+        <!--<div class="right_d04">가용 구역</div>-->
+        <!--<div class="right_d03">-->
+        	<!--nova-->
+        <!--</div>-->
+        <!--<div class="right_d04">생성됨</div>-->
+        <!--<div class="right_d03">-->
+        	<!--2016년 8월 11일 9:19 오전-->
+        <!--</div>-->
+        <!--<div class="right_d04">생성된 이후 시간</div>-->
+        <!--<div class="right_d03">-->
+        	<!--19시간, 27분-->
+        <!--</div>-->
+        <!--<div class="right_d04">호스트</div>-->
+        <!--<div class="right_d03">-->
+        	<!--deepbiewslave1-->
+        <!--</div>-->
+        <!--<div class="right_d05"></div>-->
+        <!--<div class="right_d02">Flavor 이름</div>-->
+        <!--<div class="right_d03">-->
+        	<!--m1.nano-->
+        <!--</div>-->
+        <!--<div class="right_d04">Flavor ID</div>-->
+        <!--<div class="right_d03">-->
+        	<!--42-->
+        <!--</div>-->
+        <!--<div class="right_d04">RAM</div>-->
+        <!--<div class="right_d03">-->
+        	<!--64MB-->
+        <!--</div>-->
+        <!--<div class="right_d04">VCPUs</div>-->
+        <!--<div class="right_d03">-->
+        	<!--1 VCPU-->
+        <!--</div>-->
+        <!--<div class="right_d04">디스크</div>-->
+        <!--<div class="right_d03">-->
+        	<!--0GB-->
+        <!--</div>-->
+        <!--<div class="right_d05"></div>-->
+        <!--<div class="right_d02">subnet1</div>-->
+        <!--<div class="right_d03">-->
+        	<!--10.0.0.5, 2001:db8:8000:2::5-->
+        <!--</div>-->
+        <!--<div class="right_d04">Private</div>-->
+        <!--<div class="right_d03">-->
+        	<!--10.0.0.13, fd87:b519:bf75:0:f816:fe4e5dce-->
+        <!--</div>-->
+        <!--<div class="right_d05"></div>-->
+        <!--<div class="right_d02">default</div>-->
+        <!--<div class="right_d03">-->
+        	<!--IPv6 to ::/0 허용<br/>-->
+            <!--IPv4 to 0.0.0/0 허용<br/>-->
+            <!--IPv6 from default 허용<br/>-->
+            <!--IPv4 from default 허용-->
+        <!--</div>-->
+        <!--<div class="right_d05"></div>-->
+        <!--<div class="right_d02">키이름</div>-->
+        <!--<div class="right_d03">-->
+        	<!--None-->
+        <!--</div>-->
+        <!--<div class="right_d04">이미지</div>-->
+        <!--<div class="right_d03">-->
+        	<!--None-->
+        <!--</div>-->
+        <!--<div class="right_d05"></div>-->
+        <!--<div class="right_d02">연결된 곳</div>-->
+        <!--<div class="right_d03">-->
+        	<!--12fb8796-4183-4430-a80c-177237257e2a on/deb-->
+        <!--</div>-->
+        <!--<div class="right_d08"></div>-->
+        <!--<div class="right_d06">-->
+        	<!--<img class="right_img03" src='{% static "provisioning/img/right_03.png" %}' alt="#">-->
+            <!--<img src='{% static "provisioning/img/right_04.png" %}' alt="#">-->
+        <!--</div>-->
+    <!--</div>-->
