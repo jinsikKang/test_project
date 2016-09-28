@@ -45,12 +45,25 @@
             </a>
             <img class="head_img03" src='{% static "provisioning/img/head_06.png" %}' alt="#">
             <div class="clear_float"></div>
+
         </div>
-        <div class="contents">
-            {% block content%}
-            {% endblock %}
+        <div class="header_title">
+            <div class="header_title_d01">OPENSTACK&DJANGO </div>
+            <div class="header_title_d03">
+                <img class="header_title_img01" src="img/head_07.png" alt="#">
+                <div class="header_title_d02">프로비저닝01</div>
+                <div class="header_title_d02">프로비저닝02</div>
+                <div class="header_title_d02">프로비저닝03</div>
+                <div class="header_title_d02">프로비저닝04</div>
+            </div>
+            <a href="#"><div class="header_title_d04_click">프로비저닝</div></a>
+            <a href="#"><div class="header_title_d05">서비스체이닝</div></a>
         </div>
         <div class="clear_float"></div>
+    </div>
+    <div class="contents">
+        {% block content%}
+        {% endblock %}
     </div>
 </body>
 </html>
