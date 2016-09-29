@@ -70,6 +70,7 @@ class Network:
         self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
         self.subnets = networkDic["subnets"]
+        "<ul><li>" + networkDic["subnets"].replace("\n", "</li><li>") + "</li></ul>"
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
