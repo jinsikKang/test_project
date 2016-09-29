@@ -1,37 +1,41 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<div class="header_title_d01">인스턴스</div>
+{% endblock header %}
+
 {% block content %}
-    <div>
-        <table border="1">
+<div>
+    <table border="1">
+        <tr>
+            <th>프로젝트</th>
+            <th>호스트</th>
+            <th>이름</th>
+            <th>이미지 이름</th>
+            <th>IP 주소</th>
+            <th>크기</th>
+            <th>Status</th>
+            <th>task</th>
+            <th>전원 상태</th>
+            <th>생성된 이후 시간</th>
+        </tr>
+        {% for instance in instanceList%}
             <tr>
-                <th>프로젝트</th>
-                <th>호스트</th>
-                <th>이름</th>
-                <th>이미지 이름</th>
-                <th>IP 주소</th>
-                <th>크기</th>
-                <th>Status</th>
-                <th>task</th>
-                <th>전원 상태</th>
-                <th>생성된 이후 시간</th>
+                <td>-</td>
+                <td>-</td>
+                <td><a href="/dashboard/admin/instances/{{instance.id}}">{{ instance.name }}</a></td>
+                <td>-</td>
+                <td>{{ instance.networks }}</td>
+                <td>-</td>
+                <!--<td>{{ instance.id }}</td>-->
+                <td>{{ instance.status }}</td>
+                <td>{{ instance.task_state }}</td>
+                <td>{{ instance.power_state }}</td>
+                <td>-</td>
             </tr>
-            {% for instance in instanceList%}
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><a href="/dashboard/admin/instances/{{instance.id}}">{{ instance.name }}</a></td>
-                    <td>-</td>
-                    <td>{{ instance.networks }}</td>
-                    <td>-</td>
-                    <!--<td>{{ instance.id }}</td>-->
-                    <td>{{ instance.status }}</td>
-                    <td>{{ instance.task_state }}</td>
-                    <td>{{ instance.power_state }}</td>
-                    <td>-</td>
-                </tr>
-            {% endfor %}
-        </table>
-        <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
-        <!--<p>{{ instanceList }}</p>-->
-    </div>
+        {% endfor %}
+    </table>
+    <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
+    <!--<p>{{ instanceList }}</p>-->
+</div>
 {% endblock content %}
