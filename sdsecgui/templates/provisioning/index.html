@@ -33,38 +33,6 @@
 
 
 {% block content %}
-<p>ioaurgiuergheioaugeiorerioagjarpigfjpfod;ibjxpo;ivmb;esalrkgmp;erosagijsgf</p>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<p>hahaha</p>
 <div class="right_pop">
     <div class="right_d07">
         <img class="right_img01" src='{% static "provisioning/img/right_01.png" %}' alt="#">
@@ -158,4 +126,20 @@
         <img src='{% static "provisioning/img/right_04.png" %}' alt="#">
     </div>
 </div>
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'js/customdirect/css/direct.app.css' %}">
+<div id="vis"></div>
+<div id="node_info">
+    <table id="nameTable">
+    </table>
+    <table id="infoTable">
+    </table>
+</div>
+<!--<input type="date" id="start"> ~ <input type="date" id="end"> <input type="button" id="submitBtn">-->
+
+<!--<script src="{% static 'js/customdirect/js/partitions.js' %}"></script>-->
+<!--<script src="{% static 'js/customdirect/js/partitions_index.js' %}"></script>-->
+<script src='http://d3js.org/d3.v3.min.js'></script>
+<script src="{% static 'js/customdirect/js/direct.js' %}"></script>
 {% endblock content %}
