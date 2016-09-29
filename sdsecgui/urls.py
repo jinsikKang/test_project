@@ -1,7 +1,7 @@
 #_*_coding:utf-8_*_
 from django.conf.urls import url
 
-from views import postlist, test, d3test, instances, images, flavors, provisioning
+from views import postlist, test, d3test, instances, volumes, flavors, images, provisioning
 
 urlpatterns = [
     url(r'^$', postlist.post_list, name='post_list'),
