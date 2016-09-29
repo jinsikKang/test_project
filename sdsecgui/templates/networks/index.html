@@ -19,15 +19,14 @@
         </tr>
         {% for network in networkList%}
             <tr>
-                <td></td>
-                <td>{{ network.os_vol_host_attr.host }}</td>
+                <td>{{ network.project_id }}</td>
                 <td><a href="/dashboard/admin/networks/{{network.id}}">{{ network.name }}</a></td>
-                <td>{{ network.size }}</td>
+                <td>{{ network.subnets }}</td>
+                <td>-</td>
+                <td>{{ network.shared }}</td>
+                <td>{{ network.provider["physical_network"] }}</td>
                 <td>{{ network.status }}</td>
-                <td>{{ network.type }}</td>
-                <td>{{ network.attached_to }}</td>
-                <td>{{ network.bootable }}</td>
-                <td>{{ network.encrypted }}</td>
+                <td>{{ network.admin_state_up }}</td>
             </tr>
         {% endfor %}
     </table>
