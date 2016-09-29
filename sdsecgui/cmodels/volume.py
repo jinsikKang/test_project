@@ -14,16 +14,12 @@ class Volume:
             key = cols[0].strip().replace(" ", "_")
             value = cols[1].strip()
             infoDic[key] = value
-            # if infoDic.get(key):
-            #     infoDic[key] = value
-            # else:
-            #     raise Exception, key + "에 해당하는 키가 없습니다."
         return infoDic
 
     def showInfoById(self, id):
         # id로 인스턴스를 찾는다.
         logger.debug("showVolumeById")
-        output = excuteCmd("nova show " + id)
+        output = excuteCmd("openstack volume show " + id)
 
         outputList = output.splitlines()
         if outputList:
@@ -33,57 +29,74 @@ class Volume:
             return None
 
     def __init__(self):
-        self.os_dce = {}
-        self.os_ext_az = {}
-        self.os_ext_srv_attr = {}
-        self.os_ext_sts = {}
-        self.os_srv_usg = {}
-        self.os_extended_volumes = {}
-        self.os_dce["diskConfig"] = ""
-        self.os_ext_az["availability_zone"] = ""
-        self.os_ext_srv_attr["host"] = ""
-        self.os_ext_srv_attr["hostname"] = ""
-        self.os_ext_srv_attr["hypervisor_hostnam"] = ""
-        self.os_ext_srv_attr["volume_name"] = ""
-        self.os_ext_srv_attr["kernel_id"] = ""
-        self.os_ext_srv_attr["launch_index"] = ""
-        self.os_ext_srv_attr["ramdisk_id"] = ""
-        self.os_ext_srv_attr["reservation_id"] = ""
-        self.os_ext_srv_attr["root_device_name"] = ""
-        self.os_ext_srv_attr["user_data"] = ""
-        self.os_ext_sts["power_state"] = ""
-        self.os_ext_sts["task_state"] = ""
-        self.os_ext_sts["vm_state"] = ""
-        self.os_extended_volumes["volumes_attached"] = ""
-        self.os_srv_usg["launched_at"] = ""
-        self.os_srv_usg["terminated_at"] = ""
-        self.accessIPv4 = ""
-        self.accessIPv6 = ""
-        self.config_drive = ""
-        self.created = ""
+        self.attachments = ""
+        self.availability_zone = ""
+        self.bootable = ""
+        self.consistencygroup_id = ""
+        self.created_at = ""
         self.description = ""
-        self.flavor = ""
-        self.hostId = ""
-        self.host_status = ""
+        self.encrypted = ""
         self.id = ""
-        self.image = ""
-        self.key_name = ""
-        self.locked = ""
-        self.metadata = ""
+        self.migration_status = ""
+        self.multiattach = ""
         self.name = ""
-        self.progress = ""
-        self.public_network = ""
-        self.security_groups = ""
+        self.os_vol_host_attr = {}
+        self.os_vol_tenant_attr = {}
+        self.os_vol_mig_status_attr = {}
+        self.os_vol_host_attr["host"] = ""
+        self.os_vol_tenant_attr["tenant_id"] = ""
+        self.os_vol_mig_status_attr["migstat"] = ""
+        self.os_vol_mig_status_attr["name_id"] = ""
+        self.properties = ""
+        self.replication_status = ""
+        self.size = ""
+        self.snapshot_id = ""
+        self.source_volid = ""
         self.status = ""
-        self.tags = ""
-        self.tenant_id = ""
-        self.updated = ""
+        self.type = ""
+        self.updated_at = ""
         self.user_id = ""
+        self.volume_image_metadat = ""
 
     def setById(self, id):
         volumeDic = self.showInfoById(id)
         if volumeDic == None:
             raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
+        self.attachments = volumeDic["attachments"]
+        self.availability_zone = volumeDic["availability_zone"]
+        self.bootable = volumeDic["bootable"]
+        self.consistencygroup_id = volumeDic["consistencygroup_id"]
+        self.created_at = volumeDic["created_at"]
+        self.description = volumeDic["description"]
+        self.encrypted = volumeDic["encrypted"]
+        self.id = volumeDic["id"]
+        self.migration_status = volumeDic["migration_status"]
+        self.multiattach = volumeDic["multiattach"]
+        self.name = volumeDic["name"]
+        self.os_vol_host_attr["host"] = volumeDic["os_vol_host_attr:host"]
+        self.os_vol_mig_status_attr["migstat"] = volumeDic["os_vol_mig_status_attr:migstat"]
+        self.os_vol_mig_status_attr["name_id"] = volumeDic["os_vol_mig_status_attr:name_id"]
+        self.os_vol_tenant_attr["tenant_id"] = volumeDic["os_vol_tenant_attr:tenant_id"]
+        self.properties = volumeDic["properties"]
+        self.replication_status = volumeDic["replication_status"]
+        self.size = volumeDic["size"]
+        self.snapshot_id = volumeDic["snapshot_id"]
+        self.source_volid = volumeDic["source_volid"]
+        self.status = volumeDic["status"]
+        self.type = volumeDic["type"]
+        self.updated_at = volumeDic["updated_at"]
+        self.user_id = volumeDic["user_id"]
+        self.volume_image_metadata = volumeDic["volume_image_metadata"]
+
+
+
+
+
+
+
+
+
+
 
         self.os_dce["diskConfig"] = volumeDic["OS-DCF:diskConfig"]
         self.os_ext_az["availability_zone"] = volumeDic["OS-EXT-AZ:availability_zone"]

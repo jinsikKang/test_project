@@ -13,7 +13,13 @@ logger = getLogger()
 def retrieveVolumeList(request):
     logger.info("retrieveVolumeList")
     volumeList = getVolumeList()
-    print volumeList
+    tempList = []
+    for volume in volumeList:
+        volume_id = volume["id"]
+        volume = Volume()
+        volume.setById(volume_id)
+        tempList.append(volume)
+    volumeList = tempList
     return render(request, 'volumes/index.html', { 'volumeList' : volumeList })
 
 def retrieveVolumeById(request, volume_id):
