@@ -1,5 +1,5 @@
 #_*_coding:utf-8_*_
-
+import json
 import os
 
 from sdsec import log_handler
@@ -82,8 +82,7 @@ def getFlavorList():
 def getNetworkList():
     logger.debug("getNetworkList")
 
-    output = excuteCmd("neutron net-list")
-    networkList = parsingOutputToList(output)
+    networkList = json.loads(excuteCmd("neutron net-list -f json"))
 
     return networkList
 
