@@ -2,9 +2,11 @@
 
 {% block header %}
 <div class="header_title_d01">볼륨</div>
-<a href="#"><div class="header_title_d04_click">볼륨</div></a>
-<a href="#"><div class="header_title_d05">볼륨 타입</div></a>
-<a href="#"><div class="header_title_d05">볼륨 스냅샷</div></a>
+<div>
+    <a href="#"><div class="header_title_d04_click">볼륨</div></a>
+    <a href="#"><div class="header_title_d05">볼륨 타입</div></a>
+    <a href="#"><div class="header_title_d05">볼륨 스냅샷</div></a>
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -21,7 +23,7 @@
             <th>부팅가능</th>
             <th>암호화</th>
         </tr>
-        {% for instance in instanceList%}
+        {% for volume in volumeList%}
             <tr>
                 <td>-</td>
                 <td>-</td>
@@ -29,7 +31,7 @@
                 <td>{{volume.size}}</td>
                 <td>{{volume.status}}</td>
                 <td>-</td>
-                <td>{{ volume.attched_to }}</td>
+                <td>{{ volume.attached_to }}</td>
                 <td></td>
                 <td></td>
                 <td>-</td>
