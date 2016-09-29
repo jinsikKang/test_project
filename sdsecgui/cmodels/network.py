@@ -31,7 +31,7 @@ class Network:
     def __init__(self):
         pass
     def setById(self, id):
-        networkDic = self.showInfoById(id)
+        networkDic = self.showInfoJsonById(id)
         if networkDic == None:
             raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
         self.attachments = networkDic["attachments"]
