@@ -20,7 +20,6 @@ def retrieveVolumeList(request):
         volume.setById(volume_id)
         tempList.append(volume)
     volumeList = tempList
-    print volumeList
     return render(request, 'volumes/index.html', { 'volumeList' : volumeList })
 
 def retrieveVolumeById(request, volume_id):
