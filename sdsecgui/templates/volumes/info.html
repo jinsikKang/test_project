@@ -32,7 +32,7 @@
                 <th>생성됨</th><td>{{ volume.created_at }}</td>
             </tr>
             <tr>
-                <th>연결된 곳</th><td>{{ volume.attachments }}</td>
+                <th>연결된 곳</th><td>{{ volume.attachments[0].device }}</td>
             </tr>
         </table>
 
