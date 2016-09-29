@@ -18,48 +18,88 @@ class Network:
         return infoDic
 
     def showInfoJsonById(self, id):
-        # id로 볼륨을 찾는다.
+        # id로 네트워크를 찾는다.
         logger.debug("showNetworkById")
         output = json.loads(excuteCmd("neutron net-show " + id + " -f json"))
 
         if output:
-            print output
+            return output
         else:
             logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def __init__(self):
+        self.provider = {}
+        self.router = {}
+        self.ipv6_address_scope = ""
+        self.revision_number = ""
+        self.port_security_enabled = ""
+        self.id = ""
+        self.availability_zone_hints = ""
+        self.availability_zones = ""
+        self.ipv4_address_scope = ""
+        self.shared = ""
+        self.project_id = ""
+        self.status = ""
+        self.subnets = ""
+        self.description = ""
+        self.tags = ""
+        self.updated_at = ""
+        self.name = ""
+        self.admin_state_up = ""
+        self.tenant_id = ""
+        self.created_at = ""
+        self.mtu = ""
         pass
     def setById(self, id):
         networkDic = self.showInfoJsonById(id)
         if networkDic == None:
             raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
-        self.attachments = networkDic["attachments"]
-        self.availability_zone = networkDic["availability_zone"]
-        self.bootable = networkDic["bootable"]
-        self.consistencygroup_id = networkDic["consistencygroup_id"]
-        self.created_at = networkDic["created_at"]
-        self.description = networkDic["description"]
-        self.encrypted = networkDic["encrypted"]
+        self.provider["physical_network"] = networkDic["provider:physical_network"]
+        self.provider["network_type"] = networkDic["provider:network_type"]
+        self.provider["segmentation_id"] = networkDic["provider:segmentation_id"]
+        self.router["external"] = networkDic["router:external"]
+        self.ipv6_address_scope = networkDic["ipv6_address_scope"]
+        self.revision_number = networkDic["revision_number"]
+        self.port_security_enabled = networkDic["port_security_enabled"]
         self.id = networkDic["id"]
-        self.migration_status = networkDic["migration_status"]
-        self.multiattach = networkDic["multiattach"]
-        self.name = networkDic["name"] if networkDic["name"] else networkDic["id"]
-        self.os_vol_host_attr["host"] = networkDic["os-vol-host-attr:host"]
-        self.os_vol_mig_status_attr["migstat"] = networkDic["os-vol-mig-status-attr:migstat"]
-        self.os_vol_mig_status_attr["name_id"] = networkDic["os-vol-mig-status-attr:name_id"]
-        self.os_vol_tenant_attr["tenant_id"] = networkDic["os-vol-tenant-attr:tenant_id"]
-        self.properties = networkDic["properties"]
-        self.replication_status = networkDic["replication_status"]
-        self.size = networkDic["size"]
-        self.snapshot_id = networkDic["snapshot_id"]
-        self.source_volid = networkDic["source_volid"]
+        self.availability_zone_hints = networkDic["availability_zone_hints"]
+        self.availability_zones = networkDic["availability_zones"]
+        self.ipv4_address_scope = networkDic["ipv4_address_scope"]
+        self.shared = networkDic["shared"]
+        self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
-        self.type = networkDic["type"]
+        self.subnets = networkDic["subnets"]
+        self.description = networkDic["description"]
+        self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
-        self.user_id = networkDic["user_id"]
-        if networkDic.get("network_image_metadata"):
-            self.network_image_metadata = networkDic["network_image_metadata"]
+        self.name = networkDic["name"]
+        self.admin_state_up = networkDic["admin_state_up"]
+        self.tenant_id = networkDic["tenant_id"]
+        self.created_at = networkDic["created_at"]
+        self.mtu = networkDic["mtu"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
