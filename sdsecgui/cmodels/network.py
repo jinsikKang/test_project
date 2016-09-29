@@ -51,6 +51,7 @@ class Network:
         self.created_at = ""
         self.mtu = ""
         pass
+
     def setById(self, id):
         networkDic = self.showInfoJsonById(id)
         if networkDic == None:
@@ -69,8 +70,7 @@ class Network:
         self.shared = networkDic["shared"]
         self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
-        self.subnets = networkDic["subnets"]
-        "<ul><li>" + networkDic["subnets"].replace("\n", "</li><li>") + "</li></ul>"
+        self.subnets = "<ul><li>" + networkDic["subnets"].replace("\n", "</li><li>") + "</li></ul>"
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
@@ -79,31 +79,3 @@ class Network:
         self.tenant_id = networkDic["tenant_id"]
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
