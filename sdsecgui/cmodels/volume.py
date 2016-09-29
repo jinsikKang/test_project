@@ -77,7 +77,7 @@ class Volume:
         self.os_vol_host_attr["host"] = volumeDic["os-vol-host-attr:host"]
         self.os_vol_mig_status_attr["migstat"] = volumeDic["os-vol-mig-status-attr:migstat"]
         self.os_vol_mig_status_attr["name_id"] = volumeDic["os-vol-mig-status-attr:name_id"]
-        self.os_vol_tenant_attr["tenant_id"] = volumeDic["os-voltenant-attr:tenant_id"]
+        self.os_vol_tenant_attr["tenant_id"] = volumeDic["os-vol-tenant-attr:tenant_id"]
         self.properties = volumeDic["properties"]
         self.replication_status = volumeDic["replication_status"]
         self.size = volumeDic["size"]
