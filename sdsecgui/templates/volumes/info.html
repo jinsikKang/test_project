@@ -8,116 +8,35 @@
     <div>
         <table border="1">
             <tr>
-                <th>이름</th><td>{{ instance.name }}</td>
+                <th>이름</th><td>{{ volume.name }}</td>
             </tr>
             <tr>
-                <th>ID</th><td>{{ instance.id}}</td>
+                <th>ID</th><td>{{ volume.id}}</td>
             </tr>
             <tr>
-                <th>Status</th><td>{{ instance.status }}</td>
+                <th>Status</th><td>{{ volume.status }}</td>
             </tr>
             <tr>
-                <th>os_ext_az:가용 구역</th><td>{{ instance.os_ext_az.availability_zone }}</td>
+                <th>크기</th><td>{{ volume.size }}</td>
             </tr>
             <tr>
-                <th>생성됨</th><td>{{ instance.created }}</td>
+                <th>유형</th><td>{{ volume.type }}</td>
             </tr>
             <tr>
-                <th>updated</th><td>{{ instance.updated }}</td>
+                <th>부팅가능</th><td>{{ volume.bootable }}</td>
             </tr>
             <tr>
-                <th>os_ext_srv_attr</th>
-                <td>
-                    ramdisk_id:{{ instance.os_ext_srv_attr.ramdisk_id }}<br/>
-                    kernel_id:{{ instance.os_ext_srv_attr.kernel_id }}<br/>
-                    hostname:{{ instance.os_ext_srv_attr.hostname }}<br/>
-                    launch_index:{{ instance.os_ext_srv_attr.launch_index }}<br/>
-                    user_data:{{ instance.os_ext_srv_attr.user_data }}<br/>
-                    instance_name:{{ instance.os_ext_srv_attr.instance_name }}<br/>
-                    호스트:{{ instance.os_ext_srv_attr.host }}<br/>
-                    root_device_name:{{ instance.os_ext_srv_attr.root_device_name }}<br/>
-                    hypervisor_hostnam:{{ instance.os_ext_srv_attr.hypervisor_hostnam }}<br/>
-                    reservation_id:{{ instance.os_ext_srv_attr.reservation_id }}
-                </td>
+                <th>암호화</th><td>{{ volume.encrypted }}</td>
             </tr>
             <tr>
-                <th>os_ext_sts</th>
-                <td>
-                    Status:{{ instance.os_ext_sts.vm_state }}<br/>
-                    task_state:{{ instance.os_ext_sts.task_state }}<br/>
-                    power_state:{{ instance.os_ext_sts.power_state }}
-                </td>
+                <th>생성됨</th><td>{{ volume.created_at }}</td>
             </tr>
             <tr>
-                <th>flavor 이름</th><td>{{ instance.flavor }}</td>
-            </tr>
-            <tr>
-                <th>이미지</th><td>{{ instance.image}}</td>
-            </tr>
-            <tr>
-                <th>키 이름</th><td>{{ instance.key_name}}</td>
-            </tr>
-            <tr>
-                <th>locked</th><td>{{ instance.locked}}</td>
-            </tr>
-            <tr>
-                <th>metadata</th><td>{{ instance.metadata}}</td>
-            </tr>
-            <tr>
-                <th>볼륨:연결된 곳</th><td>{{ instance.os_extended_volumes.volumes_attached}}</td>
-            </tr>
-            <tr>
-                <th>os_extended_volume</th><td>{{ instance.os_extended_volume }}</td>
-            </tr>
-            <tr>
-                <th>progress</th><td>{{ instance.progress}}</td>
-            </tr>
-            <tr>
-                <th>os_dce:diskConfig</th><td>{{ instance.os_dce.diskConfig }}</td>
-            </tr>
-            <tr>
-                <th>os_srv_usg</th>
-                <td>
-                    terminated_at:{{ instance.os_srv_usg.terminated_at }}<br/>
-                    launched_at:{{ instance.os_srv_usg.launched_at }}
-                </td>
-            </tr>
-            <tr>
-                <th>accessIPv4</th><td>{{ instance.accessIPv4 }}</td>
-            </tr>
-            <tr>
-                <th>accessIPv6</th><td>{{ instance.accessIPv6 }}</td>
-            </tr>
-            <tr>
-                <th>config_drive</th><td>{{ instance.config_drive }}</td>
-            </tr>
-            <tr>
-                <th>description</th><td>{{ instance.description }}</td>
-            </tr>
-            <tr>
-                <th>hostId</th><td>{{ instance.hostId }}</td>
-            </tr>
-            <tr>
-                <th>host_status</th><td>{{ instance.host_status }}</td>
-            </tr>
-            <tr>
-                <th>public_network</th><td>{{ instance.public_network }}</td>
-            </tr>
-            <tr>
-                <th>security_groups</th><td>{{ instance.security_groups }}</td>
-            </tr>
-            <tr>
-                <th>tags</th><td>{{ instance.tags }}</td>
-            </tr>
-            <tr>
-                <th>tenant_id</th><td>{{ instance.tenant_id }}</td>
-            </tr>
-            <tr>
-                <th>user_id</th><td>{{ instance.user_id }}</td>
+                <th>연결된 곳</th><td>{{ volume.attachments }}</td>
             </tr>
         </table>
 
         <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
-        <!--<p>{{ instanceList }}</p>-->
+        <!--<p>{{ volumeList }}</p>-->
     </div>
 {% endblock content %}
