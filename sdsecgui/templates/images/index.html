@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Images</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01">이미지</div>
+{% endblock header %}
+
+{% block content %}
     <div>
         <table border="1">
             <tr>
@@ -33,5 +33,4 @@
         <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
         <!--<p>{{ imageList }}</p>-->
     </div>
-</body>
-</html>
+{% endblock content %}
