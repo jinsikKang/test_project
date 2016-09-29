@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01">네트워크</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <table border="1">
+        <tr>
+            <th>프로젝트</th>
+            <th>네트워크 이름</th>
+            <th>관련 서브넷</th>
+            <th>DHCP 에이전트</th>
+            <th>공유</th>
+            <th>외부</th>
+            <th>Status</th>
+            <th>관리자 상태</th>
+        </tr>
+        {% for network in networkList%}
+            <tr>
+                <td></td>
+                <td>{{ network.os_vol_host_attr.host }}</td>
+                <td><a href="/dashboard/admin/networks/{{network.id}}">{{ network.name }}</a></td>
+                <td>{{ network.size }}</td>
+                <td>{{ network.status }}</td>
+                <td>{{ network.type }}</td>
+                <td>{{ network.attached_to }}</td>
+                <td>{{ network.bootable }}</td>
+                <td>{{ network.encrypted }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

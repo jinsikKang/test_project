@@ -56,6 +56,7 @@ class Volume:
         self.type = ""
         self.updated_at = ""
         self.user_id = ""
+        self.volume_image_metadata = ""
 
     def setById(self, id):
         volumeDic = self.showInfoById(id)
@@ -85,6 +86,8 @@ class Volume:
         self.type = volumeDic["type"]
         self.updated_at = volumeDic["updated_at"]
         self.user_id = volumeDic["user_id"]
+        if volumeDic.get("volume_image_metadata"):
+            self.volume_image_metadata = volumeDic["volume_image_metadata"]
 
 
 

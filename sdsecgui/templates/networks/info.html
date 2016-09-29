@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01">{{ network.name }}</div>
+<div>
+    <a href="#"><div class="header_title_d04_click">개요</div></a>
+    <a href="#"><div class="header_title_d05">서브넷</div></a>
+    <a href="#"><div class="header_title_d05">포트</div></a>
+    <a href="#"><div class="header_title_d05">DHCP 에이전트</div></a>
+</div>
+{% endblock header %}
+
+{% block content %}
+    <div>
+        <table border="1">
+            <tr>
+                <th>이름</th><td>{{ network.name }}</td>
+            </tr>
+            <tr>
+                <th>ID</th><td>{{ network.id}}</td>
+            </tr>
+            <tr>
+                <th>Status</th><td>{{ network.status }}</td>
+            </tr>
+            <tr>
+                <th>크기</th><td>{{ network.size }}</td>
+            </tr>
+            <tr>
+                <th>유형</th><td>{{ network.type }}</td>
+            </tr>
+            <tr>
+                <th>부팅가능</th><td>{{ network.bootable }}</td>
+            </tr>
+            <tr>
+                <th>암호화</th><td>{{ network.encrypted }}</td>
+            </tr>
+            <tr>
+                <th>생성됨</th><td>{{ network.created_at }}</td>
+            </tr>
+            <tr>
+                <th>연결된 곳</th><td>{{ network.attachments }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock content %}

@@ -77,8 +77,15 @@ def getFlavorList():
     logger.debug("getFlavorList")
     output = excuteCmd("nova flavor-list")
     flavorList = parsingOutputToList(output)
-    print flavorList
     return flavorList
+
+def getNetworkList():
+    logger.debug("getNetworkList")
+
+    output = excuteCmd("neutron net-list")
+    networkList = parsingOutputToList(output)
+
+    return networkList
 
 def login(username, password, tenant_name, controller, auth_url):
     logger.debug("login")

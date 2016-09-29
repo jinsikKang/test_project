@@ -1,7 +1,7 @@
 #_*_coding:utf-8_*_
 from django.conf.urls import url
 
-from views import postlist, test, d3test, instances, volumes, flavors, images, provisioning
+from views import postlist, test, d3test, instances, volumes, flavors, images, networks, provisioning
 
 urlpatterns = [
     url(r'^$', postlist.post_list, name='post_list'),
@@ -19,6 +19,9 @@ urlpatterns = [
     # 이미지 주소
     url(r'^dashboard/admin/images/$', images.retrieveImageList, name='imageList'),
     url(r'^dashboard/admin/images/(?P<image_id>[\w\-]+)/$', images.retrieveImageById, name='image'),
+    
+    url(r'^dashboard/admin/networks/$', networks.retrieveNetworkList, name='networkList'),
+    url(r'^dashboard/admin/networks/(?P<network_id>[\w\-]+)/$', networks.retrieveNetworkById, name='network'),
     
     url(r'^dashboard/$', provisioning.provisioning, name='provisioning'),
 ]
