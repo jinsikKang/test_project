@@ -6,27 +6,27 @@
 
 {% block content %}
     <div>
-        <table border="1">
+        <table class="ind_tab01" border="1">
             <tr>
-                <th>소유자</th>
-                <th>이름</th>
-                <th>유형</th>
-                <th>상태</th>
-                <th>가시성</th>
-                <th>보호됨</th>
-                <th>디스크포멧</th>
-                <th>크기</th>
+                <th class="ind_th01">소유자</th>
+                <th class="ind_th01">이름</th>
+                <th class="ind_th01">유형</th>
+                <th class="ind_th01">상태</th>
+                <th class="ind_th01">가시성</th>
+                <th class="ind_th01">보호됨</th>
+                <th class="ind_th01">디스크포멧</th>
+                <th class="ind_th01">크기</th>
             </tr>
             {% for image in imageList%}
                 <tr>
-                    <td>{{ image.owner }}</td>
-                    <td><a href="/dashboard/admin/images/{{image.id}}">{{ image.name }}</a></td>
-                    <td>이미지</td>
-                    <td>{{ image.status }}</td>
-                    <td>{{ image.visibility }}</td>
-                    <td>{{ image.protected }}</td>
-                    <td>{{ image.disk_format }}</td>
-                    <td>{{ image.size }}</td>
+                    <td class="ind_td01">{{ image.owner }}</td>
+                    <td class="ind_td01"><a href="/dashboard/admin/images/{{image.id}}">{{ image.name }}</a></td>
+                    <td class="ind_td01">이미지</td>
+                    <td class="ind_td01">{{ image.status }}</td>
+                    <td class="ind_td01">{{ image.visibility }}</td>
+                    <td class="ind_td01">{{ image.protected }}</td>
+                    <td class="ind_td01">{{ image.disk_format }}</td>
+                    <td class="ind_td01">{{ image.size }}</td>
                 </tr>
             {% endfor %}
         </table>

@@ -6,28 +6,28 @@
 
 {% block content %}
     <div>
-        <table border="1">
+        <table class="ind_tab01" border="1">
             <tr>
-                <th>이름</th><td>{{ instance.name }}</td>
+                <th class="ind_th01">이름</th><td class="ind_td01">{{ instance.name }}</td>
             </tr>
             <tr>
-                <th>ID</th><td>{{ instance.id}}</td>
+                <th class="ind_th01">ID</th><td class="ind_td01">{{ instance.id}}</td>
             </tr>
             <tr>
-                <th>Status</th><td>{{ instance.status }}</td>
+                <th class="ind_th01">Status</th><td class="ind_td01">{{ instance.status }}</td>
             </tr>
             <tr>
-                <th>os_ext_az:가용 구역</th><td>{{ instance.os_ext_az.availability_zone }}</td>
+                <th class="ind_th01">os_ext_az:가용 구역</th><td class="ind_td01">{{ instance.os_ext_az.availability_zone }}</td>
             </tr>
             <tr>
-                <th>생성됨</th><td>{{ instance.created }}</td>
+                <th class="ind_th01">생성됨</th><td class="ind_td01">{{ instance.created }}</td>
             </tr>
             <tr>
-                <th>updated</th><td>{{ instance.updated }}</td>
+                <th class="ind_th01">updated</th><td class="ind_td01">{{ instance.updated }}</td>
             </tr>
             <tr>
-                <th>os_ext_srv_attr</th>
-                <td>
+                <th class="ind_th01">os_ext_srv_attr</th>
+                <td class="ind_td01">
                     ramdisk_id:{{ instance.os_ext_srv_attr.ramdisk_id }}<br/>
                     kernel_id:{{ instance.os_ext_srv_attr.kernel_id }}<br/>
                     hostname:{{ instance.os_ext_srv_attr.hostname }}<br/>
@@ -41,79 +41,79 @@
                 </td>
             </tr>
             <tr>
-                <th>os_ext_sts</th>
-                <td>
+                <th class="ind_th01">os_ext_sts</th>
+                <td class="ind_td01">
                     Status:{{ instance.os_ext_sts.vm_state }}<br/>
                     task_state:{{ instance.os_ext_sts.task_state }}<br/>
                     power_state:{{ instance.os_ext_sts.power_state }}
                 </td>
             </tr>
             <tr>
-                <th>flavor 이름</th><td>{{ instance.flavor }}</td>
+                <th class="ind_th01">flavor 이름</th><td class="ind_td01">{{ instance.flavor }}</td>
             </tr>
             <tr>
-                <th>이미지</th><td>{{ instance.image}}</td>
+                <th class="ind_th01">이미지</th><td class="ind_td01">{{ instance.image}}</td>
             </tr>
             <tr>
-                <th>키 이름</th><td>{{ instance.key_name}}</td>
+                <th class="ind_th01">키 이름</th><td class="ind_td01">{{ instance.key_name}}</td>
             </tr>
             <tr>
-                <th>locked</th><td>{{ instance.locked}}</td>
+                <th class="ind_th01">locked</th><td class="ind_td01">{{ instance.locked}}</td>
             </tr>
             <tr>
-                <th>metadata</th><td>{{ instance.metadata}}</td>
+                <th class="ind_th01">metadata</th><td class="ind_td01">{{ instance.metadata}}</td>
             </tr>
             <tr>
-                <th>볼륨:연결된 곳</th><td>{{ instance.os_extended_volumes.volumes_attached}}</td>
+                <th class="ind_th01">볼륨:연결된 곳</th><td class="ind_td01">{{ instance.os_extended_volumes.volumes_attached}}</td>
             </tr>
             <tr>
-                <th>os_extended_volume</th><td>{{ instance.os_extended_volume }}</td>
+                <th class="ind_th01">os_extended_volume</th><td class="ind_td01">{{ instance.os_extended_volume }}</td>
             </tr>
             <tr>
-                <th>progress</th><td>{{ instance.progress}}</td>
+                <th class="ind_th01">progress</th><td class="ind_td01">{{ instance.progress}}</td>
             </tr>
             <tr>
-                <th>os_dce:diskConfig</th><td>{{ instance.os_dce.diskConfig }}</td>
+                <th class="ind_th01">os_dce:diskConfig</th><td class="ind_td01">{{ instance.os_dce.diskConfig }}</td>
             </tr>
             <tr>
-                <th>os_srv_usg</th>
-                <td>
+                <th class="ind_th01">os_srv_usg</th>
+                <td class="ind_td01">
                     terminated_at:{{ instance.os_srv_usg.terminated_at }}<br/>
                     launched_at:{{ instance.os_srv_usg.launched_at }}
                 </td>
             </tr>
             <tr>
-                <th>accessIPv4</th><td>{{ instance.accessIPv4 }}</td>
+                <th class="ind_th01">accessIPv4</th><td class="ind_td01">{{ instance.accessIPv4 }}</td>
             </tr>
             <tr>
-                <th>accessIPv6</th><td>{{ instance.accessIPv6 }}</td>
+                <th class="ind_th01">accessIPv6</th><td class="ind_td01">{{ instance.accessIPv6 }}</td>
             </tr>
             <tr>
-                <th>config_drive</th><td>{{ instance.config_drive }}</td>
+                <th class="ind_th01">config_drive</th><td class="ind_td01">{{ instance.config_drive }}</td>
             </tr>
             <tr>
-                <th>description</th><td>{{ instance.description }}</td>
+                <th class="ind_th01">description</th><td class="ind_td01">{{ instance.description }}</td>
             </tr>
             <tr>
-                <th>hostId</th><td>{{ instance.hostId }}</td>
+                <th class="ind_th01">hostId</th><td class="ind_td01">{{ instance.hostId }}</td>
             </tr>
             <tr>
-                <th>host_status</th><td>{{ instance.host_status }}</td>
+                <th class="ind_th01">host_status</th><td class="ind_td01">{{ instance.host_status }}</td>
             </tr>
             <tr>
-                <th>public_network</th><td>{{ instance.public_network }}</td>
+                <th class="ind_th01">public_network</th><td class="ind_td01">{{ instance.public_network }}</td>
             </tr>
             <tr>
-                <th>security_groups</th><td>{{ instance.security_groups }}</td>
+                <th class="ind_th01">security_groups</th><td class="ind_td01">{{ instance.security_groups }}</td>
             </tr>
             <tr>
-                <th>tags</th><td>{{ instance.tags }}</td>
+                <th class="ind_th01">tags</th><td class="ind_td01">{{ instance.tags }}</td>
             </tr>
             <tr>
-                <th>tenant_id</th><td>{{ instance.tenant_id }}</td>
+                <th class="ind_th01">tenant_id</th><td class="ind_td01">{{ instance.tenant_id }}</td>
             </tr>
             <tr>
-                <th>user_id</th><td>{{ instance.user_id }}</td>
+                <th class="ind_th01">user_id</th><td class="ind_td01">{{ instance.user_id }}</td>
             </tr>
         </table>
 

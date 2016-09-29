@@ -6,32 +6,32 @@
 
 {% block content %}
 <div>
-    <table border="1">
+    <table class="ind_tab01" border="1">
         <tr>
-            <th>프로젝트</th>
-            <th>호스트</th>
-            <th>이름</th>
-            <th>이미지 이름</th>
-            <th>IP 주소</th>
-            <th>크기</th>
-            <th>Status</th>
-            <th>task</th>
-            <th>전원 상태</th>
-            <th>생성된 이후 시간</th>
+            <th class="ind_th01">프로젝트</th>
+            <th class="ind_th01">호스트</th>
+            <th class="ind_th01">이름</th>
+            <th class="ind_th01">이미지 이름</th>
+            <th class="ind_th01">IP 주소</th>
+            <th class="ind_th01">크기</th>
+            <th class="ind_th01">Status</th>
+            <th class="ind_th01">task</th>
+            <th class="ind_th01">전원 상태</th>
+            <th class="ind_th01">생성된 이후 시간</th>
         </tr>
         {% for instance in instanceList%}
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td><a href="/dashboard/admin/instances/{{instance.id}}">{{ instance.name }}</a></td>
-                <td>-</td>
-                <td>{{ instance.networks }}</td>
-                <td>-</td>
-                <!--<td>{{ instance.id }}</td>-->
-                <td>{{ instance.status }}</td>
-                <td>{{ instance.task_state }}</td>
-                <td>{{ instance.power_state }}</td>
-                <td>-</td>
+                <td class="ind_td01">-</td>
+                <td class="ind_td01">-</td>
+                <td class="ind_td01"><a href="/dashboard/admin/instances/{{instance.id}}">{{ instance.name }}</a></td>
+                <td class="ind_td01">-</td>
+                <td class="ind_td01">{{ instance.networks }}</td>
+                <td class="ind_td01">-</td>
+                <!--<td class="ind_td01">{{ instance.id }}</td>-->
+                <td class="ind_td01">{{ instance.status }}</td>
+                <td class="ind_td01">{{ instance.task_state }}</td>
+                <td class="ind_td01">{{ instance.power_state }}</td>
+                <td class="ind_td01">-</td>
             </tr>
         {% endfor %}
     </table>

@@ -55,7 +55,7 @@ class Network:
     def setById(self, id):
         networkDic = self.showInfoJsonById(id)
         if networkDic == None:
-            raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
+            raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
         self.provider["physical_network"] = networkDic["provider:physical_network"]
         self.provider["network_type"] = networkDic["provider:network_type"]
         self.provider["segmentation_id"] = networkDic["provider:segmentation_id"]

@@ -6,35 +6,33 @@
 
 {% block content %}
     <div>
-        <table border="1">
+        <table class="ind_tab01" border="1">
             <tr>
-                <th>Flavor 이름</th>
-                <th>VCPUs</th>
-                <th>RAM</th>
-                <th>Root 디스크</th>
-                <th>Ephemeral 디스크</th>
-                <th>Swap 디스크</th>
-                <th>RX/TX 요인</th>
-                <th>ID</th>
-                <th>공용</th>
-                <th>메타데이터</th>
+                <th class="ind_th01">Flavor 이름</th>
+                <th class="ind_th01">VCPUs</th>
+                <th class="ind_th01">RAM</th>
+                <th class="ind_th01">Root 디스크</th>
+                <th class="ind_th01">Ephemeral 디스크</th>
+                <th class="ind_th01">Swap 디스크</th>
+                <th class="ind_th01">RX/TX 요인</th>
+                <th class="ind_th01">ID</th>
+                <th class="ind_th01">공용</th>
+                <th class="ind_th01">메타데이터</th>
             </tr>
             {% for flavor in flavorList%}
                 <tr>
-                    <td>{{ flavor.name }}</td>
-                    <td>{{ flavor.vcpus }}</td>
-                    <td>{{ flavor.memory_mb }}MB</td>
-                    <td>{{ flavor.disk }}GB</td>
-                    <td>{{ flavor.ephemeral }}GB</td>
-                    <td>{{ flavor.swap }}MB</td>
-                    <td>{{ flavor.rxtx_factor }}</td>
-                    <td>{{ flavor.id }}</td>
-                    <td>{{ flavor.is_public }}</td>
-                    <td>???</td>
+                    <td class="ind_td01">{{ flavor.name }}</td>
+                    <td class="ind_td01">{{ flavor.vcpus }}</td>
+                    <td class="ind_td01">{{ flavor.memory_mb }}MB</td>
+                    <td class="ind_td01">{{ flavor.disk }}GB</td>
+                    <td class="ind_td01">{{ flavor.ephemeral }}GB</td>
+                    <td class="ind_td01">{{ flavor.swap }}MB</td>
+                    <td class="ind_td01">{{ flavor.rxtx_factor }}</td>
+                    <td class="ind_td01">{{ flavor.id }}</td>
+                    <td class="ind_td01">{{ flavor.is_public }}</td>
+                    <td class="ind_td01">{{ ??? }}</td>
                 </tr>
             {% endfor %}
         </table>
-        <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
-        <!--<p>{{ flavorList }}</p>-->
     </div>
 {% endblock content %}

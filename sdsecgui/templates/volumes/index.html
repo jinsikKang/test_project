@@ -11,29 +11,29 @@
 
 {% block content %}
 <div>
-    <table border="1">
+    <table class="ind_tab01" border="1">
         <tr>
-            <th>프로젝트</th>
-            <th>호스트</th>
-            <th>이름</th>
-            <th>크기</th>
-            <th>Status</th>
-            <th>유형</th>
-            <th>연결된 곳</th>
-            <th>부팅가능</th>
-            <th>암호화</th>
+            <th class="ind_th01">프로젝트</th>
+            <th class="ind_th01">호스트</th>
+            <th class="ind_th01">이름</th>
+            <th class="ind_th01">크기</th>
+            <th class="ind_th01">Status</th>
+            <th class="ind_th01">유형</th>
+            <th class="ind_th01">연결된 곳</th>
+            <th class="ind_th01">부팅가능</th>
+            <th class="ind_th01">암호화</th>
         </tr>
         {% for volume in volumeList%}
             <tr>
-                <td></td>
-                <td>{{ volume.os_vol_host_attr.host }}</td>
-                <td><a href="/dashboard/admin/volumes/{{volume.id}}">{{ volume.name }}</a></td>
-                <td>{{ volume.size }}</td>
-                <td>{{ volume.status }}</td>
-                <td>{{ volume.type }}</td>
-                <td>{{ volume.attached_to }}</td>
-                <td>{{ volume.bootable }}</td>
-                <td>{{ volume.encrypted }}</td>
+                <td class="ind_td01"></td>
+                <td class="ind_td01">{{ volume.os_vol_host_attr.host }}</td>
+                <td class="ind_td01"><a href="/dashboard/admin/volumes/{{volume.id}}">{{ volume.name }}</a></td>
+                <td class="ind_td01">{{ volume.size }}</td>
+                <td class="ind_td01">{{ volume.status }}</td>
+                <td class="ind_td01">{{ volume.type }}</td>
+                <td class="ind_td01">{{ volume.attached_to }}</td>
+                <td class="ind_td01">{{ volume.bootable }}</td>
+                <td class="ind_td01">{{ volume.encrypted }}</td>
             </tr>
         {% endfor %}
     </table>

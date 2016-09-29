@@ -6,33 +6,33 @@
 
 {% block content %}
     <div>
-        <table border="1">
+        <table class="ind_tab01" border="1">
             <tr>
-                <th>이름</th><td>{{ volume.name }}</td>
+                <th class="ind_th01">이름</th>     <td class="ind_td01">{{ volume.name }}</td>
             </tr>
             <tr>
-                <th>ID</th><td>{{ volume.id}}</td>
+                <th class="ind_th01">ID</th>       <td class="ind_td01">{{ volume.id}}</td>
             </tr>
             <tr>
-                <th>Status</th><td>{{ volume.status }}</td>
+                <th class="ind_th01">Status</th>   <td class="ind_td01">{{ volume.status }}</td>
             </tr>
             <tr>
-                <th>크기</th><td>{{ volume.size }}</td>
+                <th class="ind_th01">크기</th>     <td class="ind_td01">{{ volume.size }}</td>
             </tr>
             <tr>
-                <th>유형</th><td>{{ volume.type }}</td>
+                <th class="ind_th01">유형</th>     <td class="ind_td01">{{ volume.type }}</td>
             </tr>
             <tr>
-                <th>부팅가능</th><td>{{ volume.bootable }}</td>
+                <th class="ind_th01">부팅가능</th> <td class="ind_td01">{{ volume.bootable }}</td>
             </tr>
             <tr>
-                <th>암호화</th><td>{{ volume.encrypted }}</td>
+                <th class="ind_th01">암호화</th>   <td class="ind_td01">{{ volume.encrypted }}</td>
             </tr>
             <tr>
-                <th>생성됨</th><td>{{ volume.created_at }}</td>
+                <th class="ind_th01">생성됨</th>   <td class="ind_td01">{{ volume.created_at }}</td>
             </tr>
             <tr>
-                <th>연결된 곳</th><td>{{ volume.attachments }}</td>
+                <th class="ind_th01">연결된 곳</th><td class="ind_td01">{{ volume.attachments }}</td>
             </tr>
         </table>
 
