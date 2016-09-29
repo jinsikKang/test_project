@@ -60,7 +60,7 @@ class Volume:
 
     def setById(self, id):
         volumeDic = self.showInfoById(id)
-        print volumeDic
+        print volumeDic.keys()
         if volumeDic == None:
             raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
         self.attachments = volumeDic["attachments"]
@@ -94,49 +94,3 @@ class Volume:
 
 
 
-
-
-
-
-
-        self.os_dce["diskConfig"] = volumeDic["OS-DCF:diskConfig"]
-        self.os_ext_az["availability_zone"] = volumeDic["OS-EXT-AZ:availability_zone"]
-        self.os_ext_srv_attr["host"] = volumeDic["OS-EXT-SRV-ATTR:host"]
-        self.os_ext_srv_attr["hostname"] = volumeDic["OS-EXT-SRV-ATTR:hostname"]
-        self.os_ext_srv_attr["hypervisor_hostnam"] = volumeDic["OS-EXT-SRV-ATTR:hypervisor_hostnam"]
-        self.os_ext_srv_attr["volume_name"] = volumeDic["OS-EXT-SRV-ATTR:volume_name"]
-        self.os_ext_srv_attr["kernel_id"] = volumeDic["OS-EXT-SRV-ATTR:kernel_id"]
-        self.os_ext_srv_attr["launch_index"] = volumeDic["OS-EXT-SRV-ATTR:launch_index"]
-        self.os_ext_srv_attr["ramdisk_id"] = volumeDic["OS-EXT-SRV-ATTR:ramdisk_id"]
-        self.os_ext_srv_attr["reservation_id"] = volumeDic["OS-EXT-SRV-ATTR:reservation_id"]
-        self.os_ext_srv_attr["root_device_name"] = volumeDic["OS-EXT-SRV-ATTR:root_device_name"]
-        self.os_ext_srv_attr["user_data"] = volumeDic["OS-EXT-SRV-ATTR:user_data"]
-        self.os_ext_sts["power_state"] = volumeDic["OS-EXT-STS:power_state"]
-        self.os_ext_sts["task_state"] = volumeDic["OS-EXT-STS:task_state"]
-        self.os_ext_sts["vm_state"] = volumeDic["OS-EXT-STS:vm_state"]
-        self.os_extended_volumes["volumes_attached"] = volumeDic["os-extended-volumes:volumes_attached"]
-        self.os_srv_usg["launched_at"] = volumeDic["OS-SRV-USG:launched_at"]
-        self.os_srv_usg["terminated_at"] = volumeDic["OS-SRV-USG:terminated_at"]
-
-        self.accessIPv4 = volumeDic["accessIPv4"]
-        self.accessIPv6 = volumeDic["accessIPv6"]
-        self.config_drive = volumeDic["config_drive"]
-        self.created = volumeDic["created"]
-        self.description = volumeDic["description"]
-        self.flavor = volumeDic["flavor"]
-        self.hostId = volumeDic["hostId"]
-        self.host_status = volumeDic["host_status"]
-        self.id = volumeDic["id"]
-        self.image = volumeDic["image"]
-        self.key_name = volumeDic["key_name"]
-        self.locked = volumeDic["locked"]
-        self.metadata = volumeDic["metadata"]
-        self.name = volumeDic["name"]
-        self.progress = volumeDic["progress"]
-        self.public_network = volumeDic["public_network"]
-        self.security_groups = volumeDic["security_groups"]
-        self.status = volumeDic["status"]
-        self.tags = volumeDic["tags"]
-        self.tenant_id = volumeDic["tenant_id"]
-        self.updated = volumeDic["updated"]
-        self.user_id = volumeDic["user_id"]
