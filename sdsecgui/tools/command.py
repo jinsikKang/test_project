@@ -57,6 +57,14 @@ def getInstanceList():
 
     return instanceList
 
+def getVolumeList():
+    logger.debug("getVolumeList")
+
+    output = excuteCmd("openstack volume list --all-projects")
+    volumeList = parsingOutputToList(output)
+
+    return volumeList
+
 def getImageList():
     logger.debug("getImageList")
 
