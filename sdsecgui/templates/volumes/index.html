@@ -25,15 +25,15 @@
         </tr>
         {% for volume in volumeList%}
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td><a href="/dashboard/admin/volumes/{{volume.id}}">{{ volume.display_name }}</a></td>
-                <td>{{volume.size}}</td>
-                <td>{{volume.status}}</td>
-                <td>-</td>
+                <td></td>
+                <td>{{ volume.os_vol_host_attr.host }}</td>
+                <td><a href="/dashboard/admin/volumes/{{volume.id}}">{{ volume.name }}</a></td>
+                <td>{{ volume.size }}</td>
+                <td>{{ volume.status }}</td>
+                <td>{{ volume.type }}</td>
                 <td>{{ volume.attached_to }}</td>
-                <td></td>
-                <td></td>
+                <td>{{ volume.bootable }}</td>
+                <td>{{ volume.encrypted }}</td>
             </tr>
         {% endfor %}
     </table>

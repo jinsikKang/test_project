@@ -59,7 +59,6 @@ class Volume:
 
     def setById(self, id):
         volumeDic = self.showInfoById(id)
-        print volumeDic.keys()
         if volumeDic == None:
             raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
         self.attachments = volumeDic["attachments"]
