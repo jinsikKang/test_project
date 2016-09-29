@@ -20,25 +20,30 @@
                 <th>ID</th><td>{{ network.id}}</td>
             </tr>
             <tr>
+                <th>프로젝트 ID</th><td>{{ network.project_id }}</td>
+            </tr>
+            <tr>
                 <th>Status</th><td>{{ network.status }}</td>
             </tr>
             <tr>
-                <th>크기</th><td>{{ network.size }}</td>
+                <th>관리자 상태</th><td>{{ network.admin_state_up }}</td>
             </tr>
             <tr>
-                <th>유형</th><td>{{ network.type }}</td>
+                <th>공유</th><td>{{ network.shared }}</td>
             </tr>
             <tr>
-                <th>부팅가능</th><td>{{ network.bootable }}</td>
+                <th>외부 네트워크</th><td>{{ network.router.external }}</td>
             </tr>
             <tr>
-                <th>암호화</th><td>{{ network.encrypted }}</td>
+                <th>MTU</th><td>{{ network.mtu }}</td>
             </tr>
             <tr>
-                <th>생성됨</th><td>{{ network.created_at }}</td>
-            </tr>
-            <tr>
-                <th>연결된 곳</th><td>{{ network.attachments }}</td>
+                <th>공급자 네트워크</th>
+                <td>
+                    네트워크 타입 {{ network.provider.network_type }}<br/>
+                    물리적인 네트워크 {{ network.provider.physical_network }}<br/>
+                    구분 ID: {{ network.provider.segmentation_id }}
+                </td>
             </tr>
         </table>
     </div>
