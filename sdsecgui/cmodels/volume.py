@@ -17,7 +17,7 @@ class Volume:
         return infoDic
 
     def showInfoById(self, id):
-        # id로 인스턴스를 찾는다.
+        # id로 볼륨을 찾는다.
         logger.debug("showVolumeById")
         output = excuteCmd("openstack volume show " + id)
 
@@ -71,7 +71,7 @@ class Volume:
         self.id = volumeDic["id"]
         self.migration_status = volumeDic["migration_status"]
         self.multiattach = volumeDic["multiattach"]
-        self.name = volumeDic["name"]
+        self.name = volumeDic["name"] if volumeDic["name"] else volumeDic["id"]
         self.os_vol_host_attr["host"] = volumeDic["os-vol-host-attr:host"]
         self.os_vol_mig_status_attr["migstat"] = volumeDic["os-vol-mig-status-attr:migstat"]
         self.os_vol_mig_status_attr["name_id"] = volumeDic["os-vol-mig-status-attr:name_id"]
