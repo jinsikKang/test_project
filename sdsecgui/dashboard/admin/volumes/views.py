@@ -20,10 +20,10 @@ def retrieveVolumeList(request):
         volume.setById(volume_id)
         tempList.append(volume)
     volumeList = tempList
-    return render(request, 'templates/index.html', { 'volumeList' : volumeList })
+    return render(request, 'index.html', { 'volumeList' : volumeList })
 
 def retrieveVolumeById(request, volume_id):
     logger.info("retrieveVolumeById")
     volume = Volume()
     volume.setById(volume_id)
-    return render(request, 'templates/info.html', { 'volume' : volume })
+    return render(request, 'info.html', { 'volume' : volume })

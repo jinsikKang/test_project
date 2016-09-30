@@ -20,10 +20,10 @@ def retrieveNetworkList(request):
         network.setById(network_id)
         tempList.append(network)
     networkList = tempList
-    return render(request, 'admin/networks/index.html', { 'networkList' : networkList })
+    return render(request, 'index.html', { 'networkList' : networkList })
 
 def retrieveNetworkById(request, network_id):
     logger.info("retrieveNetworkById")
     network = Network()
     network.setById(network_id)
-    return render(request, 'admin/networks/info.html', { 'network' : network })
+    return render(request, 'info.html', { 'network' : network })
