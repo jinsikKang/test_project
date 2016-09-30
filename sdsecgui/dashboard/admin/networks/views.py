@@ -6,12 +6,12 @@ from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getNetworkList
 from sdsecgui.cmodels.network import Network
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 
 def retrieveNetworkList(request):
-    logger.info("retrieveNetworkList")
+    # logger.info("retrieveNetworkList")
     networkList = getNetworkList()
     tempList = []
     for network in networkList:
@@ -23,7 +23,7 @@ def retrieveNetworkList(request):
     return render(request, 'admin/networks/index.html', { 'networkList' : networkList })
 
 def retrieveNetworkById(request, network_id):
-    logger.info("retrieveNetworkById")
+    # logger.info("retrieveNetworkById")
     network = Network()
     network.setById(network_id)
     return render(request, 'admin/networks/info.html', { 'network' : network })

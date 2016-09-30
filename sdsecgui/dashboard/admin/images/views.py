@@ -6,12 +6,12 @@ from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getImageList
 from sdsecgui.cmodels.image import Image
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 
 def retrieveImageList(request):
-    logger.info("retrieveInstanceList")
+    # logger.info("retrieveInstanceList")
     imageList = getImageList()
     tempList = []
     for image in imageList:
@@ -24,7 +24,7 @@ def retrieveImageList(request):
     return render(request, 'admin/images/index.html', { 'imageList' : imageList })
 
 def retrieveImageById(request, image_id):
-    logger.info("retrieveInstanceById")
+    # logger.info("retrieveInstanceById")
     image = Image()
     image.setById(image_id)
     return render(request, 'admin/images/info.html', { 'image' : image })

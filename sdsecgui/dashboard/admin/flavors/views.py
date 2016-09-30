@@ -5,12 +5,12 @@ from django.shortcuts import render
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getFlavorList
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 
 def retrieveFlavorList(request):
-    logger.info("retrieveInstanceList")
+    # logger.info("retrieveInstanceList")
     flavorList = getFlavorList()
 
     return render(request, 'admin/flavors/index.html', { 'flavorList' : flavorList })

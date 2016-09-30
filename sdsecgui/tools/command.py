@@ -12,7 +12,7 @@ logger = getLogger()
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
-    logger.debug("excuteCmd>> "+command)
+    # logger.debug("excuteCmd>> "+command)
     f = os.popen(command)
     result = f.read()
     logger.debug(result)
@@ -50,7 +50,7 @@ def parsingOutputToList(output):
 
 
 def getInstanceList():
-    logger.debug("getInstanceList")
+    # logger.debug("getInstanceList")
 
     output = excuteCmd("nova list --all-tenants")
     instanceList = parsingOutputToList(output)
@@ -58,7 +58,7 @@ def getInstanceList():
     return instanceList
 
 def getVolumeList():
-    logger.debug("getVolumeList")
+    # logger.debug("getVolumeList")
 
     output = excuteCmd("openstack volume list --all-projects")
     volumeList = parsingOutputToList(output)
@@ -66,7 +66,7 @@ def getVolumeList():
     return volumeList
 
 def getImageList():
-    logger.debug("getImageList")
+    # logger.debug("getImageList")
 
     output = excuteCmd("glance image-list")
     imageList = parsingOutputToList(output)
@@ -74,20 +74,20 @@ def getImageList():
     return imageList
 
 def getFlavorList():
-    logger.debug("getFlavorList")
+    # logger.debug("getFlavorList")
     output = excuteCmd("nova flavor-list")
     flavorList = parsingOutputToList(output)
     return flavorList
 
 def getNetworkList():
-    logger.debug("getNetworkList")
+    # logger.debug("getNetworkList")
 
     networkList = json.loads(excuteCmd("neutron net-list -f json"))
 
     return networkList
 
 def login(username, password, tenant_name, controller, auth_url):
-    logger.debug("login")
+    # logger.debug("login")
     os.environ["OS_USERNAME"] = username
     os.environ["OS_PASSWORD"] = password
     os.environ["OS_TENANT_NAME"] = tenant_name

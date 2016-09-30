@@ -6,12 +6,12 @@ from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getVolumeList
 from sdsecgui.cmodels.volume import Volume
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 
 def retrieveVolumeList(request):
-    logger.info("retrieveVolumeList")
+    # logger.info("retrieveVolumeList")
     volumeList = getVolumeList()
     tempList = []
     for volume in volumeList:
@@ -23,7 +23,7 @@ def retrieveVolumeList(request):
     return render(request, 'admin/volumes/index.html', { 'volumeList' : volumeList })
 
 def retrieveVolumeById(request, volume_id):
-    logger.info("retrieveVolumeById")
+    # logger.info("retrieveVolumeById")
     volume = Volume()
     volume.setById(volume_id)
     return render(request, 'admin/volumes/info.html', { 'volume' : volume })
