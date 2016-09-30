@@ -7,7 +7,6 @@ from sdsecgui.dashboard.admin.instances import views
 from sdsecgui.dashboard.admin.networks import views
 from sdsecgui.dashboard.admin.volumes import views
 from sdsecgui.dashboard.provisioning import views
-from views import postlist, test, d3test
 
 urlpatterns = [
     # url(r'^$', postlist.post_list, name='post_list'),
