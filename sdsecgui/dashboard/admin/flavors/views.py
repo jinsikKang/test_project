@@ -13,4 +13,4 @@ def retrieveFlavorList(request):
     logger.info("retrieveInstanceList")
     flavorList = getFlavorList()
 
-    return render(request, 'index.html', { 'flavorList' : flavorList })
+    return render(request, 'admin/flavors/index.html', { 'flavorList' : flavorList })
