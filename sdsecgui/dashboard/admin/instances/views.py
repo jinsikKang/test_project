@@ -14,7 +14,7 @@ def retrieveInstanceList(request):
     logger.info("retrieveInstanceList")
     login("admin", "chiron", "admin", "192.168.10.6", ":35357/v2.0")
     instanceList = getInstanceList()
-    return render(request, 'index.html', { 'instanceList' : instanceList }, dirs="dashboard/admin/instances")
+    return render(request, 'index.html', { 'instanceList' : instanceList }, dirs="dashboard/admin/instances/templates")
 
 def retrieveInstanceById(request, instance_id):
     logger.info("retrieveInstanceById")
