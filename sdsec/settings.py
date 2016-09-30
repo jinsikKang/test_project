@@ -38,6 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sdsecgui',
+    'sdsecgui.dashboard.admin.flavors',
+    'sdsecgui.dashboard.admin.images',
+    'sdsecgui.dashboard.admin.instances',
+    'sdsecgui.dashboard.admin.networks',
+    'sdsecgui.dashboard.admin.volumes',
+    'sdsecgui.dashboard.provisioning',
 )
 
 MIDDLEWARE_CLASSES = (
