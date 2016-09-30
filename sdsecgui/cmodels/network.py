@@ -87,9 +87,26 @@ class Network:
 
 class Subnet(Base):
     def __init__(self):
-        self.allocation_pools = {}
+        self.service_types = ""
+        self.description = ""
+        self.enable_dhcp = ""
+        self.network_id = ""
+        self.tenant_id = ""
+        self.created_at = ""
+        self.dns_nameservers = ""
+        self.updated_at = ""
+        self.ipv6_ra_mode = ""
+        self.allocation_pools = ""
+        self.gateway_ip = ""
+        self.revision_number = ""
+        self.ipv6_address_mode = ""
+        self.ip_version = ""
+        self.host_routes = ""
         self.cidr = ""
-
+        self.project_id = ""
+        self.id = ""
+        self.subnetpool_id = ""
+        self.name = ""
         pass
 
     def showInfoJsonById(cls, id):
@@ -107,3 +124,23 @@ class Subnet(Base):
         subnetDic = cls.showInfoJsonById(id)
         if subnetDic == None:
             raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
+        cls.service_types = subnetDic["service_types"]
+        cls.description = subnetDic["description"]
+        cls.enable_dhcp = subnetDic["enable_dhcp"]
+        cls.network_id = subnetDic["network_id"]
+        cls.tenant_id = subnetDic["tenant_id"]
+        cls.created_at = subnetDic["created_at"]
+        cls.dns_nameservers = subnetDic["dns_nameservers"]
+        cls.updated_at = subnetDic["updated_at"]
+        cls.ipv6_ra_mode = subnetDic["ipv6_ra_mode"]
+        cls.allocation_pools = subnetDic["allocation_pools"]
+        cls.gateway_ip = subnetDic["gateway_ip"]
+        cls.revision_number = subnetDic["revision_number"]
+        cls.ipv6_address_mode = subnetDic["ipv6_address_mode"]
+        cls.ip_version = subnetDic["ip_version"]
+        cls.host_routes = subnetDic["host_routes"]
+        cls.cidr = subnetDic["cidr"]
+        cls.project_id = subnetDic["project_id"]
+        cls.id = subnetDic["id"]
+        cls.subnetpool_id = subnetDic["subnetpool_id"]
+        cls.name = subnetDic["name"]

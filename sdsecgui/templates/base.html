@@ -45,8 +45,9 @@
             </a>
             <img class="head_img03" src='{% static "provisioning/img/head_06.png" %}' alt="#">
             <div class="clear_float"></div>
-
         </div>
+        {% block sub_left_menu %}
+        {% endblock %}
         <div class="header_title">
             {% block header %}
             {% endblock %}

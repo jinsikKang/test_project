@@ -66,6 +66,14 @@ td {margin:0; padding:0;}
 .ind_td01 {background-color:#fff; font-size:16px; color:#8593b0 ; font-weight:bold; text-align:center; border-bottom:1px solid #dadee9 ; padding:8px 0;}
 /**/
 
+/* sub_left_menu */
+.sub_left_menu {width:257px; height:100%; background-color:#0f1a36 ; float:left;}
+.sub_left_menu_d01 {width:232px; color:#fff; padding:18px 0 18px 25px; font-size:15px; font-weight:bold;}
+.sub_left_menu_d01 a {color:#fff;}
+.sub_left_menu_d01_click {width:227px; color:#fff; padding:18px 0 18px 25px; font-size:15px; font-weight:bold; background-color:#122043 ; border-left:5px solid #4b73eb ;}
+.sub_left_menu_d01_click a {color:#fff;}
+/**/
+
 .contents {padding:10px;}
 
 /*.contents {width:100%; display:inline-block; position:absolute; padding:266px 0 0 0;}*/
