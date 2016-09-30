@@ -28,7 +28,7 @@
                 <td class="ind_td01">
                     <ul>
                     {% for subnet in network.subnets %}
-                        <li>{{ subnet.id }}</li>
+                        <li>{{ subnet.name }} {{ subnet.cidr }}</li>
                     {% endfor %}
                     </ul>
                 </td>
