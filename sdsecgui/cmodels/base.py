@@ -21,5 +21,9 @@ class Base:
         pass
 
     @classmethod
+    def showInfoJsonById(cls, id):
+        pass
+
+    @classmethod
     def setById(cls, id):
         pass

@@ -3,6 +3,7 @@ import json
 
 from sdsec.log_handler import setLogDir, getLogger
 from ..tools.command import excuteCmd, login
+from base import Base
 
 setLogDir()
 logger = getLogger()
@@ -70,7 +71,11 @@ class Network:
         self.shared = networkDic["shared"]
         self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
-        self.subnets = networkDic["subnets"]
+        self.subnets = []
+        for subnet_id in networkDic["subnets"].split("\n"):
+            subnet = Subnet()
+            subnet.setById(subnet_id)
+            self.subnets.append(subnet)
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
@@ -80,4 +85,25 @@ class Network:
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
 
-# class subnet:
+class Subnet(Base):
+    def __init__(self):
+        self.allocation_pools = {}
+        self.cidr = ""
+
+        pass
+
+    def showInfoJsonById(cls, id):
+        # id로 네트워크를 찾는다.
+        logger.debug("showNetworkById")
+        output = json.loads(excuteCmd("neutron subnet-show " + id + " -f json"))
+
+        if output:
+            return output
+        else:
+            logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
+            return None
+
+    def setById(cls, id):
+        subnetDic = cls.showInfoJsonById(id)
+        if subnetDic == None:
+            raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
