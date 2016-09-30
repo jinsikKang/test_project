@@ -9,4 +9,4 @@ logger = getLogger()
 
 
 def provisioning(request):
-    return render(request, 'provisioning/index.html', {})
+    return render(request, 'templates/index.html', {})
