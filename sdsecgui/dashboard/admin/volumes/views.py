@@ -12,6 +12,7 @@ logger = getLogger()
 
 def retrieveVolumeList(request):
     logger.info("retrieveVolumeList")
+    print "왜 여러번찍히는데?!"
     volumeList = getVolumeList()
     tempList = []
     for volume in volumeList:
