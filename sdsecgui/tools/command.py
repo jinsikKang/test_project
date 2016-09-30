@@ -3,11 +3,12 @@ import json
 import os
 
 from sdsec import log_handler
-from sdsec.log_handler import setLogDir, getLogger
+# from sdsec.log_handler import setLogDir, getLogger
+import logging
 
 #로그불러왓!
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 
 def excuteCmd(command):
@@ -15,6 +16,7 @@ def excuteCmd(command):
     # logger.debug("excuteCmd>> "+command)
     f = os.popen(command)
     result = f.read()
+    logger = logging.getLogger(__name__)
     logger.debug(result)
     return result
 
