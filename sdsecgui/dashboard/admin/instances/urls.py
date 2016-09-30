@@ -5,6 +5,6 @@ from sdsecgui.dashboard.admin.instances import views
 
 urlpatterns = [
     # 인스턴스 주소
-    url(r'$', views.retrieveInstanceList, name='instanceList'),
+    url(r'^$', views.retrieveInstanceList, name='instanceList'),
     url(r'(?P<instance_id>[\w\-]+)/$', views.retrieveInstanceById, name='instance'),
 ]
