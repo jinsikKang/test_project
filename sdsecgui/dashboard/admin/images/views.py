@@ -21,7 +21,7 @@ def retrieveImageList(request):
         tempList.append(image)
     imageList = tempList
 
-    return render(request, 'templates/index.html', { 'imageList' : imageList })
+    return render(request, 'admin/images/index.html', { 'imageList' : imageList })
 
 def retrieveImageById(request, image_id):
     logger.info("retrieveInstanceById")
