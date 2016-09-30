@@ -62,7 +62,13 @@
              <th class="ind_th01">남는 IP</th>
          </tr>
          <tr>
-             <td class="ind_td01"></td>
+             <td class="ind_td01">{{ network.subnets.name }}</td>
+             <td class="ind_td01">{{ network.subnets.cidr }}</td>
+             <td class="ind_td01">{{ network.subnets.ip_version }}</td>
+             <td class="ind_td01">{{ network.subnets.gateway_ip }}</td>
+             <td class="ind_td01">{{ network.subnets.enable_dhcp }}</td>
+             <td class="ind_td01">{{ network.subnets.revision_number }}</td>
+             <td class="ind_td01">{{ network.subnets.allocation_pools }}</td>
          </tr>
      </table>
 </div>
