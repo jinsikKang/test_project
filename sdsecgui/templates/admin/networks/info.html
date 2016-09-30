@@ -61,15 +61,17 @@
              <th class="ind_th01">사용된 IP</th>
              <th class="ind_th01">남는 IP</th>
          </tr>
+         {% for subnet in network.subnets %}
          <tr>
-             <td class="ind_td01">{{ network.subnets.name }}</td>
-             <td class="ind_td01">{{ network.subnets.cidr }}</td>
-             <td class="ind_td01">{{ network.subnets.ip_version }}</td>
-             <td class="ind_td01">{{ network.subnets.gateway_ip }}</td>
-             <td class="ind_td01">{{ network.subnets.enable_dhcp }}</td>
-             <td class="ind_td01">{{ network.subnets.revision_number }}</td>
-             <td class="ind_td01">{{ network.subnets.allocation_pools }}</td>
+             <td class="ind_td01">{{ subnet.name }}</td>
+             <td class="ind_td01">{{ subnet.cidr }}</td>
+             <td class="ind_td01">{{ subnet.ip_version }}</td>
+             <td class="ind_td01">{{ subnet.gateway_ip }}</td>
+             <td class="ind_td01">{{ subnet.enable_dhcp }}</td>
+             <td class="ind_td01">{{ subnet.revision_number }}</td>
+             <td class="ind_td01">{{ subnet.allocation_pools }}</td>
          </tr>
+        {% endfor %}
      </table>
 </div>
 <div id="port">
