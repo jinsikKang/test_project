@@ -80,4 +80,4 @@ class Network:
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
 
-class subnet:
+# class subnet:

@@ -6,7 +6,7 @@ from ..tools.command import excuteCmd, login
 setLogDir()
 logger = getLogger()
 
-class Instance:
+class Base:
     @classmethod
     def outputToInfo(cls, infoDic, outputList):
         for row in outputList[3:-1]:
