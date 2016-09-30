@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^new_page/$', test.new_page, name='new_page'),
     url(r'^d3test/(?P<page_name>\w+)/$', d3test.page, name='page'),
 
-    url(r'^dashboard/', include(provisioning_urls, namespace='provisioning')),
+    url(r'^dashboard/provisioning/', include(provisioning_urls, namespace='provisioning')),
 
     url(r'^dashboard/admin/instances/', include(instances_urls, namespace='instances')),
     url(r'^dashboard/admin/volumes/', include(volumes_urls, namespace='volumes')),

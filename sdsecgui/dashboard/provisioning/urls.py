@@ -3,5 +3,5 @@ from django.conf.urls import url
 from sdsecgui.dashboard.provisioning import views
 
 urlpatterns = [
-    url(r'^hh$', views.provisioning, name='provisioning'),
+    url(r'^$', views.provisioning, name='provisioning'),
 ]
