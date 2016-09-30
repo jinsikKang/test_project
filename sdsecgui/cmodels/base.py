@@ -3,8 +3,6 @@
 from sdsec.log_handler import setLogDir, getLogger
 from ..tools.command import excuteCmd, login
 
-setLogDir()
-logger = getLogger()
 
 class Base:
     @classmethod

@@ -3,8 +3,8 @@
 from sdsec.log_handler import setLogDir, getLogger
 from ..tools.command import excuteCmd
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 class Image:
     def outputToInfo(self, infoDic, outputList):
@@ -17,7 +17,7 @@ class Image:
 
     def showInfoById(self, id):
         # id로 이미지를 찾는다.
-        logger.debug("showImageById")
+        # logger.debug("showImageById")
         output = excuteCmd("glance image-show " + id)
         outputList = output.splitlines()
         if outputList:
@@ -43,7 +43,7 @@ class Image:
             }
             return self.outputToInfo(imageDic, outputList)
         else:
-            logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 이미지가 없습니다."))
+            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 이미지가 없습니다."))
             return None
 
     def __init__(self):

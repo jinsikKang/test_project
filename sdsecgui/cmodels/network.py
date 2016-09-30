@@ -5,8 +5,8 @@ from sdsec.log_handler import setLogDir, getLogger
 from ..tools.command import excuteCmd, login
 from base import Base
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 class Network:
     def outputToInfo(self, outputList):
@@ -20,13 +20,13 @@ class Network:
 
     def showInfoJsonById(self, id):
         # id로 네트워크를 찾는다.
-        logger.debug("showNetworkById")
+        # logger.debug("showNetworkById")
         output = json.loads(excuteCmd("neutron net-show " + id + " -f json"))
 
         if output:
             return output
         else:
-            logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
+            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def __init__(self):
@@ -111,13 +111,13 @@ class Subnet(Base):
 
     def showInfoJsonById(cls, id):
         # id로 네트워크를 찾는다.
-        logger.debug("showNetworkById")
+        # logger.debug("showNetworkById")
         output = json.loads(excuteCmd("neutron subnet-show " + id + " -f json"))
 
         if output:
             return output
         else:
-            logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
+            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def setById(cls, id):

@@ -3,8 +3,8 @@
 from sdsec.log_handler import setLogDir, getLogger
 from ..tools.command import excuteCmd, login
 
-setLogDir()
-logger = getLogger()
+# setLogDir()
+# logger = getLogger()
 
 class Instance:
     def outputToInfo(self, infoDic, outputList):
@@ -21,7 +21,7 @@ class Instance:
 
     def showInfoById(self, id):
         # id로 인스턴스를 찾는다.
-        logger.debug("showInstanceById")
+        # logger.debug("showInstanceById")
         output = excuteCmd("nova show " + id)
 
         outputList = output.splitlines()
@@ -70,7 +70,7 @@ class Instance:
             }
             return self.outputToInfo(instanceDic, outputList)
         else:
-            logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
+            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def __init__(self):

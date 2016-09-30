@@ -16,8 +16,7 @@ def excuteCmd(command):
     # logger.debug("excuteCmd>> "+command)
     f = os.popen(command)
     result = f.read()
-    logger = logging.getLogger(__name__)
-    logger.debug(result)
+    # logger.debug(result)
     return result
 
 
@@ -47,7 +46,7 @@ def parsingOutputToList(output):
         return resultList
     else:
         # 인스턴스가 하나도 없을 때
-        logger.debug("List is empty")
+        # logger.debug("List is empty")
         return None
 
 
