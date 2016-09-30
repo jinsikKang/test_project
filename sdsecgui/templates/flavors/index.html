@@ -5,34 +5,35 @@
 {% endblock header %}
 
 {% block content %}
-    <div>
-        <table class="ind_tab01" border="1">
+<div>
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+        <tr>
+            <th class="ind_th01">Flavor 이름</th>
+            <th class="ind_th01">VCPUs</th>
+            <th class="ind_th01">RAM</th>
+            <th class="ind_th01">Root 디스크</th>
+            <th class="ind_th01">Ephemeral 디스크</th>
+            <th class="ind_th01">Swap 디스크</th>
+            <th class="ind_th01">RX/TX 요인</th>
+            <th class="ind_th01">ID</th>
+            <th class="ind_th01">공용</th>
+            <th class="ind_th01">메타데이터</th>
+        </tr>
+        {% for flavor in flavorList%}
             <tr>
-                <th class="ind_th01">Flavor 이름</th>
-                <th class="ind_th01">VCPUs</th>
-                <th class="ind_th01">RAM</th>
-                <th class="ind_th01">Root 디스크</th>
-                <th class="ind_th01">Ephemeral 디스크</th>
-                <th class="ind_th01">Swap 디스크</th>
-                <th class="ind_th01">RX/TX 요인</th>
-                <th class="ind_th01">ID</th>
-                <th class="ind_th01">공용</th>
-                <th class="ind_th01">메타데이터</th>
+                <td class="ind_td01">{{ flavor.name }}</td>
+                <td class="ind_td01">{{ flavor.vcpus }}</td>
+                <td class="ind_td01">{{ flavor.memory_mb }}MB</td>
+                <td class="ind_td01">{{ flavor.disk }}GB</td>
+                <td class="ind_td01">{{ flavor.ephemeral }}GB</td>
+                <td class="ind_td01">{{ flavor.swap }}MB</td>
+                <td class="ind_td01">{{ flavor.rxtx_factor }}</td>
+                <td class="ind_td01">{{ flavor.id }}</td>
+                <td class="ind_td01">{{ flavor.is_public }}</td>
+                <td class="ind_td01">{{ ??? }}</td>
             </tr>
-            {% for flavor in flavorList%}
-                <tr>
-                    <td class="ind_td01">{{ flavor.name }}</td>
-                    <td class="ind_td01">{{ flavor.vcpus }}</td>
-                    <td class="ind_td01">{{ flavor.memory_mb }}MB</td>
-                    <td class="ind_td01">{{ flavor.disk }}GB</td>
-                    <td class="ind_td01">{{ flavor.ephemeral }}GB</td>
-                    <td class="ind_td01">{{ flavor.swap }}MB</td>
-                    <td class="ind_td01">{{ flavor.rxtx_factor }}</td>
-                    <td class="ind_td01">{{ flavor.id }}</td>
-                    <td class="ind_td01">{{ flavor.is_public }}</td>
-                    <td class="ind_td01">{{ ??? }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
+        {% endfor %}
+    </table>
+</div>
+
 {% endblock content %}

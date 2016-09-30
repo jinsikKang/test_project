@@ -11,40 +11,61 @@
 {% endblock header %}
 
 {% block content %}
-    <div>
-         <table class="ind_tab01" border="1">
-            <tr>
-                 <th class="ind_th01">이름</th> <td class="ind_td01">{{ network.name }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">ID</th> <td class="ind_td01">{{ network.id}}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">프로젝트 ID</th> <td class="ind_td01">{{ network.project_id }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">Status</th> <td class="ind_td01">{{ network.status }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">관리자 상태</th> <td class="ind_td01">{{ network.admin_state_up }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">공유</th> <td class="ind_td01">{{ network.shared }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">외부 네트워크</th> <td class="ind_td01">{{ network.router.external }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">MTU</th> <td class="ind_td01">{{ network.mtu }}</td>
-            </tr>
-            <tr>
-                 <th class="ind_th01">공급자 네트워크</th>
-                 <td class="ind_td01">
-                    네트워크 타입 {{ network.provider.network_type }}<br/>
-                    물리적인 네트워크 {{ network.provider.physical_network }}<br/>
-                    구분 ID: {{ network.provider.segmentation_id }}
-                </td>
-            </tr>
-        </table>
-    </div>
+<div id="summary">
+     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+        <tr>
+             <th class="ind_th01">이름</th> <td class="ind_td01">{{ network.name }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">ID</th> <td class="ind_td01">{{ network.id}}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">프로젝트 ID</th> <td class="ind_td01">{{ network.project_id }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">Status</th> <td class="ind_td01">{{ network.status }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">관리자 상태</th> <td class="ind_td01">{{ network.admin_state_up }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">공유</th> <td class="ind_td01">{{ network.shared }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">외부 네트워크</th> <td class="ind_td01">{{ network.router.external }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">MTU</th> <td class="ind_td01">{{ network.mtu }}</td>
+        </tr>
+        <tr>
+             <th class="ind_th01">공급자 네트워크</th>
+             <td class="ind_td01">
+                네트워크 타입 {{ network.provider.network_type }}<br/>
+                물리적인 네트워크 {{ network.provider.physical_network }}<br/>
+                구분 ID: {{ network.provider.segmentation_id }}
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="subnet">
+     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+         <tr>
+             <th class="ind_th01">이름</th>
+             <th class="ind_th01">CIDR</th>
+             <th class="ind_th01">IP 버전</th>
+             <th class="ind_th01">게이트웨이 IP</th>
+             <th class="ind_th01">사용된 IP</th>
+             <th class="ind_th01">남는 IP</th>
+         </tr>
+         <tr>
+             <td class="ind_td01"></td>
+         </tr>
+     </table>
+</div>
+<div id="port">
+
+</div>
+<div id="DHCPagent">
+
+</div>
 {% endblock content %}

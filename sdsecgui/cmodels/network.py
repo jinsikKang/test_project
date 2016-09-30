@@ -79,3 +79,5 @@ class Network:
         self.tenant_id = networkDic["tenant_id"]
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
+
+class subnet:

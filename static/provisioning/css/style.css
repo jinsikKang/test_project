@@ -60,6 +60,12 @@ td {margin:0; padding:0;}
 .right_d08 {width:100%; height:120px;}
 /**/
 
+/*table*/
+.ind_th01 {background-color:#fff; border-bottom:1px solid #dadee9 ; font-size:16px; color:#06142f ; font-weight:bold; padding:8px 0; text-align:center; width:170px;}
+.ind_tab01 {border:1px solid #dadee9 ; border-bottom:0px; width:auto;}
+.ind_td01 {background-color:#fff; font-size:16px; color:#8593b0 ; font-weight:bold; text-align:center; border-bottom:1px solid #dadee9 ; padding:8px 0;}
+/**/
+
 .contents {padding:10px;}
 
 /*.contents {width:100%; display:inline-block; position:absolute; padding:266px 0 0 0;}*/
