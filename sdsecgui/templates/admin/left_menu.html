@@ -8,19 +8,19 @@
     <div class="sub_left_menu_d01">
         <a href="#">호스트 집합</a>
     </div>
-    <div class="sub_left_menu_d01_click">
+    <div class="sub_left_menu_d01 instances">
         <a href="/dashboard/admin/instances">인스턴스</a>
     </div>
-    <div class="sub_left_menu_d01">
+    <div class="sub_left_menu_d01 volumes">
         <a href="/dashboard/admin/volumes">볼륨</a>
     </div>
-    <div class="sub_left_menu_d01">
+    <div class="sub_left_menu_d01 flavors">
         <a href="/dashboard/admin/flavors">flavor</a>
     </div>
-    <div class="sub_left_menu_d01">
+    <div class="sub_left_menu_d01 images">
         <a href="/dashboard/admin/images">이미지</a>
     </div>
-    <div class="sub_left_menu_d01">
+    <div class="sub_left_menu_d01 networks">
         <a href="/dashboard/admin/networks">네트워크</a>
     </div>
     <div class="sub_left_menu_d01">
@@ -33,3 +33,11 @@
         <a href="#">시스템 정보</a>
     </div>
 </div>
+<script>
+    $(function(){
+        selMenu = $(location).attr('pathname').replace("/dashboard/admin/","").replace("/","");
+        $("."+selMenu).addClass("sub_left_menu_d01_click");
+        $("."+selMenu).removeClass("sub_left_menu_d01");
+    });
+
+</script>
