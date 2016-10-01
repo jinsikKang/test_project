@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getNetworkList
-from sdsecgui.cmodels.network import Network
+from sdsecgui.cmodels.network import Network, Subnet, DHCPagent
 
 # setLogDir()
 # logger = getLogger()
@@ -27,3 +27,8 @@ def retrieveNetworkById(request, network_id):
     network = Network()
     network.setById(network_id)
     return render(request, 'admin/networks/info.html', { 'network' : network })
+
+def retrieveSubnetById(request, subnet_id):
+    subnet = Subnet()
+    subnet.setById(subnet_id)
+    return render(request, 'admin/networks/subnets/info.html', { 'subnet' : subnet })
