@@ -61,7 +61,7 @@
             success:function(data){
                 //var str = "";
                 for(key in data.subnet){
-                    $("."+key).text(data.subnet[key]);
+                    $("#"+key).text(data.subnet[key]);
                     //str += key + " = " + data.subnet[key] + "\n";
                 }
             }
