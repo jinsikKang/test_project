@@ -21,7 +21,7 @@
             <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01" id="status"><!--{{ subnet.status }}--></td>
         </tr>
         <tr>
-            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01"><!--{{ subnet.network_id }}--></td>
+            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01" id="network_id"><!--{{ subnet.network_id }}--></td>
         </tr>
         <tr>
             <th class="ind_th01">서브넷풀</th>     <td class="ind_td01"><!--{{ subnet.subnetpool_id }}--></td>
@@ -59,9 +59,10 @@
             url : '',
             data : { id:"{{ subnet_id }}" },
             success:function(data){
-                var str = "";
+                //var str = "";
                 for(key in data.subnet){
-                    str += key + " = " + data.subnet[key] + "\n";
+                    $("."+key).text(data.subnet[key])
+                    //str += key + " = " + data.subnet[key] + "\n";
                 }
                 alert(str);
             }
