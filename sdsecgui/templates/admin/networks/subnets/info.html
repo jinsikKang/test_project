@@ -59,7 +59,11 @@
             url : '',
             data : { id:"{{ subnet_id }}" },
             success:function(data){
-                alert(data);
+                var str = "";
+                for(key in data){
+                    str += key + " = " + data[key] + "\n";
+                }
+                alert(str);
             }
         });
 
