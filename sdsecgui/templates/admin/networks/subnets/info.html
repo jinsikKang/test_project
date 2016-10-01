@@ -9,47 +9,59 @@
 {% endblock sub_left_menu %}
 
 {% block content %}
-    <div>
-        <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
-            <tr>
-                <th class="ind_th01">이름</th>     <td class="ind_td01">{{ subnet.name }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">ID</th>       <td class="ind_td01">{{ subnet.id}}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01">{{ subnet.status }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01">{{ subnet.network_id }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">서브넷풀</th>     <td class="ind_td01">{{ subnet.subnetpool_id }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">IP 버전</th> <td class="ind_td01">{{ subnet.ip_version }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">CIDR</th>   <td class="ind_td01">{{ subnet.cidr }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">IP 할당 pool</th>   <td class="ind_td01">{{ subnet.allocation_pools }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">게이트웨이 IP</th><td class="ind_td01">{{ subnet.gateway_ip }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">DHCP 사용</th><td class="ind_td01">{{ subnet.enable_dhcp }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">IPv6 주소 설정 모드</th><td class="ind_td01">{{ subnet.ipv6_address_mode }}</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">추가 경로</th><td class="ind_td01"><-???</td>
-            </tr>
-            <tr>
-                <th class="ind_th01">DNS 네임 서버</th><td class="ind_td01">{{ subnet.dns_nameservers }}</td>
-            </tr>
-        </table>
-    </div>
+<div>
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+        <tr>
+            <th class="ind_th01">이름</th>     <td class="ind_td01" id="name"><!--{{ subnet.name }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">ID</th>       <td class="ind_td01" id="id"><!--{{ subnet.id}}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01" id="status"><!--{{ subnet.status }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01"><!--{{ subnet.network_id }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">서브넷풀</th>     <td class="ind_td01"><!--{{ subnet.subnetpool_id }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">IP 버전</th> <td class="ind_td01"><!--{{ subnet.ip_version }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">CIDR</th>   <td class="ind_td01"><!--{{ subnet.cidr }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">IP 할당 pool</th>   <td class="ind_td01"><!--{{ subnet.allocation_pools }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">게이트웨이 IP</th><td class="ind_td01"><!--{{ subnet.gateway_ip }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">DHCP 사용</th><td class="ind_td01"><!--{{ subnet.enable_dhcp }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">IPv6 주소 설정 모드</th><td class="ind_td01"><!--{{ subnet.ipv6_address_mode }}--></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">추가 경로</th><td class="ind_td01"><-???</td>
+        </tr>
+        <tr>
+            <th class="ind_th01">DNS 네임 서버</th><td class="ind_td01"><!--{{ subnet.dns_nameservers }}--></td>
+        </tr>
+    </table>
+</div>
+<script>
+    $(function(){
+        $.ajax({
+            url : '',
+            data : { id:"{{ subnet_id }}" },
+            success:function(data){
+                alert(data);
+            }
+        });
+
+    });
+</script>
 {% endblock content %}

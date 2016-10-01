@@ -1,6 +1,7 @@
 #_*_coding:utf-8_*_
 
 from django.shortcuts import render
+from django.http import JsonResponse
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getNetworkList
@@ -29,6 +30,9 @@ def retrieveNetworkById(request, network_id):
     return render(request, 'admin/networks/info.html', { 'network' : network })
 
 def retrieveSubnetById(request, subnet_id):
-    subnet = Subnet()
-    subnet.setById(subnet_id)
-    return render(request, 'admin/networks/subnets/info.html', { 'subnet' : subnet })
+    if not request.POST.get("id"):
+        return render(request, 'admin/networks/subnets/info.html', { 'subnet_id' : subnet_id })
+    else:
+        subnet = Subnet()
+        subnet.setById(subnet_id)
+        return JsonResponse({ 'subnet' : subnet })
