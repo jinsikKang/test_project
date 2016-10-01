@@ -27,7 +27,6 @@ class Network:
         if output:
             return output
         else:
-            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def __init__(self):
@@ -75,6 +74,7 @@ class Network:
 
         self.subnet_id_list = networkDic["subnets"].split("\n")
         self.subnets = self.getSubnetList()
+        self.dhcpAgents = self.getDHCPagentList()
 
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
@@ -92,6 +92,10 @@ class Network:
             subnet.setById(subnet_id)
             subnets.append(subnet)
         return subnets
+    def getDHCPagentList(self):
+        output = json.loads(excuteCmd("neutron dhcp-agent-list-hosting-net " + self.id + " -f json"))
+        return output
+        
 
 class Subnet(Base):
     def __init__(self):
@@ -118,14 +122,11 @@ class Subnet(Base):
         pass
 
     def showInfoJsonById(cls, id):
-        # id로 네트워크를 찾는다.
-        # logger.debug("showNetworkById")
         output = json.loads(excuteCmd("neutron subnet-show " + id + " -f json"))
 
         if output:
             return output
         else:
-            # logger.debug(str("'" + unicode(id).encode("utf-8") + "' 에 해당하는 인스턴스가 없습니다."))
             return None
 
     def setById(cls, id):
@@ -167,3 +168,23 @@ class Subnet(Base):
             # ipv6_pattern
             pass
         # cls.remain_ip = cls.allocation_pools["start"]
+
+class DHCPagent(Base):
+    def __init__(self):
+        self.host = ""
+        self.id = ""
+        self.alive = ""
+        self.admin_state_up = ""
+    def showInfoJsonById(cls, id):
+        output = json.loads(excuteCmd("neutron dhcp-agent-list-hosting-net " + id + " -f json"))
+        if output:
+            return output
+        else:
+            return None
+
+    def setById(cls, id):
+        dhcpAgentDic = cls.showInfoJsonById(id)
+        cls.host = dhcpAgentDic["host"]
+        cls.id = dhcpAgentDic["id"]
+        cls.alive = dhcpAgentDic["alive"]
+        cls.admin_state_up = dhcpAgentDic["admin_state_up"]
