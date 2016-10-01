@@ -9,7 +9,7 @@
 
 <script>
     $(function(){
-        var re = new RegExp("/dashboard/(\\w+)/.+")
+        var re = new RegExp("/dashboard/(\\w+)/.*")
         var urlStr = $(location).attr('pathname')
         var selMenu = urlStr.replace(re, "$1");
         $("."+selMenu).addClass("head_d01_click");

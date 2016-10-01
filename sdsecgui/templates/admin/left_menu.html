@@ -35,7 +35,7 @@
 </div>
 <script>
     $(function(){
-        var subRe = new RegExp("/dashboard/admin/(\\w+)/.+");
+        var subRe = new RegExp("/dashboard/admin/(\\w+)/.*");
         var urlStr = $(location).attr('pathname');
         var selSubMenu = urlStr.replace(subRe, "$1");
         $("."+selSubMenu).addClass("sub_left_menu_d01_click");
