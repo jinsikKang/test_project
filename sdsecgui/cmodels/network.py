@@ -72,8 +72,10 @@ class Network:
         self.shared = networkDic["shared"]
         self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
-        self.subnets = networkDic["subnets"].split("\n")
-        print self.subnets
+
+        self.subnet_id_list = networkDic["subnets"].split("\n")
+        self.subnets = self.getSubnetList()
+
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
@@ -83,6 +85,13 @@ class Network:
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
 
+    def getSubnetList(self):
+        subnets = []
+        for subnet_id in self.subnets:
+            subnet = Subnet()
+            subnet.setById(subnet_id)
+            subnets.append(subnet)
+        return subnets
 
 class Subnet(Base):
     def __init__(self):
@@ -148,6 +157,7 @@ class Subnet(Base):
         """
         ^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$
         """
+        print cls.allocation_pools
         if cls.ip_version == "4":
             print ipv4_pattern.match(cls.allocation_pools["end"]).group(1)
             print ipv4_pattern.match(cls.allocation_pools["start"]).group(1)
