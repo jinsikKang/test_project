@@ -60,8 +60,8 @@
             data : { id:"{{ subnet_id }}" },
             success:function(data){
                 var str = "";
-                for(key in data){
-                    str += key + " = " + data[key] + "\n";
+                for(key in data.subnet){
+                    str += key + " = " + data.subnet[key] + "\n";
                 }
                 alert(str);
             }
