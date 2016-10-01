@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 from django.http import JsonResponse
+import json
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getNetworkList
@@ -35,4 +36,4 @@ def retrieveSubnetById(request, subnet_id):
     else:
         subnet = Subnet()
         subnet.setById(subnet_id)
-        return JsonResponse({ 'subnet' : subnet })
+        return JsonResponse({ 'subnet' : json.dumps(subnet) })
