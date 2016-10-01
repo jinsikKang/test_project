@@ -87,7 +87,7 @@ class Network:
 
     def getSubnetList(self):
         subnets = []
-        for subnet_id in self.subnets:
+        for subnet_id in self.subnet_id_list:
             subnet = Subnet()
             subnet.setById(subnet_id)
             subnets.append(subnet)
