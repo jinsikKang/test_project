@@ -35,11 +35,11 @@
 </div>
 <script>
     $(function(){
-        var re = new RegExp("/dashboard/admin/([\w]+)/")
-        var urlStr = $(location).attr('pathname')
-        var selMenu = urlStr.replace(re, "$1");
-        $("."+selMenu).addClass("sub_left_menu_d01_click");
-        $("."+selMenu).removeClass("sub_left_menu_d01");
+        var subRe = new RegExp("/dashboard/admin/(\w+)/");
+        var urlStr = $(location).attr('pathname');
+        var selSubMenu = urlStr.replace(subRe, "$1");
+        $("."+selSubMenu).addClass("sub_left_menu_d01_click");
+        $("."+selSubMenu).removeClass("sub_left_menu_d01");
     });
 
 </script>
