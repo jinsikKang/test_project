@@ -30,7 +30,7 @@ def retrieveNetworkById(request, network_id):
     return render(request, 'admin/networks/info.html', { 'network' : network })
 
 def retrieveSubnetById(request, subnet_id):
-    if not request.POST.get("id"):
+    if not request.is_ajax():
         return render(request, 'admin/networks/subnets/info.html', { 'subnet_id' : subnet_id })
     else:
         subnet = Subnet()
