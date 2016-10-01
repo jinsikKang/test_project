@@ -35,5 +35,4 @@ def retrieveSubnetById(request, subnet_id):
         return render(request, 'admin/networks/subnets/info.html', { 'subnet_id' : subnet_id })
     else:
         subnet = Subnet()
-        subnet.setById(subnet_id)
-        return JsonResponse({ 'subnet' : json.dumps(subnet) })
+        return JsonResponse({ 'subnet' : subnet.showInfoJsonById(subnet_id) })
