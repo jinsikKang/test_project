@@ -141,7 +141,9 @@ class Subnet(Base):
         cls.dns_nameservers = subnetDic["dns_nameservers"]
         cls.updated_at = subnetDic["updated_at"]
         cls.ipv6_ra_mode = subnetDic["ipv6_ra_mode"]
-        cls.allocation_pools = subnetDic["allocation_pools"]
+        cls.allocation_pools = []
+        for allocation_pool in subnetDic["allocation_pools"].split("\n"):
+            cls.allocation_pools.append(json.loads(allocation_pool))
         cls.gateway_ip = subnetDic["gateway_ip"]
         cls.revision_number = subnetDic["revision_number"]
         cls.ipv6_address_mode = subnetDic["ipv6_address_mode"]
