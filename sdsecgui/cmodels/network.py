@@ -72,11 +72,8 @@ class Network:
         self.shared = networkDic["shared"]
         self.project_id = networkDic["project_id"]
         self.status = networkDic["status"]
-        self.subnets = []
-        for subnet_id in networkDic["subnets"].split("\n"):
-            subnet = Subnet()
-            subnet.setById(subnet_id)
-            self.subnets.append(subnet)
+        self.subnets = networkDic["subnets"].split("\n")
+        print self.subnets
         self.description = networkDic["description"]
         self.tags = networkDic["tags"]
         self.updated_at = networkDic["updated_at"]
@@ -85,6 +82,7 @@ class Network:
         self.tenant_id = networkDic["tenant_id"]
         self.created_at = networkDic["created_at"]
         self.mtu = networkDic["mtu"]
+
 
 class Subnet(Base):
     def __init__(self):

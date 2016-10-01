@@ -17,6 +17,7 @@ def excuteCmd(command):
     print "excuteCmd>> " + command
     f = os.popen(command)
     result = f.read()
+    print result
     # logger.debug(result)
     return result
 
