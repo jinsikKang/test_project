@@ -156,4 +156,4 @@ class Subnet(Base):
         elif cls.ip_version == "6":
             # ipv6_pattern
             pass
-        cls.remain_ip = cls.allocation_pools["start"]
+        # cls.remain_ip = cls.allocation_pools["start"]
