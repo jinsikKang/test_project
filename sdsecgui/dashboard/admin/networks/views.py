@@ -35,5 +35,4 @@ def retrieveSubnetById(request, subnet_id):
     else:
         subnet = Subnet()
         subnet.setById(subnet_id)
-        print "id", request.POST["id"], "subnet : ", subnet
         return JsonResponse({ 'subnet' : subnet })
