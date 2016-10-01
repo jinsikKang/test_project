@@ -35,7 +35,9 @@
 </div>
 <script>
     $(function(){
-        selMenu = $(location).attr('pathname').replace("/dashboard/admin/","").replace("/","");
+        var re = new RegExp("/dashboard/admin/([\w]+)/")
+        var urlStr = $(location).attr('pathname')
+        var selMenu = urlStr.replace(re, "$1");
         $("."+selMenu).addClass("sub_left_menu_d01_click");
         $("."+selMenu).removeClass("sub_left_menu_d01");
     });

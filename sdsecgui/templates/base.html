@@ -6,38 +6,48 @@
 {% load staticfiles %}
 <link href='{% static "provisioning/css/style.css" %}' rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
 
+<script>
+    $(function(){
+        var re = new RegExp("/dashboard/([\w]+)/")
+        var urlStr = $(location).attr('pathname')
+        var selMenu = urlStr.replace(re, "$1");
+        $("."+selMenu).addClass("head_d01_click");
+        $("."+selMenu).removeClass("head_d01");
+    });
+
+</script>
+</head>
 <body>
 	<div class="ind_d01">
         <div class="header">
             <a href="#"><img class="head_img01" src='{% static "provisioning/img/logo.png" %}' alt="#"></a>
-            <a href="/dashboard">
-                <div class="head_d01_click">
+            <a href="/dashboard/provisioning">
+                <div class="head_d01 provisioning">
                     <img class="head_img02" src='{% static "provisioning/img/head_01.png" %}' alt="#">
                     <div class="head_d02">프로비저닝</div>
                 </div>
             </a>
             <a href="#">
-                <div class="head_d01">
+                <div class="head_d01 group">
                     <img class="head_img02" src='{% static "provisioning/img/head_02.png" %}' alt="#">
                     <div class="head_d02">그룹</div>
                 </div>
             </a>
             <a href="#">
-                <div class="head_d01">
+                <div class="head_d01 certification">
                     <img class="head_img02" src='{% static "provisioning/img/head_03.png" %}' alt="#">
                     <div class="head_d02">인증</div>
                 </div>
             </a>
             <a href="#">
-                <div class="head_d01">
+                <div class="head_d01 insights">
                     <img class="head_img02" src='{% static "provisioning/img/head_04.png" %}' alt="#">
                     <div class="head_d02">통계/조회</div>
                 </div>
             </a>
             <a href="/dashboard/admin/instances">
-                <div class="head_d01">
+                <div class="head_d01 admin">
                     <img class="head_img02" src='{% static "provisioning/img/head_05.png" %}' alt="#">
                     <div class="head_d02">관리</div>
                 </div>

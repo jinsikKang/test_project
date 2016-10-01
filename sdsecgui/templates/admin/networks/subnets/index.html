@@ -1,0 +1,22 @@
+<div id="subnet">
+     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+         <tr>
+             <th class="ind_th01">이름</th>
+             <th class="ind_th01">CIDR</th>
+             <th class="ind_th01">IP 버전</th>
+             <th class="ind_th01">게이트웨이 IP</th>
+             <th class="ind_th01">사용된 IP</th>
+             <th class="ind_th01">남는 IP</th>
+         </tr>
+         {% for subnet in network.subnets %}
+         <tr>
+             <td class="ind_td01"><a href="/dashboard/admin/networks/subnets/{{ subnet.id }}">{{ subnet.name }}</a></td>
+             <td class="ind_td01">{{ subnet.cidr }}</td>
+             <td class="ind_td01">{{ subnet.ip_version }}</td>
+             <td class="ind_td01">{{ subnet.gateway_ip }}</td>
+             <td class="ind_td01">{{ subnet.revision_number }}아님</td>
+             <td class="ind_td01">{{ subnet.allocation_pools }}아님</td>
+         </tr>
+        {% endfor %}
+     </table>
+</div>
