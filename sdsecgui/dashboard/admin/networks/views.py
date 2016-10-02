@@ -38,7 +38,7 @@ def retrieveSubnetById(request, subnet_id):
         # print "ajax, POST", request.is_ajax(), request.method
         subnet = Subnet()
         subnet.setById(subnet_id)
-        return JsonResponse({ 'subnet' : subnet.subnetDic })
+        return JsonResponse({ 'subnet' : subnet.toJSON() })
     else:
         # print "is ajax : ", request.is_ajax(), " method:", request.method
         return render(request, 'admin/networks/subnets/info.html', {'subnet_id': subnet_id})

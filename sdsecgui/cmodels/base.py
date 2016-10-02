@@ -1,7 +1,6 @@
 # _*_coding:utf-8_*_
 
-from sdsec.log_handler import setLogDir, getLogger
-from ..tools.command import excuteCmd, login
+import json
 
 
 class Base:
@@ -13,6 +12,10 @@ class Base:
             value = cols[1].strip()
             infoDic[key] = value
         return infoDic
+
+    @classmethod
+    def toJSON(self):
+        return json.loads(json.dumps(self, default=lambda o:o.__dict__, sort_keys=True, indent=4))
 
     @classmethod
     def showInfoById(cls, id):
