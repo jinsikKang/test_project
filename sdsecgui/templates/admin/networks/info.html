@@ -81,21 +81,58 @@ $(function(){
     $("#port").hide();
     // $("#DHCPagent").hide();
     var tabList = ["summary", "subnet", "port", "DHCPagent"];
-    for (i in tabList){
-        var tab = tabList[i];
-        $("." + tab).on("click", function(){
-            var subList = JSON.parse(JSON.stringify(tabList));
-            subList.slice(i, 1);
-            for (j in subList) {
-                $("#" + subList[j]).hide();
-                $("." + subList[j]).removeClass("header_title_d04_click");
-                $("." + subList[j]).addClass("header_title_d05");
-            }
-            $("." + tab).addClass("header_title_d04_click");
-            $("." + tab).removeClass("header_title_d05");
-            $("#" + tab).show();
-        });
-    }
+    var tab = tabList[0];
+    $("." + tab).on("click", function(){
+        var subList = tabList;
+        subList.slice(0, 1);
+        for (j in subList) {
+            $("#" + subList[j]).hide();
+            $("." + subList[j]).removeClass("header_title_d04_click");
+            $("." + subList[j]).addClass("header_title_d05");
+        }
+        $("." + tab).addClass("header_title_d04_click");
+        $("." + tab).removeClass("header_title_d05");
+        $("#" + tab).show();
+    });
+    var tab = tabList[1];
+    $("." + tab).on("click", function(){
+        var subList = tabList;
+        subList.slice(1, 1);
+        for (j in subList) {
+            $("#" + subList[j]).hide();
+            $("." + subList[j]).removeClass("header_title_d04_click");
+            $("." + subList[j]).addClass("header_title_d05");
+        }
+        $("." + tab).addClass("header_title_d04_click");
+        $("." + tab).removeClass("header_title_d05");
+        $("#" + tab).show();
+    });
+    var tab = tabList[2];
+    $("." + tab).on("click", function(){
+        var subList = tabList;
+        subList.slice(2, 1);
+        for (j in subList) {
+            $("#" + subList[j]).hide();
+            $("." + subList[j]).removeClass("header_title_d04_click");
+            $("." + subList[j]).addClass("header_title_d05");
+        }
+        $("." + tab).addClass("header_title_d04_click");
+        $("." + tab).removeClass("header_title_d05");
+        $("#" + tab).show();
+    });
+    var tab = tabList[3];
+    $("." + tab).on("click", function(){
+        var subList = tabList;
+        subList.slice(3, 1);
+        for (j in subList) {
+            $("#" + subList[j]).hide();
+            $("." + subList[j]).removeClass("header_title_d04_click");
+            $("." + subList[j]).addClass("header_title_d05");
+        }
+        $("." + tab).addClass("header_title_d04_click");
+        $("." + tab).removeClass("header_title_d05");
+        $("#" + tab).show();
+    });
 });
 
 </script>
