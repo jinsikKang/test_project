@@ -42,7 +42,6 @@ function DataTable (settings){
                     data += "</ul>";
                     dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else {
-                    alert(this.columns[key]);
                     if ( this.columns[key].indexOf(":link") != -1 ) {
                         /* class 에 link 를 포함 */
                         this.columns[key] = this.columns[key].replace(":link", "");
@@ -66,6 +65,11 @@ function DataTable (settings){
             var columnHtml = "<tr>";
             for( key in this.columns ){
                 columnHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
+                if ( this.columns[key].indexOf(":link") != -1 ) {
+                    /* class 에 link 를 포함 */
+                    this.columns[key] = this.columns[key].replace(":link", "");
+                    this.link = " link";
+                }
             }
             columnHtml += "</tr>";
 
