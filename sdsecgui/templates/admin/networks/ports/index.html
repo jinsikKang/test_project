@@ -1,0 +1,91 @@
+<div id="port">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+         <tr>
+             <th class="ind_th01">이름</th>
+             <th class="ind_th01">Fixed IP</th>
+             <th class="ind_th01">장치 연결됨</th>
+             <th class="ind_th01">Status</th>
+             <th class="ind_th01">관리자 상태</th>
+         </tr>
+
+     </table>
+</div>
+
+<script>
+    $(function(){
+
+        $.ajax({
+            type:"POST",
+            url : '',
+            data : { id:"{{ net_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
+            success:function(data){
+            <!-- 수정해야됨 해당 네트워크의 포트 리스트 불러오기-->
+                var tempList = data.subnet["allocation_pools"].split("\n");
+                var allocation_pools = [];
+                for( i in tempList ){
+                    var allocation_pool = JSON.parse(tempList[i]);
+                    allocation_pools.push(allocation_pool);
+                }
+                for( key in data.subnet ){
+                    var resultHtml = "";
+                    if( key == "allocation_pools" ){
+					    for( var i = 0; i < allocation_pools.length; i++ ){
+					        if( resultHtml != "" ){
+					            resultHtml += "<br/>";
+					        }
+							resultHtml += "시작 " + allocation_pools[i]["start"] + " - 끝 " + allocation_pools[i]["end"];
+						}
+					}
+					else{
+						resultHtml = data.subnet[key];
+					}
+                    if( resultHtml == "" ){
+						resultHtml = "None"
+					}
+					$("#"+key).html(resultHtml);
+                }
+            }
+        });
+        <!-- 여기까지 -->
+        var dataTable = {
+            "columns" : {
+                "name" : "이름",
+                "fixed_ips" : "Fixed IP",
+                "network" : "장치 연결됨",
+                "status" : "Status",
+                "admin_state_up" : "관리자 상태"
+            },
+            "data" : //데이터 넣기
+            [
+                {
+                    "name" : "",
+                    "fixed_ips" : "",
+                    "status" : "",
+                    "admin_state_up" : ""
+                },
+                {
+                    "name" : "",
+                    "fixed_ips" : "",
+                    "status" : "",
+                    "admin_state_up" : ""
+                }
+            ]
+        };
+
+        var columnHtml = "<tr>";
+        for( key in dataTable["columns"] ){
+            columnHtml += "<th class='ind_th01 " + key + "'">" + dataTable["columns"][key] + "</th>\n";
+        }
+        columnHtml += "</tr>";
+        var dataHtml = "";
+        for( i in dataTable["data"] ){
+            dataHtml += "<tr>\n";
+            for( key in dataTable["columns"] ){
+                dataHtml += "<td class='" + key + "'>" + dataTable["data"][i][key] + "</td>\n";
+            }
+            dataHtml += "</tr>\n";
+        }
+        var resultHtml = columnHtml + dataHtml;
+        $("#port table").html(resultHtml);
+    });
+</script>

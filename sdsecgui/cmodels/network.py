@@ -74,6 +74,7 @@ class Network:
 
         self.subnet_id_list = networkDic["subnets"].split("\n")
         self.subnets = self.getSubnetList()
+        self.ports = self.getPortList()
         self.dhcpAgents = self.getDHCPagentList()
 
         self.description = networkDic["description"]
@@ -92,6 +93,14 @@ class Network:
             subnet.setById(subnet_id)
             subnets.append(subnet)
         return subnets
+
+    def getPortList(self):
+        ports = []
+        tempPortList = json.loads(excuteCmd("neutron port-list -f json"))
+        for tempPort in tempPortList:
+            ports.append(json.loads(excuteCmd("neutron port-show " + tempPort["id"] + " -f json")))
+        return ports
+
     def getDHCPagentList(self):
         output = json.loads(excuteCmd("neutron dhcp-agent-list-hosting-net " + self.id + " -f json"))
         return output
@@ -130,31 +139,31 @@ class Subnet(Base):
             return None
 
     def setById(cls, id):
-        subnetDic = cls.showInfoJsonById(id)
-        if subnetDic == None:
+        cls.subnetDic = cls.showInfoJsonById(id)
+        if cls.subnetDic == None:
             raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
-        cls.service_types = subnetDic["service_types"]
-        cls.description = subnetDic["description"]
-        cls.enable_dhcp = subnetDic["enable_dhcp"]
-        cls.network_id = subnetDic["network_id"]
-        cls.tenant_id = subnetDic["tenant_id"]
-        cls.created_at = subnetDic["created_at"]
-        cls.dns_nameservers = subnetDic["dns_nameservers"]
-        cls.updated_at = subnetDic["updated_at"]
-        cls.ipv6_ra_mode = subnetDic["ipv6_ra_mode"]
+        cls.service_types = cls.subnetDic["service_types"]
+        cls.description = cls.subnetDic["description"]
+        cls.enable_dhcp = cls.subnetDic["enable_dhcp"]
+        cls.network_id = cls.subnetDic["network_id"]
+        cls.tenant_id = cls.subnetDic["tenant_id"]
+        cls.created_at = cls.subnetDic["created_at"]
+        cls.dns_nameservers = cls.subnetDic["dns_nameservers"]
+        cls.updated_at = cls.subnetDic["updated_at"]
+        cls.ipv6_ra_mode = cls.subnetDic["ipv6_ra_mode"]
         cls.allocation_pools = []
-        for allocation_pool in subnetDic["allocation_pools"].split("\n"):
+        for allocation_pool in cls.subnetDic["allocation_pools"].split("\n"):
             cls.allocation_pools.append(json.loads(allocation_pool))
-        cls.gateway_ip = subnetDic["gateway_ip"]
-        cls.revision_number = subnetDic["revision_number"]
-        cls.ipv6_address_mode = subnetDic["ipv6_address_mode"]
-        cls.ip_version = subnetDic["ip_version"]
-        cls.host_routes = subnetDic["host_routes"]
-        cls.cidr = subnetDic["cidr"]
-        cls.project_id = subnetDic["project_id"]
-        cls.id = subnetDic["id"]
-        cls.subnetpool_id = subnetDic["subnetpool_id"]
-        cls.name = subnetDic["name"]
+        cls.gateway_ip = cls.subnetDic["gateway_ip"]
+        cls.revision_number = cls.subnetDic["revision_number"]
+        cls.ipv6_address_mode = cls.subnetDic["ipv6_address_mode"]
+        cls.ip_version = cls.subnetDic["ip_version"]
+        cls.host_routes = cls.subnetDic["host_routes"]
+        cls.cidr = cls.subnetDic["cidr"]
+        cls.project_id = cls.subnetDic["project_id"]
+        cls.id = cls.subnetDic["id"]
+        cls.subnetpool_id = cls.subnetDic["subnetpool_id"]
+        cls.name = cls.subnetDic["name"]
         ipv4_pattern = re.compile("[\d]+\.[\d]+\.[\d]+\.([\d]+)")
         ipv6_pattern = re.compile("[\w]+:[\w]+:[\w]+:[\w]*:([\w:]+)")
         """
@@ -168,6 +177,17 @@ class Subnet(Base):
             # ipv6_pattern
             pass
         # cls.remain_ip = cls.allocation_pools["start"]
+
+class Port(Base):
+    def showInfoJsonById(cls, id):
+        output = json.loads(excuteCmd("neutron port-show " + id + " -f json"))
+        if output:
+            return output
+        else:
+            return None
+    def setById(cls, id):
+        cls.portDic = cls
+
 
 class DHCPagent(Base):
     def __init__(self):
