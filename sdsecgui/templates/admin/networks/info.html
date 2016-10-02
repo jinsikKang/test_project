@@ -131,39 +131,39 @@ function DataTable (settings){
     return this;
 }
     $(function(){
+        var dataTable;
         $.ajax({
             type:"POST",
             url : '',
             data : { id:"{{ network_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
                 network = data;
-                // console.log(network);
+                dataTable = new DataTable({
+                    "selector" : "#summary",
+                    "columns" : {
+                        "name" : "이름",
+                        "id" : "ID",
+                        "project_id " : "프로젝트 ID",
+                        "status" : "Status",
+                        "admin_state_up" : "관리자 상태",
+                        "shared" : "공유",
+                        "router" : "외부 네트워크",
+                        "mtu" : "MTU",
+                        "provider" : {
+                            "name" : "공급자 네트워크",
+                            "dataName" : {
+                                "network_type" : "네트워크 타입",
+                                "physical_network" : "물리적인 네트워크",
+                                "segmentation_id" : "구분 ID"
+                            }
+                        }
+                    },
+                    "vertical" : true,
+                    "data" : network
+                });
             }
         });
 
-        var dataTable = new DataTable({
-            "selector" : "#summary",
-            "columns" : {
-                "name" : "이름",
-                "id" : "ID",
-                "project_id " : "프로젝트 ID",
-                "status" : "Status",
-                "admin_state_up" : "관리자 상태",
-                "shared" : "공유",
-                "router" : "외부 네트워크",
-                "mtu" : "MTU",
-                "provider" : {
-                    "name" : "공급자 네트워크",
-                    "dataName" : {
-                        "network_type" : "네트워크 타입",
-                        "physical_network" : "물리적인 네트워크",
-                        "segmentation_id" : "구분 ID"
-                    }
-                }
-            },
-            "vertical" : true,
-            "data" : network
-        });
         dataTable.showDataTable();
     });
 </script>
