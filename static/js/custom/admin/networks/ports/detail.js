@@ -1,4 +1,13 @@
 function getPostAjax(id, csrf_token){
+    this.getListData = function(dataList){
+        var tempList = dataList.split("\n");
+        var resultList = [];
+        for( i in tempList ){
+            var data = JSON.parse(tempList[i]);
+            resultList.push(data);
+        }
+        return resultList
+    }
     $.ajax({
         type:"POST",
         url : '',
@@ -36,13 +45,4 @@ function getPostAjax(id, csrf_token){
             }
         }
     });
-    this.getListData = function(dataList){
-        var tempList = dataList.split("\n");
-        var resultList = [];
-        for( i in tempList ){
-            var data = JSON.parse(tempList[i]);
-            resultList.push(data);
-        }
-        return resultList
-    }
 }
