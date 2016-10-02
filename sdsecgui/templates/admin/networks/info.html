@@ -94,7 +94,7 @@ function getSubnet(){
     var dataTable = new DataTable({
         "selector" : "#subnet",
         "columns" : {
-            "name" : "이름",
+            "name" : "이름:link",
             "cidr" : "CIDR",
             "ip_version" : "IP 버전",
             "gateway_ip" : "게이트웨이 IP",
@@ -104,6 +104,7 @@ function getSubnet(){
         "data" : network.subnets
     });
     dataTable.showDataTable();
+    dataTable.setLink("networks/subnet")
 }
 $(function(){
     $.ajax({
