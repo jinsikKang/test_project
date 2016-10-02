@@ -61,6 +61,49 @@
 
 <script>
 var network;
+function DataTable (settings){
+    this.selector = settings["selector"];
+    this.columns = settings["columns"];
+    if( settings["vertical"] ){
+        this.vertical = settings["tableType"];
+    }else{
+        this.vertical = false;
+    }
+    if( settings["data"] ){
+        this.data = data;
+    }else{
+        this.data = null;
+    }
+    this.showDataTable = function() {
+        var resultHtml = ""
+        if( tableType ){
+            for( key in this.columns ){
+                resultHtml += "<tr>\n";
+                resultHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
+                resultHtml += "<td class='ind_td01 " + key + "'>" + this.data[key] + "</td>\n";
+                resultHtml += "</tr>\n";
+            }
+        }else{
+            var columnHtml = "<tr>";
+            for( key in this.columns ){
+                columnHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
+            }
+            columnHtml += "</tr>";
+
+            var dataHtml = "";
+            for( i in this.data ){
+                dataHtml += "<tr>\n";
+                for( key in this.columns ){
+                    dataHtml += "<td class='ind_td01 " + key + "'>" + this.data[i][key] + "</td>\n";
+                }
+                dataHtml += "</tr>\n";
+            }
+            resultHtml = columnHtml + dataHtml;
+        }
+        $(this.selector + " table").html(resultHtml);
+    };
+    return this;
+}
     $(function(){
         $.ajax({
             type:"POST",
@@ -71,7 +114,8 @@ var network;
                 // console.log(network);
             }
         });
-        var dataTable = {
+
+        var dataTable = new DataTable({
             "selector" : "#summary",
             "columns" : {
                 "name" : "이름",
@@ -84,41 +128,25 @@ var network;
                 "mtu" : "MTU",
                 "provider" : "공급자 네트워크"
             },
+            "vertical" : true,
             "data" : //데이터 넣기
             {
                 "name" : "1",
                 "fixed_ips" : "",
                 "status" : "",
                 "admin_state_up" : ""
-            },
-            "tableType" : 1
-        };
-        var resultHtml = ""
-        if( dataTable["tableType"] == 1 ){
-            for( key in dataTable["columns"] ){
-                resultHtml += "<tr>\n";
-                resultHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
-                resultHtml += "<td class='ind_td01 " + key + "'>" + dataTable["data"][key] + "</td>\n";
-                resultHtml += "</tr>\n";
             }
-        }else{
-            var columnHtml = "<tr>";
-            for( key in dataTable["columns"] ){
-                columnHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
-            }
-            columnHtml += "</tr>";
-
-            var dataHtml = "";
-            for( i in dataTable["data"] ){
-                dataHtml += "<tr>\n";
-                for( key in dataTable["columns"] ){
-                    dataHtml += "<td class='ind_td01 " + key + "'>" + dataTable["data"][i][key] + "</td>\n";
-                }
-                dataHtml += "</tr>\n";
-            }
-            resultHtml = columnHtml + dataHtml;
+        });
+        dataTable.showDataTable();
+        /*
+        function dataTable (selector, columns, data, tableType){
+            this.selector = selector;
+			this.columns = columns;
+			this.data = data;
+			this.tableType = tableType;
         }
-        $(dataTable["selector"] + " table").html(resultHtml);
+        */
+        
     });
 </script>
 {% endblock content %}
