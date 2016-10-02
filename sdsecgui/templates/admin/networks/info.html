@@ -104,7 +104,7 @@ function DataTable (settings){
                     columnHtml = columnPattern.replace("%C", this.columns[key]).replace("%K", key);
                     if( this.data[key] instanceof Object ){
                         for ( dataNameKey in this.data[key] ){
-                            data += dataPattern.replace("%D", this.data[key][dataNameKey]).replace("%K", key);
+                            dataHtml = dataPattern.replace("%D", this.data[key][dataNameKey]).replace("%K", key);
                         }
                     } else {
                         dataHtml = dataPattern.replace("%D", this.data[key]).replace("%K", key);
