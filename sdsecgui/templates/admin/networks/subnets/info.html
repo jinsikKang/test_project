@@ -12,43 +12,43 @@
 <div>
     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
         <tr>
-            <th class="ind_th01">이름</th>     <td class="ind_td01" id="name"><!--{{ subnet.name }}--></td>
+            <th class="ind_th01">이름</th>     <td class="ind_td01" id="name"></td>
         </tr>
         <tr>
-            <th class="ind_th01">ID</th>       <td class="ind_td01" id="id"><!--{{ subnet.id}}--></td>
+            <th class="ind_th01">ID</th>       <td class="ind_td01" id="id"></td>
         </tr>
         <tr>
-            <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01" id="status"><!--{{ subnet.status }}--></td>
+            <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01" id="status"></td>
         </tr>
         <tr>
-            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01" id="network_id"><!--{{ subnet.network_id }}--></td>
+            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01" id="network_id"></td>
         </tr>
         <tr>
-            <th class="ind_th01">서브넷풀</th>     <td class="ind_td01" id="subnetpool_id"><!--{{ subnet.subnetpool_id }}--></td>
+            <th class="ind_th01">서브넷풀</th>     <td class="ind_td01" id="subnetpool_id"></td>
         </tr>
         <tr>
-            <th class="ind_th01">IP 버전</th> <td class="ind_td01" id="ip_version"><!--{{ subnet.ip_version }}--></td>
+            <th class="ind_th01">IP 버전</th> <td class="ind_td01" id="ip_version"></td>
         </tr>
         <tr>
-            <th class="ind_th01">CIDR</th>   <td class="ind_td01" id="cidr"><!--{{ subnet.cidr }}--></td>
+            <th class="ind_th01">CIDR</th>   <td class="ind_td01" id="cidr"></td>
         </tr>
         <tr>
-            <th class="ind_th01">IP 할당 pool</th>   <td class="ind_td01" id="allocation_pools"><!--{{ subnet.allocation_pools }}--></td>
+            <th class="ind_th01">IP 할당 pool</th>   <td class="ind_td01" id="allocation_pools"></td>
         </tr>
         <tr>
-            <th class="ind_th01">게이트웨이 IP</th><td class="ind_td01" id="gateway_ip"><!--{{ subnet.gateway_ip }}--></td>
+            <th class="ind_th01">게이트웨이 IP</th><td class="ind_td01" id="gateway_ip"></td>
         </tr>
         <tr>
-            <th class="ind_th01">DHCP 사용</th><td class="ind_td01" id="enable_dhcp"><!--{{ subnet.enable_dhcp }}--></td>
+            <th class="ind_th01">DHCP 사용</th><td class="ind_td01" id="enable_dhcp"></td>
         </tr>
         <tr>
-            <th class="ind_th01">IPv6 주소 설정 모드</th><td class="ind_td01" id="ipv6_address_mode"><!--{{ subnet.ipv6_address_mode }}--></td>
+            <th class="ind_th01">IPv6 주소 설정 모드</th><td class="ind_td01" id="ipv6_address_mode"></td>
         </tr>
         <tr>
             <th class="ind_th01">추가 경로</th><td class="ind_td01"><-???</td>
         </tr>
         <tr>
-            <th class="ind_th01">DNS 네임 서버</th><td class="ind_td01" id="dns_nameservers"><!--{{ subnet.dns_nameservers }}--></td>
+            <th class="ind_th01">DNS 네임 서버</th><td class="ind_td01" id="dns_nameservers"></td>
         </tr>
     </table>
 </div>
@@ -59,10 +59,12 @@
             url : '',
             data : { id:"{{ subnet_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
-                //var str = "";
                 for(key in data.subnet){
-                    $("#"+key).text(data.subnet[key]);
-                    //str += key + " = " + data.subnet[key] + "\n";
+                    var text = data.subnet[key];
+                    if( text == "" ){
+						text = "None"
+					}
+                    $("#"+key).text(text);
                 }
             }
         });
