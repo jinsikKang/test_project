@@ -30,7 +30,8 @@ class Network:
             return None
 
     def toJSON(self):
-        return lambda o:o.__dict__
+        return self.__dict__
+        # return json.loads(json.dumps(self, default=lambda o:o.__dict__, sort_keys=True, indent=4))
 
     def __init__(self):
         self.provider = {}
