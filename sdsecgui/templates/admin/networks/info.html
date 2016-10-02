@@ -71,7 +71,7 @@ var network;
                 // console.log(network);
             }
         });
-
+        function ()
         var dataTable = {
             "selector" : "#summary",
             "columns" : {
@@ -99,25 +99,34 @@ var network;
                     "status" : "",
                     "admin_state_up" : ""
                 }
-            ]
+            ],
+            "tableType" : 1
         };
-
-        var columnHtml = "<tr>";
-        for( key in dataTable["columns"] ){
-            columnHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
-        }
-        columnHtml += "</tr>";
-
-        var dataHtml = "";
-        for( i in dataTable["data"] ){
-            dataHtml += "<tr>\n";
+        var resultHtml = ""
+        if( dataTable["tableType"] == 1 ){
             for( key in dataTable["columns"] ){
-                dataHtml += "<td class='" + key + "'>" + dataTable["data"][i][key] + "</td>\n";
+                resultHtml += "<tr>\n";
+                resultHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
+                resultHtml += "<td class='" + key + "'>" + dataTable["data"][i][key] + "</td>\n";
+                resultHtml += "</tr>\n";
             }
-            dataHtml += "</tr>\n";
-        }
+        }else{
+            var columnHtml = "<tr>";
+            for( key in dataTable["columns"] ){
+                columnHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
+            }
+            columnHtml += "</tr>";
 
-        var resultHtml = columnHtml + dataHtml;
+            var dataHtml = "";
+            for( i in dataTable["data"] ){
+                dataHtml += "<tr>\n";
+                for( key in dataTable["columns"] ){
+                    dataHtml += "<td class='" + key + "'>" + dataTable["data"][i][key] + "</td>\n";
+                }
+                dataHtml += "</tr>\n";
+            }
+            resultHtml = columnHtml + dataHtml;
+        }
         $(dataTable["selector"] + " table").html(resultHtml);
     });
 </script>
