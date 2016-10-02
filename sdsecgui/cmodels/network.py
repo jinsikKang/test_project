@@ -30,7 +30,7 @@ class Network:
             return None
 
     def toJSON(self):
-        return json.dumps(self, default=lambda o:o.__dict__, sort_keys=True, indent=4)
+        return json.loads(json.dumps(self, default=lambda o:o.__dict__, sort_keys=True, indent=4))
 
     def __init__(self):
         self.provider = {}
@@ -57,37 +57,37 @@ class Network:
         pass
 
     def setById(self, id):
-        self.networkDic = self.showInfoJsonById(id)
-        if self.networkDic == None:
+        networkDic = self.showInfoJsonById(id)
+        if networkDic == None:
             raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
-        self.provider["physical_network"] = self.networkDic["provider:physical_network"]
-        self.provider["network_type"] = self.networkDic["provider:network_type"]
-        self.provider["segmentation_id"] = self.networkDic["provider:segmentation_id"]
-        self.router["external"] = self.networkDic["router:external"]
-        self.ipv6_address_scope = self.networkDic["ipv6_address_scope"]
-        self.revision_number = self.networkDic["revision_number"]
-        self.port_security_enabled = self.networkDic["port_security_enabled"]
-        self.id = self.networkDic["id"]
-        self.availability_zone_hints = self.networkDic["availability_zone_hints"]
-        self.availability_zones = self.networkDic["availability_zones"]
-        self.ipv4_address_scope = self.networkDic["ipv4_address_scope"]
-        self.shared = self.networkDic["shared"]
-        self.project_id = self.networkDic["project_id"]
-        self.status = self.networkDic["status"]
+        self.provider["physical_network"] = networkDic["provider:physical_network"]
+        self.provider["network_type"] = networkDic["provider:network_type"]
+        self.provider["segmentation_id"] = networkDic["provider:segmentation_id"]
+        self.router["external"] = networkDic["router:external"]
+        self.ipv6_address_scope = networkDic["ipv6_address_scope"]
+        self.revision_number = networkDic["revision_number"]
+        self.port_security_enabled = networkDic["port_security_enabled"]
+        self.id = networkDic["id"]
+        self.availability_zone_hints = networkDic["availability_zone_hints"]
+        self.availability_zones = networkDic["availability_zones"]
+        self.ipv4_address_scope = networkDic["ipv4_address_scope"]
+        self.shared = networkDic["shared"]
+        self.project_id = networkDic["project_id"]
+        self.status = networkDic["status"]
 
-        self.subnet_id_list = self.networkDic["subnets"].split("\n")
+        self.subnet_id_list = networkDic["subnets"].split("\n")
         self.subnets = self.getSubnetList()
         self.ports = self.getPortList()
         self.dhcpAgents = self.getDHCPagentList()
 
-        self.description = self.networkDic["description"]
-        self.tags = self.networkDic["tags"]
-        self.updated_at = self.networkDic["updated_at"]
-        self.name = self.networkDic["name"]
-        self.admin_state_up = self.networkDic["admin_state_up"]
-        self.tenant_id = self.networkDic["tenant_id"]
-        self.created_at = self.networkDic["created_at"]
-        self.mtu = self.networkDic["mtu"]
+        self.description = networkDic["description"]
+        self.tags = networkDic["tags"]
+        self.updated_at = networkDic["updated_at"]
+        self.name = networkDic["name"]
+        self.admin_state_up = networkDic["admin_state_up"]
+        self.tenant_id = networkDic["tenant_id"]
+        self.created_at = networkDic["created_at"]
+        self.mtu = networkDic["mtu"]
 
     def getSubnetList(self):
         subnets = []
