@@ -37,7 +37,7 @@ function DataTable (settings){
                     for ( dataNameKey in this.columns[key].dataName ){
                         data += this.columns[key].dataName[dataNameKey] + " " + this.data[key][dataNameKey] + "<br/>";
                     }
-                    dataHtml = dataForm.replace("%D", data).replace("%K", key + link);
+                    dataHtml = dataForm.replace("%D", data).replace("%K", key + this.link);
                 } else if ( this.data[key] instanceof Array ) {
                     // 배열일때 ul, li태그로 묶어 출력
                     columnHtml = columnForm.replace("%C", this.columns[key]).replace("%K", key);
@@ -46,15 +46,15 @@ function DataTable (settings){
                         data += "<li>" + this.data[key][i] + "</li>";
                     }
                     data += "</ul>";
-                    dataHtml = dataForm.replace("%D", data).replace("%K", key + link);
+                    dataHtml = dataForm.replace("%D", data).replace("%K", key + this.link);
                 } else {
                     columnHtml = columnForm.replace("%C", this.columns[key]).replace("%K", key);
                     if( this.data[key] instanceof Object ){
                         for ( dataNameKey in this.data[key] ){
-                            dataHtml = dataForm.replace("%D", this.data[key][dataNameKey]).replace("%K", key + link);
+                            dataHtml = dataForm.replace("%D", this.data[key][dataNameKey]).replace("%K", key + this.link);
                         }
                     } else {
-                        dataHtml = dataForm.replace("%D", this.data[key]).replace("%K", key + link);
+                        dataHtml = dataForm.replace("%D", this.data[key]).replace("%K", key + this.link);
                     }
                 }
                 var data = this.data[key];
@@ -73,7 +73,7 @@ function DataTable (settings){
             for( i in this.data ){
                 dataHtml += "<tr>\n";
                 for( key in this.columns ){
-                    dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
+                    dataHtml += "<td class='ind_td01 " + key + this.link + "'>" + this.data[i][key] + "</td>\n";
                 }
                 dataHtml += "</tr>\n";
             }
