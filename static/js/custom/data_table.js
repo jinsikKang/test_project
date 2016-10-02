@@ -91,7 +91,7 @@ function DataTable (settings){
     this.setLink = function(url) {
         var linkTagList = $(this.selector + " table .link").get();
         for ( i in linkTagList ){
-            var linkTag = linkTagList.get(i);
+            var linkTag = linkTagList[i];
             var beforHtml = linkTag.html();
             var resultHtml = "<a href='/dashboard/admin/" + url + "/" + this.data[i].id + "'>" + beforHtml + "</a>";
             linkTag.html(resultHtml);
