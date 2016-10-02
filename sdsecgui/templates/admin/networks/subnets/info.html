@@ -59,12 +59,15 @@
             url : '',
             data : { id:"{{ subnet_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
+                var allocation_pools = data.subnet["allocation_pools"];
+                /*
                 var tempList = data.subnet["allocation_pools"];
                 var allocation_pools = [];
                 for( i in tempList ){
                     var allocation_pool = JSON.parse(tempList[i]);
                     allocation_pools.push(allocation_pool);
                 }
+                */
                 for( key in data.subnet ){
                     var resultHtml = "";
                     if( key == "allocation_pools" ){
