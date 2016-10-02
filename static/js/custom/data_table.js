@@ -11,7 +11,6 @@ function DataTable (settings){
     }else{
         this.data = null;
     }
-    this.link = "";
 
     this.showDataTable = function() {
         /* 컬럼과 데이터 형식 */
@@ -42,18 +41,20 @@ function DataTable (settings){
                     data += "</ul>";
                     dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else {
+                    var link = "";
                     if ( this.columns[key].indexOf(":link") != -1 ) {
                         /* class 에 link 를 포함 */
                         this.columns[key] = this.columns[key].replace(":link", "");
-                        this.link = " link";
+                        link = " link";
                     }
+
                     columnHtml = columnForm.replace("%C", this.columns[key]).replace("%K", key);
                     if( this.data[key] instanceof Object ){
                         for ( dataNameKey in this.data[key] ){
-                            dataHtml = dataForm.replace("%D", this.data[key][dataNameKey]).replace("%K", key + this.link);
+                            dataHtml = dataForm.replace("%D", this.data[key][dataNameKey]).replace("%K", key + link);
                         }
                     } else {
-                        dataHtml = dataForm.replace("%D", this.data[key]).replace("%K", key + this.link);
+                        dataHtml = dataForm.replace("%D", this.data[key]).replace("%K", key + link);
                     }
                 }
                 var data = this.data[key];
@@ -65,11 +66,6 @@ function DataTable (settings){
             var columnHtml = "<tr>";
             for( key in this.columns ){
                 columnHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
-                if ( this.columns[key].indexOf(":link") != -1 ) {
-                    /* class 에 link 를 포함 */
-                    this.columns[key] = this.columns[key].replace(":link", "");
-                    this.link = " link";
-                }
             }
             columnHtml += "</tr>";
 
@@ -77,7 +73,13 @@ function DataTable (settings){
             for( i in this.data ){
                 dataHtml += "<tr>\n";
                 for( key in this.columns ){
-                    dataHtml += "<td class='ind_td01 " + key + this.link + "'>" + this.data[i][key] + "</td>\n";
+                    var link = "";
+                    if ( this.columns[key].indexOf(":link") != -1 ) {
+                        /* class 에 link 를 포함 */
+                        this.columns[key] = this.columns[key].replace(":link", "");
+                        link = " link";
+                    }
+                    dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
                 }
                 dataHtml += "</tr>\n";
             }
