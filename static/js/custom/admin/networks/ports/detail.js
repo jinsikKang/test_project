@@ -32,8 +32,9 @@ function getPostAjax(id, csrf_token){
                             resultHtml += "<li><b>port_filter</b>" + vif_details[i]["port_filter"] + "</li><li><b>ovs_hybrid_plug</b>" + vif_details[i]["ovs_hybrid_plug"] + "</li>";
                         }
                         resultHtml += "</ul>"
+                    } else {
+                        resultHtml = data.port[key];
                     }
-                    resultHtml = data.port[key];
                     key = key.replace("binding:","binding_");
                 } else {
                     resultHtml = data.port[key];
