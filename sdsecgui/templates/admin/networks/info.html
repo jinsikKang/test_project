@@ -88,7 +88,7 @@ function DataTable (settings){
                     columnHtml = columnPattern.replace("%C", this.column[key].name);
                     var data = "";
                     for ( dataNameKey in this.column[key].dataName ){
-                        data += this.column[key].dataName.dataNameKey + " " + tihs.data[key].dataNameKey + <br/>
+                        data += this.column[key].dataName.dataNameKey + " " + tihs.data[key].dataNameKey + "<br/>";
                     }
                     dataHtml = dataPattern.replace("%D", data);
                 } else if ( this.data[key] instanceof Array ) {
