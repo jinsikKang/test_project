@@ -24,12 +24,6 @@ function DataTable (settings){
                 resultHtml += "<tr>\n";
                 var columnHtml = "";
                 var dataHtml = "";
-                alert(this.columns[key]);
-                if ( this.columns[key].indexOf(":link") != -1 ) {
-                    /* class 에 link 를 포함 */
-                    this.columns[key] = this.columns[key].replace(":link", "");
-                    this.link = " link";
-                }
                 if ( this.columns[key] instanceof Object ) {
                     // 객체일때 여러줄로 출력
                     columnHtml = columnForm.replace("%C", this.columns[key].name).replace("%K", key);
@@ -37,7 +31,7 @@ function DataTable (settings){
                     for ( dataNameKey in this.columns[key].dataName ){
                         data += this.columns[key].dataName[dataNameKey] + " " + this.data[key][dataNameKey] + "<br/>";
                     }
-                    dataHtml = dataForm.replace("%D", data).replace("%K", key + this.link);
+                    dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else if ( this.data[key] instanceof Array ) {
                     // 배열일때 ul, li태그로 묶어 출력
                     columnHtml = columnForm.replace("%C", this.columns[key]).replace("%K", key);
@@ -46,8 +40,14 @@ function DataTable (settings){
                         data += "<li>" + this.data[key][i] + "</li>";
                     }
                     data += "</ul>";
-                    dataHtml = dataForm.replace("%D", data).replace("%K", key + this.link);
+                    dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else {
+                    alert(this.columns[key]);
+                    if ( this.columns[key].indexOf(":link") != -1 ) {
+                        /* class 에 link 를 포함 */
+                        this.columns[key] = this.columns[key].replace(":link", "");
+                        this.link = " link";
+                    }
                     columnHtml = columnForm.replace("%C", this.columns[key]).replace("%K", key);
                     if( this.data[key] instanceof Object ){
                         for ( dataNameKey in this.data[key] ){
