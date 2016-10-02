@@ -192,7 +192,7 @@ class Port(Base):
             return None
 
     def setById(cls, id):
-        cls.portDic = cls
+        cls.portDic = cls.showInfoJsonById(id)
 
 
 class DHCPagent(Base):
