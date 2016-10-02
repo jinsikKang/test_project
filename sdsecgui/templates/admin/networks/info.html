@@ -81,20 +81,22 @@ $(function(){
     $("#port").hide();
     // $("#DHCPagent").hide();
     var tabList = ["summary", "subnet", "port", "DHCPagent"];
-    for (i in tabList){
-        var subList = JSON.parse(JSON.stringify(tabList));
-        var tab = subList.slice(i, 1);
-        $("." + tab).on("click", function(){
-            for (j in subList) {
-                $("#" + subList[j]).hide();
-                $("." + subList[j]).removeClass("header_title_d04_click");
-                $("." + subList[j]).addClass("header_title_d05");
-            }
-            $("." + tab).addClass("header_title_d04_click");
-            $("." + tab).removeClass("header_title_d05");
-            $("#" + tab).show();
-        });
-    }
+    $(".summary").on("click", function(){
+        $("#subnet").hide();
+        $(".subnet").removeClass("header_title_d04_click");
+        $(".subnet").addClass("header_title_d05");
+        $(".summary").addClass("header_title_d04_click");
+        $(".summary").removeClass("header_title_d05");
+        $("#summary").show();
+    });
+    $(".subnet").on("click", function(){
+        $("#summary").hide();
+        $(".summary").removeClass("header_title_d04_click");
+        $(".summary").addClass("header_title_d05");
+        $(".subnet").addClass("header_title_d04_click");
+        $(".subnet").removeClass("header_title_d05");
+        $("#subnet").show();
+    });
 });
 
 </script>
