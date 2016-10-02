@@ -3,10 +3,10 @@
 {% block header %}
 <div class="header_title_d01">{# network.name #}</div>
 <div>
-    <a href="#"><div class="header_title_d04_click">개요</div></a>
-    <a href="#"><div class="header_title_d05">서브넷</div></a>
-    <a href="#"><div class="header_title_d05">포트</div></a>
-    <a href="#"><div class="header_title_d05">DHCP 에이전트</div></a>
+    <a><div class="header_title_d04_click summary">개요</div></a>
+    <a><div class="header_title_d05 subnet">서브넷</div></a>
+    <a><div class="header_title_d05 port">포트</div></a>
+    <a><div class="header_title_d05 DHCPagent">DHCP 에이전트</div></a>
 </div>
 {% endblock header %}
 
@@ -74,5 +74,19 @@
 <script src='{% static "js/custom/admin/networks/detail.js" %}'></script>
 <script>
     getNetworkAjax("{{ network_id }}", "{{ csrf_token }}");
+    $("#subnet").hide();
+    $("#port").hide();
+    // $("#DHCPagent").hide();
+    var tabList = ["summary", "subnet", "port", "DHCPagent"];
+    for (i in tabList){
+        $("." + tabList[i]).on("click", function(){
+            $("#summary").hide();
+            $("#subnet").hide();
+            $("#port").hide();
+            // $("#DHCPagent").hide();
+            $("#" + tabList[i]).show();
+        });
+    }
+
 </script>
 {% endblock content %}
