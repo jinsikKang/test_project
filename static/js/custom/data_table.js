@@ -25,9 +25,9 @@ function DataTable (settings){
                 var columnHtml = "";
                 var dataHtml = "";
 
-                if ( this.columns[key].indexOf(":link") != -1 ) {
+                if ( this.data[key].indexOf(":link") != -1 ) {
                     /* class 에 link 를 포함 */
-                    this.columns[key] = this.columns[key].replace(":link", "");
+                    this.data[key] = this.data[key].replace(":link", "");
                     this.link = " link";
                 }
                 if ( this.columns[key] instanceof Object ) {
