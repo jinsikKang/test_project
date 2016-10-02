@@ -29,7 +29,9 @@ def retrieveNetworkById(request, network_id):
     if request.is_ajax() and request.method == 'POST':
         network = Network()
         network.setById(network_id)
-        return JsonResponse({ 'network' : network.toJSON() })
+        out = network.toJSON()
+        print out
+        return JsonResponse({ 'network' : out })
     else:
         return render(request, 'admin/networks/info.html', { 'network_id' : network_id })
 
