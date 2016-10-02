@@ -78,7 +78,6 @@ class Network:
 
         self.subnet_id_list = networkDic["subnets"].split("\n")
         self.subnets = self.getSubnetList()
-        self.ports = self.getPortList()
         self.dhcpAgents = self.getDHCPagentList()
 
         self.description = networkDic["description"]
@@ -98,12 +97,11 @@ class Network:
             subnets.append(subnet)
         return subnets
 
-    def getPortList(self):
-        ports = []
+    def setPortList(self):
+        self.ports = []
         tempPortList = json.loads(excuteCmd("neutron port-list -f json"))
         for tempPort in tempPortList:
-            ports.append(json.loads(excuteCmd("neutron port-show " + tempPort["id"] + " -f json")))
-        return ports
+            self.ports.append(json.loads(excuteCmd("neutron port-show " + tempPort["id"] + " -f json")))
 
     def getDHCPagentList(self):
         output = json.loads(excuteCmd("neutron dhcp-agent-list-hosting-net " + self.id + " -f json"))
