@@ -143,31 +143,31 @@ class Subnet(Base):
             return None
 
     def setById(cls, id):
-        cls.subnetDic = cls.showInfoJsonById(id)
-        if cls.subnetDic == None:
+        subnetDic = cls.showInfoJsonById(id)
+        if subnetDic == None:
             raise Exception, unicode(id).encode("utf-8") + "의 세부 정보를 찾지 못했습니다."
-        cls.service_types = cls.subnetDic["service_types"]
-        cls.description = cls.subnetDic["description"]
-        cls.enable_dhcp = cls.subnetDic["enable_dhcp"]
-        cls.network_id = cls.subnetDic["network_id"]
-        cls.tenant_id = cls.subnetDic["tenant_id"]
-        cls.created_at = cls.subnetDic["created_at"]
-        cls.dns_nameservers = cls.subnetDic["dns_nameservers"]
-        cls.updated_at = cls.subnetDic["updated_at"]
-        cls.ipv6_ra_mode = cls.subnetDic["ipv6_ra_mode"]
+        cls.service_types = subnetDic["service_types"]
+        cls.description = subnetDic["description"]
+        cls.enable_dhcp = subnetDic["enable_dhcp"]
+        cls.network_id = subnetDic["network_id"]
+        cls.tenant_id = subnetDic["tenant_id"]
+        cls.created_at = subnetDic["created_at"]
+        cls.dns_nameservers = subnetDic["dns_nameservers"]
+        cls.updated_at = subnetDic["updated_at"]
+        cls.ipv6_ra_mode = subnetDic["ipv6_ra_mode"]
         cls.allocation_pools = []
-        for allocation_pool in cls.subnetDic["allocation_pools"].split("\n"):
+        for allocation_pool in subnetDic["allocation_pools"].split("\n"):
             cls.allocation_pools.append(json.loads(allocation_pool))
-        cls.gateway_ip = cls.subnetDic["gateway_ip"]
-        cls.revision_number = cls.subnetDic["revision_number"]
-        cls.ipv6_address_mode = cls.subnetDic["ipv6_address_mode"]
-        cls.ip_version = cls.subnetDic["ip_version"]
-        cls.host_routes = cls.subnetDic["host_routes"]
-        cls.cidr = cls.subnetDic["cidr"]
-        cls.project_id = cls.subnetDic["project_id"]
-        cls.id = cls.subnetDic["id"]
-        cls.subnetpool_id = cls.subnetDic["subnetpool_id"]
-        cls.name = cls.subnetDic["name"]
+        cls.gateway_ip = subnetDic["gateway_ip"]
+        cls.revision_number = subnetDic["revision_number"]
+        cls.ipv6_address_mode = subnetDic["ipv6_address_mode"]
+        cls.ip_version = subnetDic["ip_version"]
+        cls.host_routes = subnetDic["host_routes"]
+        cls.cidr = subnetDic["cidr"]
+        cls.project_id = subnetDic["project_id"]
+        cls.id = subnetDic["id"]
+        cls.subnetpool_id = subnetDic["subnetpool_id"]
+        cls.name = subnetDic["name"]
         ipv4_pattern = re.compile("[\d]+\.[\d]+\.[\d]+\.([\d]+)")
         ipv6_pattern = re.compile("[\w]+:[\w]+:[\w]+:[\w]*:([\w:]+)")
         """
