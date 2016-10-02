@@ -14,8 +14,8 @@ class Base:
         return infoDic
 
     @classmethod
-    def toJSON(self):
-        return json.loads(json.dumps(self, default=lambda o:o.__dict__, sort_keys=True, indent=4))
+    def toJSON(cls):
+        return json.loads(json.dumps(cls, default=lambda o:o.__dict__, sort_keys=True, indent=4))
 
     @classmethod
     def showInfoById(cls, id):
