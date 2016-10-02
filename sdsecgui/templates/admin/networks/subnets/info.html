@@ -61,8 +61,8 @@
             success:function(data){
                 var tempList = data.subnet["allocation_pools"].split("\n");
                 var allocation_pools = [];
-                for( temp in tempList ){
-                    var allocation_pool = JSON.parse(temp);
+                for( i in tempList ){
+                    var allocation_pool = JSON.parse(tempList[i]);
                     allocation_pools.push(allocation_pool);
                 }
                 for( key in data.subnet ){
