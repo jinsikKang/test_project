@@ -83,7 +83,7 @@ $(function(){
     for ( var i = 0; i < 4; i++ ){
         var tabList = ["summary", "subnet", "port", "DHCPagent"];
         var tab = tabList.splice(i, 1);
-        $("." + tab).click(function(tab, tabList){
+        $("." + tab).click(function(){
             for (j in tabList) {
                 $("#" + tabList[j]).hide();
                 $("." + tabList[j]).removeClass("header_title_d04_click");
