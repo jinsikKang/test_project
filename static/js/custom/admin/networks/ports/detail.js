@@ -29,7 +29,7 @@ function getPostAjax(id, csrf_token){
                         var vif_details = getListData(data.port["binding:vif_details"]);
                         resultHtml += "<ul>"
                         for( var i = 0; i < vif_details.length; i++ ){
-                            resultHtml += "<li><b>port_filter</b>" + vif_details[i]["port_filter"] + "</li><li><b>ovs_hybrid_plug</b>" + vif_details[i]["ovs_hybrid_plug"] + "</li>";
+                            resultHtml += "<li><b>port_filter</b> " + vif_details[i]["port_filter"] + "</li><li><b>ovs_hybrid_plug</b> " + vif_details[i]["ovs_hybrid_plug"] + "</li>";
                         }
                         resultHtml += "</ul>"
                     } else {
