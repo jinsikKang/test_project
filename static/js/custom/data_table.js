@@ -76,7 +76,6 @@ function DataTable (settings){
                     var link = "";
                     if ( this.columns[key].indexOf(":link") != -1 ) {
                         /* class 에 link 를 포함 */
-                        this.columns[key] = this.columns[key].replace(":link", "");
                         link = " link";
                     }
                     dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
@@ -84,6 +83,7 @@ function DataTable (settings){
                 dataHtml += "</tr>\n";
             }
             resultHtml = columnHtml + dataHtml;
+            resultHtml = resultHtml.replace(":link", "");
         }
         $(this.selector + " table").html(resultHtml);
     };
@@ -92,9 +92,9 @@ function DataTable (settings){
         var linkTagList = $(this.selector + " table .link").get();
         for ( i in linkTagList ){
             var linkTag = linkTagList[i];
-            var beforHtml = linkTag.html();
+            var beforHtml = linkTag.innerHTML;
             var resultHtml = "<a href='/dashboard/admin/" + url + "/" + this.data[i].id + "'>" + beforHtml + "</a>";
-            linkTag.html(resultHtml);
+            linkTag.innerHTML = resultHtml;
         }
 
     }
