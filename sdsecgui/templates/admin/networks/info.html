@@ -75,8 +75,8 @@ function DataTable (settings){
         this.data = null;
     }
     this.showDataTable = function() {
-        var columnPattern = "<th class='ind_th01 " + key + "'>%C</th>\n"
-        var dataPattern = "<td class='ind_td01 " + key + "'>%D</td>\n";
+        var columnPattern = "<th class='ind_th01 %K'>%C</th>\n"
+        var dataPattern = "<td class='ind_td01 %K'>%D</td>\n";
         var resultHtml = ""
         if( this.vertical ){
             for( key in this.columns ){
@@ -85,24 +85,24 @@ function DataTable (settings){
                 var dataHtml = "";
                 if ( this.data[key] instanceof Object ) {
                     // 객체일때 여러줄로 출력
-                    columnHtml = columnPattern.replace("%C", this.column[key].name);
+                    columnHtml = columnPattern.replace("%C", this.column[key].name).replace("%K", key);
                     var data = "";
                     for ( dataNameKey in this.column[key].dataName ){
                         data += this.column[key].dataName.dataNameKey + " " + tihs.data[key].dataNameKey + "<br/>";
                     }
-                    dataHtml = dataPattern.replace("%D", data);
+                    dataHtml = dataPattern.replace("%D", data).replace("%K", key);
                 } else if ( this.data[key] instanceof Array ) {
                     // 배열일때 ul, li태그로 묶어 출력
-                    columnHtml = columnPattern.replace("%C", this.columns[key]);
+                    columnHtml = columnPattern.replace("%C", this.columns[key]).replace("%K", key);
                     var data = "<ul>";
                     for ( i in this.data[key]){
                         data += "<li>" + this.data[key][i] + "</li>";
                     }
                     data += "</ul>";
-                    dataHtml = dataPattern.replace("%D", data);
+                    dataHtml = dataPattern.replace("%D", data).replace("%K", key);
                 } else {
-                    columnHtml = columnPattern.replace("%C", this.columns[key]);
-                    dataHtml = dataPattern.replace("%D", this.data[key]);
+                    columnHtml = columnPattern.replace("%C", this.columns[key]).replace("%K", key);
+                    dataHtml = dataPattern.replace("%D", this.data[key]).replace("%K", key);
                 }
                 var data = this.data[key];
                 resultHtml += columnHtml;
