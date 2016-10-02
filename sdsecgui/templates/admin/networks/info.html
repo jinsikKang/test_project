@@ -86,10 +86,10 @@ $(function(){
         $("." + tab).on("click", function(){
             var subList = JSON.parse(JSON.stringify(tabList));
             subList.slice(i, 1);
-            for (i in subList) {
-                $("#" + subList[i]).hide();
-                $("." + subList[i]).removeClass("header_title_d04_click");
-                $("." + subList[i]).addClass("header_title_d05");
+            for (j in subList) {
+                $("#" + subList[j]).hide();
+                $("." + subList[j]).removeClass("header_title_d04_click");
+                $("." + subList[j]).addClass("header_title_d05");
             }
             $("." + tab).addClass("header_title_d04_click");
             $("." + tab).removeClass("header_title_d05");
