@@ -24,10 +24,10 @@ function DataTable (settings){
                 resultHtml += "<tr>\n";
                 var columnHtml = "";
                 var dataHtml = "";
-
-                if ( this.data[key].indexOf(":link") != -1 ) {
+                alert(this.columns[key]);
+                if ( this.columns[key].indexOf(":link") != -1 ) {
                     /* class 에 link 를 포함 */
-                    this.data[key] = this.data[key].replace(":link", "");
+                    this.columns[key] = this.columns[key].replace(":link", "");
                     this.link = " link";
                 }
                 if ( this.columns[key] instanceof Object ) {
