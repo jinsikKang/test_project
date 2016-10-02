@@ -87,8 +87,8 @@ function DataTable (settings){
                     // 객체일때 여러줄로 출력
                     columnHtml = columnPattern.replace("%C", this.columns[key].name).replace("%K", key);
                     var data = "";
-                    for ( dataNameKey in this.columns[key].dataName ){
-                        data += this.columns[key].dataName.dataNameKey + " " + this.data[key].dataNameKey + "<br/>";
+                    for ( dataNameKey in this.columns[key]["dataName"] ){
+                        data += this.columns[key]["dataName"].dataNameKey + " " + this.data[key].dataNameKey + "<br/>";
                     }
                     dataHtml = dataPattern.replace("%D", data).replace("%K", key);
                 } else if ( this.data[key] instanceof Array ) {
