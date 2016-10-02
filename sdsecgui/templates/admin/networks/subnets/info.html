@@ -66,22 +66,22 @@
                     allocation_pools.push(allocation_pool);
                 }
                 for( key in data.subnet ){
-                    var text = "";
+                    var resultHtml = "";
                     if( key == "allocation_pools" ){
 					    for( var i = 0; i < allocation_pools.length; i++ ){
-					        if( text != "" ){
-					            text += "<br/>";
+					        if( resultHtml != "" ){
+					            resultHtml += "<br/>";
 					        }
-							text += "시작 " + allocation_pools[i]["start"] + " - 끝 " + allocation_pools[i]["end"];
+							resultHtml += "시작 " + allocation_pools[i]["start"] + " - 끝 " + allocation_pools[i]["end"];
 						}
 					}
 					else{
-						text = data.subnet[key];
+						resultHtml = data.subnet[key];
 					}
-                    if( text == "" ){
-						text = "None"
+                    if( resultHtml == "" ){
+						resultHtml = "None"
 					}
-					$("#"+key).text(text);
+					$("#"+key).html(resultHtml);
                 }
             }
         });
