@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01"></div>
+{% endblock header %}
+
+{% block sub_left_menu %}
+{% include "admin/left_menu.html" %}
+{% endblock sub_left_menu %}
+
+{% block content %}
+<div>
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+        <tr>
+            <th class="ind_th01">이름</th>     <td class="ind_td01" id="name"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">ID</th>       <td class="ind_td01" id="id"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">네트워크 이름</th>   <td class="ind_td01" id="status"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">네트워크 ID</th>     <td class="ind_td01" id="network_id"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">MAC 주소</th>     <td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""></td>
+        </tr>
+        <tr>
+            <th class="ind_th01"></th><td class="ind_td01" id=""><-???</td>
+        </tr>
+        <tr>
+            <th class="ind_th01">DNS 네임 서버</th><td class="ind_td01" id="dns_nameservers"></td>
+        </tr>
+    </table>
+</div>
+<script>
+</script>
+{% endblock content %}

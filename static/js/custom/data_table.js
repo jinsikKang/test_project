@@ -96,7 +96,6 @@ function DataTable (settings){
             var resultHtml = "<a href='/dashboard/admin/" + url + "/" + this.data[i].id + "'>" + beforHtml + "</a>";
             linkTag.innerHTML = resultHtml;
         }
-
     }
 
     return this;
