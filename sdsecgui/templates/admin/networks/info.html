@@ -16,7 +16,8 @@
 
 {% block content %}
 <div id="summary">
-     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+        {% comment %}
         <tr>
              <th class="ind_th01">이름</th>          <td class="ind_td01">{{ network.name }}</td>
         </tr>
@@ -44,11 +45,12 @@
         <tr>
              <th class="ind_th01">공급자 네트워크</th>
              <td class="ind_td01">
-                네트워크 타입 {{ network.provider.network_type }}<br/>
-                물리적인 네트워크 {{ network.provider.physical_network }}<br/>
-                구분 ID: {{ network.provider.segmentation_id }}
+                네트워크 타입 {# network.provider.network_type #}<br/>
+                물리적인 네트워크 {# network.provider.physical_network #}<br/>
+                구분 ID: {# network.provider.segmentation_id #}
             </td>
         </tr>
+        {% endcomment %}
     </table>
 </div>
 
