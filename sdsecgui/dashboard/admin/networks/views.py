@@ -31,12 +31,12 @@ def retrieveNetworkById(request, network_id):
     return render(request, 'admin/networks/info.html', { 'network' : network })
 
 def retrieveSubnetById(request, subnet_id):
-    if not request.is_ajax() and not request.method == 'POST':
-        print "no ajax, get", request.is_ajax(), request.method
-        return render(request, 'admin/networks/subnets/info.html', { 'subnet_id' : subnet_id })
-    elif request.is_ajax() and request.method == 'POST':
-        print "아작스포스트", request.is_ajax(), request.method
+    if request.is_ajax() and request.method == 'POST':
+        # print "아작스포스트", request.is_ajax(), request.method
         subnet = Subnet()
         return JsonResponse({ 'subnet' : subnet.showInfoJsonById(subnet_id) })
     else:
-        print "뭐지대체?", request.is_ajax(), request.method
+        # print "is ajax : ", request.is_ajax(), " method:", request.method
+        return render(request, 'admin/networks/subnets/info.html', {'subnet_id': subnet_id})
+    # else:
+    #     print "뭐지대체?", request.is_ajax(), request.method

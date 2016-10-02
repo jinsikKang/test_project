@@ -59,16 +59,32 @@
             url : '',
             data : { id:"{{ subnet_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
-                for(key in data.subnet){
-                    var text = data.subnet[key];
+                var tempList = data.subnet["allocation_pools"].split("\n");
+                var allocation_pools = [];
+                for( temp in tempList ){
+                    var allocation_pool = JSON.parse(temp);
+                    allocation_pools.push(allocation_pool);
+                }
+                for( key in data.subnet ){
+                    var text = "";
+                    if( key == "allocation_pools" ){
+					    for( var i = 0; i < allocation_pools.length; i++ ){
+					        if( text != "" ){
+					            text += "<br/>";
+					        }
+							text += "시작 " + allocation_pools[i]["start"] + " - 끝 " + allocation_pools[i]["end"];
+						}
+					}
+					else{
+						text = data.subnet[key];
+					}
                     if( text == "" ){
 						text = "None"
 					}
-                    $("#"+key).text(text);
+					$("#"+key).text(text);
                 }
             }
         });
-
     });
 </script>
 {% endblock content %}
