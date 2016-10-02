@@ -137,7 +137,6 @@ function DataTable (settings){
             url : '',
             data : { id:"{{ network_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
-                network = data;
                 dataTable = new DataTable({
                     "selector" : "#summary",
                     "columns" : {
@@ -159,7 +158,7 @@ function DataTable (settings){
                         }
                     },
                     "vertical" : true,
-                    "data" : network
+                    "data" : data
                 });
                 dataTable.showDataTable();
             }
