@@ -70,6 +70,7 @@
      <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
      </table>
 </div>
+{% load staticfiles %}
 <script src='{% static "js/custom/admin/networks/detail.js" %}'></script>
 <script>
     getNetworkAjax("{{ network_id }}", "{{ csrf_token }}");
