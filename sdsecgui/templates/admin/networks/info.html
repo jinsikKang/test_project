@@ -76,7 +76,7 @@ function DataTable (settings){
     }
     this.showDataTable = function() {
         var resultHtml = ""
-        if( tableType ){
+        if( this.vertical ){
             for( key in this.columns ){
                 resultHtml += "<tr>\n";
                 resultHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
