@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="header_title_d01">{{ network.name }}</div>
+<div class="header_title_d01">{# network.name #}</div>
 <div>
     <a href="#"><div class="header_title_d04_click">개요</div></a>
     <a href="#"><div class="header_title_d05">서브넷</div></a>
@@ -59,6 +59,11 @@
      </table>
 </div>
 {# include "admin/networks/subnets/index.html" #}
+
+<div id="port">
+     <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+     </table>
+</div>
 {# include "admin/networks/ports/index.html" #}
 
 <div id="DHCPagent">
@@ -66,6 +71,7 @@
 </div>
 <script>
 var network;
+
 function getSummary(){
     var dataTable = new DataTable({
         "selector" : "#summary",
@@ -92,6 +98,7 @@ function getSummary(){
     });
     dataTable.showDataTable();
 }
+
 function getSubnet(){
     var dataTable = new DataTable({
         "selector" : "#subnet",
@@ -106,8 +113,25 @@ function getSubnet(){
         "data" : network.subnets
     });
     dataTable.showDataTable();
-    dataTable.setLink("networks/subnets")
+    dataTable.setLink("networks/subnets");
 }
+
+function getPort(){
+    var dataTable = new DataTable({
+        "selector" : "#port",
+        "columns" : {
+            "name" : "이름:link",
+            "fixed_ips" : "Fixed IP",
+            "network" : "장치 연결됨",
+            "status" : "Status",
+            "admin_state_up" : "관리자 상태"
+        },
+        "data" : network.ports
+    });
+    dataTable.showDataTable();
+    dataTable.setLink("networks/ports");
+}
+
 $(function(){
     $.ajax({
         type:"POST",
@@ -115,8 +139,10 @@ $(function(){
         data : { id:"{{ network_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
         success:function(data){
             network = data.data;
+            $(".header_title_d01").html(network.name);
             getSummary();
             getSubnet();
+            getPort();
         }
     });
 });

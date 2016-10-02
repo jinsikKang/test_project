@@ -190,6 +190,7 @@ class Port(Base):
             return output
         else:
             return None
+
     def setById(cls, id):
         cls.portDic = cls
 

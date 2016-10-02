@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="header_title_d01">{{ subnet.name }}</div>
+<div class="header_title_d01"></div>
 {% endblock header %}
 
 {% block sub_left_menu %}
@@ -59,6 +59,7 @@
             url : '',
             data : { id:"{{ subnet_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
+                $(".header_title_d01").html(data.subnet.name);
                 var allocation_pools = data.subnet["allocation_pools"];
                 /*
                 var tempList = data.subnet["allocation_pools"];
