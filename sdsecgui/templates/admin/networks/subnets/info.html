@@ -80,7 +80,7 @@
         $.ajax({
             type:"POST",
             url : '',
-            data : { id:"{{ subnet_id }}" },
+            data : { id:"{{ subnet_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
                 //var str = "";
                 for(key in data.subnet){
