@@ -98,7 +98,7 @@ var network;
             for( key in dataTable["columns"] ){
                 resultHtml += "<tr>\n";
                 resultHtml += "<th class='ind_th01 " + key + "'>" + dataTable["columns"][key] + "</th>\n";
-                resultHtml += "<td class='" + key + "'>" + dataTable["data"][i][key] + "</td>\n";
+                resultHtml += "<td class='" + key + "'>" + dataTable["data"][key] + "</td>\n";
                 resultHtml += "</tr>\n";
             }
         }else{
