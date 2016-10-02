@@ -84,7 +84,8 @@ $(function(){
     for (i in tabList){
         var tab = tabList[i];
         $("." + tab).on("click", function(){
-            var subList = tabList.slice(i,1);
+            var subList = tabList.slice();
+            subList.slice(i, 1);
             for (i in subList) {
                 $("#" + subList[i]).hide();
                 $("." + subList[i]).removeClass("header_title_d04_click");
@@ -93,7 +94,6 @@ $(function(){
             $("." + tab).addClass("header_title_d04_click");
             $("." + tab).removeClass("header_title_d05");
             $("#" + tab).show();
-
         });
     }
 });
