@@ -84,7 +84,7 @@ $(function(){
     for (i in tabList){
         var tab = tabList[i];
         $("." + tab).on("click", function(){
-            var subList = tabList.slice();
+            var subList = JSON.parse(JSON.stringify(tabList));
             subList.slice(i, 1);
             for (i in subList) {
                 $("#" + subList[i]).hide();
