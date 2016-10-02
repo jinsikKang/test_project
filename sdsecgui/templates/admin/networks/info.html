@@ -75,12 +75,38 @@ function DataTable (settings){
         this.data = null;
     }
     this.showDataTable = function() {
+        var columnPattern = "<th class='ind_th01 " + key + "'>%C</th>\n"
+        var dataPattern = "<td class='ind_td01 " + key + "'>%D</td>\n";
         var resultHtml = ""
         if( this.vertical ){
             for( key in this.columns ){
                 resultHtml += "<tr>\n";
-                resultHtml += "<th class='ind_th01 " + key + "'>" + this.columns[key] + "</th>\n";
-                resultHtml += "<td class='ind_td01 " + key + "'>" + this.data[key] + "</td>\n";
+                var columnHtml = "";
+                var dataHtml = "";
+                if ( this.data[key] instanceof Object ) {
+                    // 객체일때 여러줄로 출력
+                    columnHtml = columnPattern.replace("%C", this.column[key].name);
+                    var data = "";
+                    for ( dataNameKey in this.column[key].dataName ){
+                        data += this.column[key].dataName.dataNameKey + " " + tihs.data[key].dataNameKey + <br/>
+                    }
+                    dataHtml = dataPattern.replace("%D", data);
+                } else if ( this.data[key] instanceof Array ) {
+                    // 배열일때 ul, li태그로 묶어 출력
+                    columnHtml = columnPattern.replace("%C", this.columns[key]);
+                    var data = "<ul>";
+                    for ( i in this.data[key]){
+                        data += "<li>" + this.data[key][i] + "</li>";
+                    }
+                    data += "</ul>";
+                    dataHtml = dataPattern.replace("%D", data);
+                } else {
+                    columnHtml = columnPattern.replace("%C", this.columns[key]);
+                    dataHtml = dataPattern.replace("%D", this.data[key]);
+                }
+                var data = this.data[key];
+                resultHtml += columnHtml;
+                resultHtml += dataHtml;
                 resultHtml += "</tr>\n";
             }
         }else{
@@ -126,18 +152,18 @@ function DataTable (settings){
                 "shared" : "공유",
                 "router" : "외부 네트워크",
                 "mtu" : "MTU",
-                "provider" : "공급자 네트워크"
+                "provider" : {
+                    "name" : "공급자 네트워크",
+                    "dataName" : {
+                        "network_type" : "네트워크 타입",
+                        "physical_network" : "물리적인 네트워크",
+                        "segmentation_id" : "구분 ID"
+                    }
             },
             "vertical" : true,
-            "data" : //데이터 넣기
-            {
-                "name" : "1",
-                "fixed_ips" : "",
-                "status" : "",
-                "admin_state_up" : ""
-            }
-        }).showDataTable();
-        // dataTable.showDataTable();
+            "data" : network;
+        });
+        dataTable.showDataTable();
     });
 </script>
 {% endblock content %}
