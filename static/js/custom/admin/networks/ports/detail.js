@@ -17,7 +17,7 @@ function getPostAjax(id, csrf_token){
             for( key in data.port ){    // 데이터 넣기
                 var resultHtml = "";
                 if (key == "fixed_ips") {
-                    var fixed_ips = this.getListData(data.port.fixed_ips);
+                    var fixed_ips = getListData(data.port.fixed_ips);
                     for( var i = 0; i < fixed_ips.length; i++ ){
                         if( resultHtml != "" ){
                             resultHtml += "<br/>";
@@ -26,7 +26,7 @@ function getPostAjax(id, csrf_token){
                     }
                 } else if (key.indexOf("binding") != -1){
                     if (key == "binding:vif_details") {
-                        var vif_details = this.getListData(data.port.vif_details);
+                        var vif_details = getListData(data.port.vif_details);
                         resultHtml += "<ul>"
                         for( var i = 0; i < vif_details.length; i++ ){
                             resultHtml += "<li><b>port_filter</b>" + vif_details[i]["port_filter"] + "</li><li><b>ovs_hybrid_plug</b>" + vif_details[i]["ovs_hybrid_plug"] + "</li>";
