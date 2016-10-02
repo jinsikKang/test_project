@@ -83,8 +83,7 @@ $(function(){
     var tabList = ["summary", "subnet", "port", "DHCPagent"];
     var tab = tabList[0];
     $("." + tab).on("click", function(){
-        var subList = tabList;
-        subList.slice(0, 1);
+        var subList = tabList.slice(0, 1);
         for (j in subList) {
             $("#" + subList[j]).hide();
             $("." + subList[j]).removeClass("header_title_d04_click");
@@ -96,8 +95,7 @@ $(function(){
     });
     var tab = tabList[1];
     $("." + tab).on("click", function(){
-        var subList = tabList;
-        subList.slice(1, 1);
+        var subList = tabList.slice(1, 1);
         for (j in subList) {
             $("#" + subList[j]).hide();
             $("." + subList[j]).removeClass("header_title_d04_click");
@@ -109,8 +107,7 @@ $(function(){
     });
     var tab = tabList[2];
     $("." + tab).on("click", function(){
-        var subList = tabList;
-        subList.slice(2, 1);
+        var subList = tabList.slice(2, 1);
         for (j in subList) {
             $("#" + subList[j]).hide();
             $("." + subList[j]).removeClass("header_title_d04_click");
@@ -122,8 +119,7 @@ $(function(){
     });
     var tab = tabList[3];
     $("." + tab).on("click", function(){
-        var subList = tabList;
-        subList.slice(3, 1);
+        var subList = tabList.slice(3, 1);
         for (j in subList) {
             $("#" + subList[j]).hide();
             $("." + subList[j]).removeClass("header_title_d04_click");
