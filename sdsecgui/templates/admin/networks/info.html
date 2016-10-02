@@ -68,10 +68,10 @@ var network;
             data : { id:"{{ network_id }}", csrfmiddlewaretoken: "{{ csrf_token }}" },
             success:function(data){
                 network = data;
-                console.log(network);
+                // console.log(network);
             }
         });
-        /*
+
         var dataTable = {
             "selector" : "#summary",
             "columns" : {
@@ -88,13 +88,13 @@ var network;
             "data" : //데이터 넣기
             [
                 {
-                    "name" : "",
+                    "name" : "1",
                     "fixed_ips" : "",
                     "status" : "",
                     "admin_state_up" : ""
                 },
                 {
-                    "name" : "",
+                    "name" : "2",
                     "fixed_ips" : "",
                     "status" : "",
                     "admin_state_up" : ""
@@ -107,6 +107,7 @@ var network;
             columnHtml += "<th class='ind_th01 " + key + "'">" + dataTable["columns"][key] + "</th>\n";
         }
         columnHtml += "</tr>";
+
         var dataHtml = "";
         for( i in dataTable["data"] ){
             dataHtml += "<tr>\n";
@@ -115,9 +116,9 @@ var network;
             }
             dataHtml += "</tr>\n";
         }
+
         var resultHtml = columnHtml + dataHtml;
-        $("#port table").html(resultHtml);
-        */
+        $(dataTable["selector"] + " table").html(resultHtml);
     });
 </script>
 {% endblock content %}
