@@ -20,6 +20,9 @@ function getPostAjax(id, csrf_token){
                         }
                         resultHtml += "IP주소 " + fixed_ips[i]["ip_address"] + " 서브넷 ID " + fixed_ips[i]["subnet_id"];
                     }
+                } else if (key.indexOf("binding") != -1){
+                    resultHtml = data.port[key];
+                    key = key.replace("binding:","binding_");
                 } else {
                     resultHtml = data.port[key];
                 }
