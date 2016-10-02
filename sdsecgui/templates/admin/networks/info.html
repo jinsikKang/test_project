@@ -81,54 +81,20 @@ $(function(){
     $("#port").hide();
     // $("#DHCPagent").hide();
     var tabList = ["summary", "subnet", "port", "DHCPagent"];
-    var tab = tabList[0];
-    $("." + tab).on("click", function(){
-        var subList = tabList.slice(0, 1);
-        for (j in subList) {
-            $("#" + subList[j]).hide();
-            $("." + subList[j]).removeClass("header_title_d04_click");
-            $("." + subList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
-    var tab = tabList[1];
-    $("." + tab).on("click", function(){
-        var subList = tabList.slice(1, 1);
-        for (j in subList) {
-            $("#" + subList[j]).hide();
-            $("." + subList[j]).removeClass("header_title_d04_click");
-            $("." + subList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
-    var tab = tabList[2];
-    $("." + tab).on("click", function(){
-        var subList = tabList.slice(2, 1);
-        for (j in subList) {
-            $("#" + subList[j]).hide();
-            $("." + subList[j]).removeClass("header_title_d04_click");
-            $("." + subList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
-    var tab = tabList[3];
-    $("." + tab).on("click", function(){
-        var subList = tabList.slice(3, 1);
-        for (j in subList) {
-            $("#" + subList[j]).hide();
-            $("." + subList[j]).removeClass("header_title_d04_click");
-            $("." + subList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
+    for (i in tabList){
+        var subList = JSON.parse(JSON.stringify(tabList));
+        var tab = subList.slice(i, 1);
+        $("." + tab).on("click", function(){
+            for (j in subList) {
+                $("#" + subList[j]).hide();
+                $("." + subList[j]).removeClass("header_title_d04_click");
+                $("." + subList[j]).addClass("header_title_d05");
+            }
+            $("." + tab).addClass("header_title_d04_click");
+            $("." + tab).removeClass("header_title_d05");
+            $("#" + tab).show();
+        });
+    }
 });
 
 </script>
