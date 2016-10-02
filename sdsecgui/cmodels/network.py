@@ -142,7 +142,8 @@ class Subnet(Base):
         else:
             return None
 
-
+    def toJSON(cls):
+        return json.loads(json.dumps(cls, default=lambda o:o.__dict__, sort_keys=True, indent=4))
 
     def setById(cls, id):
         subnetDic = cls.showInfoJsonById(id)
