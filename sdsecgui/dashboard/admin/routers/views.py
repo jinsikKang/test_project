@@ -12,16 +12,19 @@ from sdsecgui.cmodels.router import Router
 
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
-    routerList = getRouterList("str")
-    # tempList = []
-    # # pprint.pprint(request)
-    # for router in routerList:
-    #     router_id = router["id"]
-    #     router = Router()
-    #     tempList.append(router.showInfoJsonById(router_id))
-    # routerList = tempList
-    # pprint.pprint(routerList)
-    return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
+    if request.is_ajax() and request.method == 'POST':
+        tempList = []
+        pprint.pprint(request)
+        for router in request.routerList:
+            router_id = router["id"]
+            router = Router()
+            router.setById(router_id)
+            tempList.append(router.showInfoJsonById(router_id))
+        routerList = tempList
+        return JsonResponse({'data': routerList})
+    else:
+        routerList = getRouterList("str")
+        return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
 
 def retrieveRouterById(request, router_id):
     if request.is_ajax() and request.method == 'POST':

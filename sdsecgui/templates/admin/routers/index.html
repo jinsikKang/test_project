@@ -27,6 +27,7 @@ function getRouterAjax(routerList, csrf_token){
 }
 
 $(function(){
+    getRouterAjax({% autoescape off %}{{ routerList }}{% endautoescape %}, "{{ csrf_token }}");
     var dataTable = new DataTable({
         "selector" : "#routerList",
         "columns" : {
@@ -36,7 +37,7 @@ $(function(){
             "admin_state_up" : "관리자 상태",
             "project_id" : "프로젝트",
         },
-        "data" : {% autoescape off %}{{ routerList }}{% endautoescape %}
+        "data" : ""
         {% comment %}
         [
             {% for router in routerList %}
