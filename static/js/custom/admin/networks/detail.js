@@ -86,6 +86,7 @@ function getNetworkAjax(id, csrf_token){
             getSummary();
             getSubnet();
             getPort();
+            getDHCPagent();
         }
     });
 }
