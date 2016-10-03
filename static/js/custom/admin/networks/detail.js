@@ -62,7 +62,7 @@ function getPort(){
 
 function getDHCPagent(){
     var dataTable = new DataTable({
-        "selector" : "#port",
+        "selector" : "#DHCPagent",
         "columns" : {
             "host" : "호스트",
             "status" : "Status",
