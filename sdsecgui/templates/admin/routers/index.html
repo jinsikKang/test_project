@@ -38,7 +38,7 @@ function getRouterAjax(routerList, csrf_token){
     $.ajax({
         type:"POST",
         url : '',
-        data : { routerList : routerList, csrfmiddlewaretoken : csrf_token },
+        data : { "routerList" : JSON.stringify(routerList), csrfmiddlewaretoken : csrf_token },
         success:function(data){
             routerList = data.data;
             getRouterList()
