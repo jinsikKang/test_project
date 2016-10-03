@@ -21,7 +21,7 @@ def retrieveRouterList(request):
             router.setById(router_id)
             tempList.append(router.showInfoJsonById(router_id))
         routerList = tempList
-        return JsonResponse({'data': routerList})
+        return JsonResponse({'data': json.dumps(routerList)})
     else:
         routerList = getRouterList("str")
         return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
