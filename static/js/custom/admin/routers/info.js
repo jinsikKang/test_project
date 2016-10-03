@@ -17,26 +17,8 @@ function getRouterAjax(id, csrf_token){
             $(".header_title_d01").html(data.router.name); // header 셋팅
             for( key in data.router ){    // 데이터 넣기
                 var resultHtml = "";
-                if (key == "fixed_ips") {
-                    var fixed_ips = getListData(data.router.fixed_ips);
-                    for( var i = 0; i < fixed_ips.length; i++ ){
-                        if( resultHtml != "" ){
-                            resultHtml += "<br/>";
-                        }
-                        resultHtml += "IP주소 " + fixed_ips[i]["ip_address"] + " 서브넷 ID " + fixed_ips[i]["subnet_id"];
-                    }
-                } else if (key.indexOf("binding") != -1){
-                    if (key == "binding:vif_details") {
-                        var vif_details = getListData(data.router["binding:vif_details"]);
-                        resultHtml += "<ul>"
-                        for( var i = 0; i < vif_details.length; i++ ){
-                            resultHtml += "<li><b>router_filter</b> " + vif_details[i]["router_filter"] + "</li><li><b>ovs_hybrid_plug</b> " + vif_details[i]["ovs_hybrid_plug"] + "</li>";
-                        }
-                        resultHtml += "</ul>"
-                    } else {
-                        resultHtml = data.router[key];
-                    }
-                    key = key.replace("binding:","binding_");
+                if (key == "enable_gateway_info") {
+                    continue;
                 } else {
                     resultHtml = data.router[key];
                 }
@@ -44,6 +26,22 @@ function getRouterAjax(id, csrf_token){
                     resultHtml = "None"
                 }
                 $("#"+key).html(resultHtml);
+            }
+            for ( subKey in data.router.enable_gateway_info ) {
+                var resultHtml = "";
+                if ( subKey == "enable_snat" ) {
+                    resultHtml = "<ul><li>" + data.router.enable_gateway_info[key] + "</li></ul>";
+                } else if ( subKey == "enable_fixed_ips" ) {
+                    var enable_fixed_ips = getListData(data.router.enable_fixed_ips);
+                    resultHtml += "<ul>";
+                    for( var i = 0; i < enable_fixed_ips.length; i++ ){
+                        resultHtml += "<li>서브넷 ID " + enable_fixed_ips[i]["subnet_id"] + "</li><li>IP주소 " + enable_fixed_ips[i]["ip_address"] + "</li>";
+                    }
+                    resultHtml += "</ul>";
+                } else {
+                    resultHtml = data.router.enable_gateway_info[key];
+                }
+                $("#"+subKey).html(resultHtml);
             }
         }
     });
