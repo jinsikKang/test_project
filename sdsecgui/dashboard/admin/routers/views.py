@@ -13,14 +13,14 @@ from sdsecgui.cmodels.router import Router
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     routerList = getRouterList("str")
-    tempList = []
-    # pprint.pprint(request)
-    for router in routerList:
-        router_id = router["id"]
-        router = Router()
-        tempList.append(router.showInfoJsonById(router_id))
-    routerList = tempList
-    pprint.pprint(routerList)
+    # tempList = []
+    # # pprint.pprint(request)
+    # for router in routerList:
+    #     router_id = router["id"]
+    #     router = Router()
+    #     tempList.append(router.showInfoJsonById(router_id))
+    # routerList = tempList
+    # pprint.pprint(routerList)
     return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
 
 def retrieveRouterById(request, router_id):
