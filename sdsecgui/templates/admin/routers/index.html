@@ -14,7 +14,7 @@
     </table>
 </div>
 {% load staticfiles %}
-<script src='{% static "js/custom/admin/networks/detail.js" %}'></script>
+<script src='{% static "js/custom/admin/routers/index.js" %}'></script>
 <script>
 $(function(){
     getRouterAjax({% autoescape off %}{{ routerList }}{% endautoescape %}, "{{ csrf_token }}");
