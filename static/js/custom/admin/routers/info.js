@@ -1,14 +1,5 @@
 
 function getRouterAjax(id, csrf_token){
-    this.getListData = function(dataList){
-        var tempList = dataList.split("\n");
-        var resultList = [];
-        for( i in tempList ){
-            var data = JSON.parse(tempList[i]);
-            resultList.push(data);
-        }
-        return resultList
-    }
     $.ajax({
         type:"POST",
         url : '',
@@ -32,7 +23,7 @@ function getRouterAjax(id, csrf_token){
                 if ( subKey == "enable_snat" ) {
                     resultHtml = "<ul><li>" + data.router.enable_gateway_info[key] + "</li></ul>";
                 } else if ( subKey == "enable_fixed_ips" ) {
-                    var enable_fixed_ips = getListData(data.router.enable_fixed_ips);
+                    var enable_fixed_ips = data.router.enable_fixed_ips;
                     resultHtml += "<ul>";
                     for( var i = 0; i < enable_fixed_ips.length; i++ ){
                         resultHtml += "<li>서브넷 ID " + enable_fixed_ips[i]["subnet_id"] + "</li><li>IP주소 " + enable_fixed_ips[i]["ip_address"] + "</li>";
