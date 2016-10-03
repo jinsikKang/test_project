@@ -28,31 +28,7 @@ function getRouterList(){
             "project_id" : "프로젝트",
         },
         "data" : routerList
-        {% comment %}
-        [
-            {% for router in routerList %}
-            {
-                "admin_state_up" : "{{ router.admin_state_up }}",
-                "availability_zone_hints" : "{{ router.availability_zone_hints }}",
-                "availability_zones" : "{{ router.availability_zones }}",
-                "created_at" : "{{ router.created_at }}",
-                "description" : "{{ router.description }}",
-                "distributed" : "{{ router.distributed }}",
-                "external_gateway_info" : {% autoescape off %}{{ router.external_gateway_info }}{% endautoescape %},
-                "flavor_id" : "{{ router.flavor_id }}",
-                "ha" : "{{ router.ha }}",
-                "id" : "{{ router.id }}",
-                "name" : "{{ router.name }}",
-                "project_id" : "{{ router.project_id }}",
-                "revision_number" : "{{ router.revision_number }}",
-                "routes" : "{{ router.routes }}",
-                "status" : "{{ router.status }}",
-                "tenant_id" : "{{ router.tenant_id }}",
-                "updated_at" : "{{ router.updated_at }}",
-            },
-            {% endfor %}
-        ]
-        {% endcomment %}
+
     });
     dataTable.showDataTable();
     dataTable.setLink("routers");
