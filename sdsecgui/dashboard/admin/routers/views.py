@@ -23,7 +23,7 @@ def retrieveRouterList(request):
         routerList = tempList
         return JsonResponse({'data': routerList})
     else:
-        routerList = dictionaryEncodeConvert(getRouterList())
+        routerList = getRouterList()
         return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
 
 def retrieveRouterById(request, router_id):
