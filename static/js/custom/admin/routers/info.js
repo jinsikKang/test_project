@@ -21,7 +21,7 @@ function getRouterAjax(id, csrf_token){
             for ( subKey in data.router.enable_gateway_info ) {
                 var resultHtml = "";
                 if ( subKey == "enable_snat" ) {
-                    resultHtml = "<ul><li>" + data.router.enable_gateway_info[key] + "</li></ul>";
+                    resultHtml = "<ul><li>" + data.router.enable_gateway_info[subKey] + "</li></ul>";
                 } else if ( subKey == "external_fixed_ips" ) {
                     var external_fixed_ips = data.router.external_fixed_ips;
                     resultHtml += "<ul>";
