@@ -14,7 +14,7 @@ def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
         tempList = []
-        data = json.loads(request.POST)
+        data = json.loads(request.POST.routerList)
         print data
         for router in request.body:
             router_id = router["id"]
