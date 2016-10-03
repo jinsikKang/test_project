@@ -30,7 +30,7 @@ function getRouterAjax(id, csrf_token){
                     }
                     resultHtml += "</ul>";
                 } else {
-                    resultHtml = data.router.enable_gateway_info[key];
+                    resultHtml = data.router.enable_gateway_info[subKey];
                 }
                 $("#"+subKey).html(resultHtml);
             }
