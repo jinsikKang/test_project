@@ -17,7 +17,7 @@
 var routerList;
 
 
-function getRouterList(){
+function getRouterList(data){
     var dataTable = new DataTable({
         "selector" : "#routerList",
         "columns" : {
@@ -27,7 +27,7 @@ function getRouterList(){
             "admin_state_up" : "관리자 상태",
             "project_id" : "프로젝트",
         },
-        "data" : routerList
+        "data" : data
 
     });
     dataTable.showDataTable();
@@ -40,8 +40,8 @@ function getRouterAjax(routerList, csrf_token){
         url : '',
         data : { "routerList" : JSON.stringify(routerList), csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
-            routerList = jsonData.data;
-            getRouterList()
+            resultData = jsonData.data;
+            getRouterList(resultData)
         }
     });
 }
