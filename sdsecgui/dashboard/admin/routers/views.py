@@ -34,4 +34,4 @@ def retrieveRouterById(request, router_id):
         router.setById(router_id)
         return JsonResponse({ 'router' : router.routerDic })
     else:
-        return render(request, 'admin/routers/routers/info.html', {'router_id': router_id})
+        return render(request, 'admin/routers/info.html', {'router_id': router_id})
