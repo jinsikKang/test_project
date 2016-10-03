@@ -14,8 +14,8 @@ def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     routerList = getRouterList()
     tempList = []
-    pprint.pprint(request)
-    for router in request.routerList:
+    # pprint.pprint(request)
+    for router in routerList:
         router_id = router["id"]
         router = Router()
         router.setById(router_id)
