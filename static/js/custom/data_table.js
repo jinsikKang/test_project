@@ -78,7 +78,7 @@ function DataTable (settings){
                         /* class 에 link 를 포함 */
                         link = " link";
                     }
-                    dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
+                    dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("this.data[i]." + key) + "</td>\n";
                 }
                 dataHtml += "</tr>\n";
             }
