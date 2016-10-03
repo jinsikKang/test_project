@@ -20,8 +20,7 @@ def retrieveRouterList(request):
             router = Router()
             router.setById(router_id)
             tempList.append(router.showInfoJsonById(router_id))
-        routerList = json.dumps(tempList)
-        print routerList
+        routerList = tempList
         return JsonResponse({'data': routerList})
     else:
         routerList = getRouterList("str")
