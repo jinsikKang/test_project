@@ -14,7 +14,7 @@
     </table>
 </div>
 <script>
-var routerList = [];
+var routerList;
 
 
 function getRouterList(){
@@ -39,8 +39,8 @@ function getRouterAjax(routerList, csrf_token){
         type:"POST",
         url : '',
         data : { "routerList" : JSON.stringify(routerList), csrfmiddlewaretoken : csrf_token },
-        success:function(data){
-            routerList = data;
+        success:function(jsonData){
+            routerList = jsonData.data;
             getRouterList()
         }
     });
