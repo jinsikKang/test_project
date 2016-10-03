@@ -92,7 +92,7 @@
 <script src='{% static "js/custom/admin/networks/ports/detail.js" %}'></script>
 <script>
 $(function(){
-    getPostAjax("{{ post_id }}", "{{ csrf_token }}");
+    getPortAjax("{{ port_id }}", "{{ csrf_token }}");
 });
 </script>
 {% endblock content %}
