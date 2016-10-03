@@ -14,6 +14,7 @@ def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
         tempList = []
+        # POST.body의 데이터(QueryDic)를 dictionary 형태로 바꾸어 얻음
         data = json.loads(request.POST.dict()["routerList"])
         for router in data:
             router_id = router["id"]
@@ -23,6 +24,7 @@ def retrieveRouterList(request):
         routerList = tempList
         return JsonResponse({'data': routerList})
     else:
+        # json.stringify 형태로 넘겨줌("str")
         routerList = getRouterList("str")
         return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
 
