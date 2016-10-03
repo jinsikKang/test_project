@@ -91,6 +91,11 @@
         </table>
     </div>
 </div>
+{% load staticfiles %}
+<script src='{% static "js/custom/admin/routers/info.js" %}'></script>
 <script>
+$(function(){
+    getRouterAjax("{{ port_id }}", "{{ csrf_token }}");
+});
 </script>
 {% endblock content %}
