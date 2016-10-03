@@ -27,6 +27,7 @@ function getRouterAjax(routerList, csrf_token){
 }
 
 $(function(){
+    getRouterAjax({{ routerList }}, "{{ csrf_token }}");
     var dataTable = new DataTable({
         "selector" : "#subnet",
         "columns" : {
@@ -37,7 +38,26 @@ $(function(){
             "revision_number" : "사용된 IP",
             "allocation_pools" : "남는 IP"
         },
-        "data" : network.subnets
+        "data" : [
+            {% comment %}
+            {% for network in networkList %}
+                "name" : "{{ routerList.name }}",
+                "external_gateway_info" : "{{ routerList.external_gateway_info }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+                "" : "{{ routerList. }}",
+            {% endfor %}
+            {% endcomment %}
+        ]
     });
     dataTable.showDataTable();
     dataTable.setLink("networks/subnets");

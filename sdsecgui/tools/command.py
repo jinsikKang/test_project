@@ -89,8 +89,13 @@ def getNetworkList():
 
     return networkList
 
-def getRouterList():
-    routerList = json.loads(excuteCmd("neutron router-list -f json"))
+def getRouterList(type="json"):
+    if type == "json":
+        routerList = json.loads(excuteCmd("neutron router-list -f json"))
+    elif type == "str":
+        routerList = excuteCmd("neutron router-list -f json")
+    else:
+        routerList = None
     return routerList
 
 def login(username, password, tenant_name, controller, auth_url):
