@@ -24,7 +24,7 @@ function getRouterAjax(id, csrf_token){
                 if ( subKey == "enable_snat" ) {
                     resultHtml = "<ul><li>" + external_gateway_info[subKey] + "</li></ul>";
                 } else if ( subKey == "external_fixed_ips" ) {
-                    var external_fixed_ips = data.router.external_fixed_ips;
+                    var external_fixed_ips = external_gateway_info.external_fixed_ips;
                     resultHtml += "<ul>";
                     for( var i = 0; i < external_fixed_ips.length; i++ ){
                         resultHtml += "<li>서브넷 ID " + external_fixed_ips[i]["subnet_id"] + "</li><li>IP주소 " + external_fixed_ips[i]["ip_address"] + "</li>";
