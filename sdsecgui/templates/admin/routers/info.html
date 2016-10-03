@@ -1,4 +1,14 @@
+{% extends 'base.html' %}
 
+{% block header %}
+<div class="header_title_d01">라우터</div>
+{% endblock header %}
+
+{% block sub_left_menu %}
+{% include "admin/left_menu.html" %}
+{% endblock sub_left_menu %}
+
+{% block content %}
 <style>
     .table-horizontal th {
         float: left;
@@ -81,3 +91,5 @@
         </table>
     </div>
 </div>
+
+{% endblock content %}
