@@ -89,6 +89,10 @@ def getNetworkList():
 
     return networkList
 
+def getRouterList():
+    routerList = json.loads(excuteCmd("neutron router-list -f json"))
+    return routerList
+
 def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username

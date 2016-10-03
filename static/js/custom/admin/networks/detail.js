@@ -65,7 +65,7 @@ function getDHCPagent(){
         "selector" : "#DHCPagent",
         "columns" : {
             "host" : "호스트",
-            "status" : "Status",
+            "alive" : "Status",
             "admin_state_up" : "관리자 상태",
             "alive" : "업데이트",
         },
@@ -92,9 +92,10 @@ function getNetworkAjax(id, csrf_token){
 }
 
 $(function(){
+//탭 클릭시 이벤트들
     $("#subnet").hide();
     $("#port").hide();
-    // $("#DHCPagent").hide();
+    $("#DHCPagent").hide();
     $(".summary").click(function(){
         var tabList = ["summary", "subnet", "port", "DHCPagent"];
         var tab = tabList.splice(0, 1);

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01">라우터</div>
+{% endblock header %}
+
+{% block sub_left_menu %}
+{% include "admin/left_menu.html" %}
+{% endblock sub_left_menu %}
+
+{% block content %}
+<div id="routerList">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+    </table>
+</div>
+<script>
+var routerList = [];
+function getRouterAjax(routerList, csrf_token){
+    $.ajax({
+        type:"POST",
+        url : '',
+        data : { routerList : routerList, csrfmiddlewaretoken : csrf_token },
+        success:function(data){
+            routerList = data.data;
+        }
+    });
+}
+
+$(function(){
+    getRouterAjax({{ routerList }}, {{ csrf_token }})
+    var dataTable = new DataTable({
+        "selector" : "#subnet",
+        "columns" : {
+            "name" : "이름:link",
+            "cidr" : "CIDR",
+            "ip_version" : "IP 버전",
+            "gateway_ip" : "게이트웨이 IP",
+            "revision_number" : "사용된 IP",
+            "allocation_pools" : "남는 IP"
+        },
+        "data" : network.subnets
+    });
+    dataTable.showDataTable();
+    dataTable.setLink("networks/subnets");
+});
+</script>
+{% endblock content %}
