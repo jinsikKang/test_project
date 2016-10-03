@@ -8,7 +8,7 @@ function getRouterAjax(id, csrf_token){
             $(".header_title_d01").html(data.router.name); // header 셋팅
             for( key in data.router ){    // 데이터 넣기
                 var resultHtml = "";
-                if (key == "enable_gateway_info") {
+                if (key == "external_gateway_info") {
                     continue;
                 } else {
                     resultHtml = data.router[key];
@@ -18,10 +18,11 @@ function getRouterAjax(id, csrf_token){
                 }
                 $("#"+key).html(resultHtml);
             }
-            for ( subKey in data.router.enable_gateway_info ) {
+            var external_gateway_info = JSON.parse(data.router.external_gateway_info);
+            for ( subKey in external_gateway_info ) {
                 var resultHtml = "";
                 if ( subKey == "enable_snat" ) {
-                    resultHtml = "<ul><li>" + data.router.enable_gateway_info[subKey] + "</li></ul>";
+                    resultHtml = "<ul><li>" + external_gateway_info[subKey] + "</li></ul>";
                 } else if ( subKey == "external_fixed_ips" ) {
                     var external_fixed_ips = data.router.external_fixed_ips;
                     resultHtml += "<ul>";
@@ -30,7 +31,7 @@ function getRouterAjax(id, csrf_token){
                     }
                     resultHtml += "</ul>";
                 } else {
-                    resultHtml = data.router.enable_gateway_info[subKey];
+                    resultHtml = external_gateway_info[subKey];
                 }
                 $("#"+subKey).html(resultHtml);
             }
