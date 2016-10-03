@@ -6,6 +6,7 @@ from django.http import JsonResponse
 import json
 
 from sdsecgui.tools.command import getRouterList
+from sdsecgui.tools.converter import dictionaryEncodeConvert
 from sdsecgui.cmodels.router import Router
 
 
@@ -22,7 +23,7 @@ def retrieveRouterList(request):
         routerList = tempList
         return JsonResponse({'data': routerList})
     else:
-        routerList = getRouterList()
+        routerList = dictionaryEncodeConvert(getRouterList())
         return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
 
 def retrieveRouterById(request, router_id):
