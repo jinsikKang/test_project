@@ -26,37 +26,35 @@ function getRouterAjax(routerList, csrf_token){
     });
 }
 
+
+[
+  {
+    "external_gateway_info": "{\"network_id\": \"ddca52a0-ea46-47ea-836f-e955bf70dd73\", \"enable_snat\": true, \"external_fixed_ips\": [{\"subnet_id\": \"8764c66c-4fa8-4b4e-82c8-ec0a76d31449\", \"ip_address\": \"172.24.4.8\"}, {\"subnet_id\": \"74c11a40-8e73-4f1b-a5b8-2b2992816292\", \"ip_address\": \"2001:db8::6\"}]}",
+    "ha": false,
+    "distributed": false,
+    "id": "7ea83d80-f0bd-4636-8039-f9ae09fbd98f",
+    "name": "router1"
+  }
+]
+
 $(function(){
-    getRouterAjax({{ routerList }}, "{{ csrf_token }}");
     var dataTable = new DataTable({
         "selector" : "#subnet",
         "columns" : {
             "name" : "이름:link",
-            "cidr" : "CIDR",
-            "ip_version" : "IP 버전",
-            "gateway_ip" : "게이트웨이 IP",
-            "revision_number" : "사용된 IP",
-            "allocation_pools" : "남는 IP"
+            "external_gateway_info" : "CIDR",
+            "ha" : "IP 버전",
+            "distributed" : "게이트웨이 IP",
+            "id" : "사용된 IP",
         },
         "data" : [
-            {% comment %}
             {% for network in networkList %}
                 "name" : "{{ routerList.name }}",
                 "external_gateway_info" : "{{ routerList.external_gateway_info }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
-                "" : "{{ routerList. }}",
+                "ha" : "{{ routerList.ha }}",
+                "distributed" : "{{ routerList.distributed }}",
+                "id" : "{{ routerList.id }}",
             {% endfor %}
-            {% endcomment %}
         ]
     });
     dataTable.showDataTable();
