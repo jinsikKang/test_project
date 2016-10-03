@@ -28,7 +28,7 @@ function getRouterAjax(routerList, csrf_token){
 
 $(function(){
     var dataTable = new DataTable({
-        "selector" : "#subnet",
+        "selector" : "#routerList",
         "columns" : {
             "name" : "이름:link",
             "status" : "Status",
@@ -36,7 +36,9 @@ $(function(){
             "admin_state_up" : "관리자 상태",
             "project_id" : "프로젝트",
         },
-        "data" : [
+        "data" : {% autoescape off %}{{ routerList }}{% endautoescape %}
+        {% comment %}
+        [
             {% for router in routerList %}
             {
                 "admin_state_up" : "{{ router.admin_state_up }}",
@@ -59,6 +61,7 @@ $(function(){
             },
             {% endfor %}
         ]
+        {% endcomment %}
     });
     dataTable.showDataTable();
     dataTable.setLink("routers");
