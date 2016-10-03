@@ -45,7 +45,11 @@ $(function(){
                 "created_at" : "{{ router.created_at }}",
                 "description" : "{{ router.description }}",
                 "distributed" : "{{ router.distributed }}",
-                "external_gateway_info" : JSON.parse("{{ router.external_gateway_info }}".replace(/&quot/g,"'")),
+                "external_gateway_info" : JSON.parse(function(){
+                    var str = "{{ router.external_gateway_info }}".replace(/&quot/g,"'");
+                    alert(str);
+                    return str
+                }),
                 "flavor_id" : "{{ router.flavor_id }}",
                 "ha" : "{{ router.ha }}",
                 "id" : "{{ router.id }}",
