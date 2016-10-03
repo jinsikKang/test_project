@@ -1,10 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<style>
+    .table-horizontal th {
+        float: left;
+        withh: 160px;
+        clear: left;
+        text-align: right;
+        overflow: hitden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    th {
+        font-weight: bold;
+    }
+</style>
+<div id="router_details__overview" class="tab-pane active">
+    <div class="detail">
+        <table class="table-horizontal">
+            <tr>
+                <th>이름</th><td></td>
+            </tr>
+            <tr>
+                <th>ID</th><td></td>
+            </tr>
+            <tr>
+                <th>설명</th><td></td>
+            </tr>
+            <tr>
+                <th>프로젝트 ID</th><td></td>
+            </tr>
+            <tr>
+                <th>Status</th><td></td>
+            </tr>
+            <tr>
+                <th>관리자 상태</th><td></td>
+            </tr>
+            <tr>
+                <th>L3 에이전트</th>
+                <td>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th><strong>호스트</strong></th>
+                                <th><strong>ID</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>openstack</td>
+                                <td><a href="/dashboard/admin/routers/8399a441-4ebf-4661-bcee-9e06a1fec21f/l3_agent_list">8399a441-4ebf-4661-bcee-9e06a1fec21f</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>가용성 존</th><td><ul><li>nova</li></ul></td>
+            </tr>
+        </table>
+        <h4>외부 게이트웨이</h4>
+        <hr class="header_rule">
+        <table class="table-horizontal">
+            <tr>
+                <th>네트워크 이름</th><td></td>
+            </tr>
+            <tr>
+                <th>네트워크 ID</th><td></td>
+            </tr>
+            <tr>
+                <th>외부 fixed IP</th>
+                <td>
+                    <ul>
+                        <li><strong>서브넷 ID</strong> <a href="/dashboard/project/networks/subnets/8764c66c-4fa8-4b4e-82c8-ec0a76d31449/detail">8764c66c-4fa8-4b4e-82c8-ec0a76d31449</a></li>
+                        <li><strong>IP 주소</strong> 172.24.4.8</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>SNAT</th><td></td>
+            </tr>
+        </table>
+    </div>
+</div>
