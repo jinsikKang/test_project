@@ -40,7 +40,7 @@ function getRouterAjax(routerList, csrf_token){
         url : '',
         data : { "routerList" : JSON.stringify(routerList), csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
-            resultData = jsonData.data;
+            var resultData = jsonData.data;
             getRouterList(resultData)
         }
     });
