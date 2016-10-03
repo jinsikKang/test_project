@@ -26,34 +26,37 @@ function getRouterAjax(routerList, csrf_token){
     });
 }
 
-
-[
-  {
-    "external_gateway_info": "{\"network_id\": \"ddca52a0-ea46-47ea-836f-e955bf70dd73\", \"enable_snat\": true, \"external_fixed_ips\": [{\"subnet_id\": \"8764c66c-4fa8-4b4e-82c8-ec0a76d31449\", \"ip_address\": \"172.24.4.8\"}, {\"subnet_id\": \"74c11a40-8e73-4f1b-a5b8-2b2992816292\", \"ip_address\": \"2001:db8::6\"}]}",
-    "ha": false,
-    "distributed": false,
-    "id": "7ea83d80-f0bd-4636-8039-f9ae09fbd98f",
-    "name": "router1"
-  }
-]
-
 $(function(){
     var dataTable = new DataTable({
         "selector" : "#subnet",
         "columns" : {
             "name" : "이름:link",
-            "external_gateway_info" : "CIDR",
-            "ha" : "IP 버전",
-            "distributed" : "게이트웨이 IP",
-            "id" : "사용된 IP",
+            "status" : "Status",
+            "external_gateway_info" : "외부 네트워크",
+            "admin_state_up" : "관리자 상태",
+            "project_id" : "프로젝트",
         },
         "data" : [
             {% for network in networkList %}
-                "name" : "{{ routerList.name }}",
-                "external_gateway_info" : "{{ routerList.external_gateway_info }}",
-                "ha" : "{{ routerList.ha }}",
+            {
+                "admin_state_up" : "{{ routerList.admin_state_up }}",
+                "availability_zone_hints" : "{{ routerList.availability_zone_hints }}",
+                "availability_zones" : "{{ routerList.availability_zones }}",
+                "created_at" : "{{ routerList.created_at }}",
+                "description" : "{{ routerList.description }}",
                 "distributed" : "{{ routerList.distributed }}",
+                "external_gateway_info" : JSON.parse("{{ routerList.external_gateway_info }}"),
+                "flavor_id" : "{{ routerList.flavor_id }}",
+                "ha" : "{{ routerList.ha }}",
                 "id" : "{{ routerList.id }}",
+                "name" : "{{ routerList.name }}",
+                "project_id" : "{{ routerList.project_id }}",
+                "revision_number" : "{{ routerList.revision_number }}",
+                "routes" : "{{ routerList.routes }}",
+                "status" : "{{ routerList.status }}",
+                "tenant_id" : "{{ routerList.tenant_id }}",
+                "updated_at" : "{{ routerList.updated_at }}",
+            },
             {% endfor %}
         ]
     });
