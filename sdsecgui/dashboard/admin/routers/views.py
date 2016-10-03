@@ -12,7 +12,7 @@ from sdsecgui.cmodels.router import Router
 
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
-    routerList = getRouterList("str")
+    routerList = getRouterList()
     # tempList = []
     # # pprint.pprint(request)
     # for router in routerList:
