@@ -99,7 +99,7 @@ $(function(){
     function tabClick(i, tempTabList){
         var tabList = [];
         for (idx in tempTabList) {
-            var tempTab = tabList[idx];
+            var tempTab = tabTabList[idx];
             tabList.push(tempTab);
         }
         var tab = tabList.splice(i, 1);
