@@ -28,73 +28,77 @@
         font-weight: bold;
     }
 </style>
-<div id="router_details__overview" class="tab-pane active">
-    <div class="detail">
-        <table class="ind_tab01">
-            <tr>
-                <th class="ind_th01">이름</th><td class="ind_td01" id="name"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">ID</th><td class="ind_td01" id="id"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">설명</th><td class="ind_td01" id="description"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">프로젝트 ID</th><td class="ind_td01" id="project_id"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">Status</th><td class="ind_td01" id="status"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">관리자 상태</th><td class="ind_td01" id="admin_state_up"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">L3 에이전트</th>
-                <td class="ind_td01">
-                    <table class="ind_tab01">
-                        <thead>
-                            <tr>
-                                <th class="ind_th01"><strong>호스트</strong></th>
-                                <th class="ind_th01"><strong>ID</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="ind_td01"><!-- openstack --></td>
-                                <td class="ind_td01"><!-- <a href="/dashboard/admin/routers/8399a441-4ebf-4661-bcee-9e06a1fec21f/l3_agent_list">8399a441-4ebf-4661-bcee-9e06a1fec21f</a> --></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <th class="ind_th01">가용성 존</th><td class="ind_td01" id="availability_zones"><!--<ul><li>nova</li></ul>--></td>
-            </tr>
-        </table>
-        <h4>외부 게이트웨이</h4>
-        <hr class="header_rule">
-        <table class="ind_tab01">
-            <tr>
-                <th class="ind_th01">네트워크 이름</th><td class="ind_td01" id="network_name"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">네트워크 ID</th><td class="ind_td01" id="network_id"></td>
-            </tr>
-            <tr>
-                <th class="ind_th01">외부 fixed IP</th>
-                <td class="ind_td01" id="external_fixed_ips">
-                    <!--<ul>
-                        <li><strong>서브넷 ID</strong> <a href="/dashboard/project/networks/subnets/8764c66c-4fa8-4b4e-82c8-ec0a76d31449/detail">8764c66c-4fa8-4b4e-82c8-ec0a76d31449</a></li>
-                        <li><strong>IP 주소</strong> 172.24.4.8</li>
-                    </ul>-->
-                </td>
-            </tr>
-            <tr>
-                <th class="ind_th01">SNAT</th><td class="ind_td01" id="enable_snat"></td>
-            </tr>
-        </table>
-    </div>
+<div id="summary">
+    <table class="ind_tab01">
+        <tr>
+            <th class="ind_th01">이름</th><td class="ind_td01" id="name"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">ID</th><td class="ind_td01" id="id"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">설명</th><td class="ind_td01" id="description"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">프로젝트 ID</th><td class="ind_td01" id="project_id"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">Status</th><td class="ind_td01" id="status"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">관리자 상태</th><td class="ind_td01" id="admin_state_up"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">L3 에이전트</th>
+            <td class="ind_td01">
+                <table class="ind_tab01">
+                    <thead>
+                        <tr>
+                            <th class="ind_th01"><strong>호스트</strong></th>
+                            <th class="ind_th01"><strong>ID</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ind_td01"><!-- openstack --></td>
+                            <td class="ind_td01"><!-- <a href="/dashboard/admin/routers/8399a441-4ebf-4661-bcee-9e06a1fec21f/l3_agent_list">8399a441-4ebf-4661-bcee-9e06a1fec21f</a> --></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th class="ind_th01">가용성 존</th><td class="ind_td01" id="availability_zones"><!--<ul><li>nova</li></ul>--></td>
+        </tr>
+    </table>
+    <h4>외부 게이트웨이</h4>
+    <hr class="header_rule">
+    <table class="ind_tab01">
+        <tr>
+            <th class="ind_th01">네트워크 이름</th><td class="ind_td01" id="network_name"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">네트워크 ID</th><td class="ind_td01" id="network_id"></td>
+        </tr>
+        <tr>
+            <th class="ind_th01">외부 fixed IP</th>
+            <td class="ind_td01" id="external_fixed_ips">
+                <!--<ul>
+                    <li><strong>서브넷 ID</strong> <a href="/dashboard/project/networks/subnets/8764c66c-4fa8-4b4e-82c8-ec0a76d31449/detail">8764c66c-4fa8-4b4e-82c8-ec0a76d31449</a></li>
+                    <li><strong>IP 주소</strong> 172.24.4.8</li>
+                </ul>-->
+            </td>
+        </tr>
+        <tr>
+            <th class="ind_th01">SNAT</th><td class="ind_td01" id="enable_snat"></td>
+        </tr>
+    </table>
+</div>
+<div id="interface">
+하하
+</div>
+<div id="static_path">
+오예
 </div>
 {% load staticfiles %}
 <script src='{% static "js/custom/admin/routers/info.js" %}'></script>

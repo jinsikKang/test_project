@@ -43,9 +43,9 @@ $(function(){
     $("#interface").hide();
     $("#staticPath").hide();
 
-    var tabList = ["summary", "interface", "staticPath"];
+    var tabList = ["summary", "interface", "static_path"];
 
     $(".summary").on("click", function(){tabClick(0, tabList)});
     $(".interface").on("click", function(){tabClick(1, tabList)});
-    $(".staticPath").on("click", function(){tabClick(2, tabList)});
+    $(".static_path").on("click", function(){tabClick(2, tabList)});
 });
