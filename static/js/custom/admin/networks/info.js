@@ -96,7 +96,12 @@ $(function(){
     $("#subnet").hide();
     $("#port").hide();
     $("#DHCPagent").hide();
-    function tabClick(i, tabList){
+    function tabClick(i, tempTabList){
+        var tabList = [];
+        for (idx in tempTabList) {
+            var tempTab = tabList[idx];
+            tabList.append(tempTab);
+        }
         var tab = tabList.splice(i, 1);
         for (j in tabList) {
             $("#" + tabList[j]).hide();
