@@ -100,7 +100,7 @@ $(function(){
         var tabList = [];
         for (idx in tempTabList) {
             var tempTab = tabList[idx];
-            tabList.append(tempTab);
+            tabList.push(tempTab);
         }
         var tab = tabList.splice(i, 1);
         for (j in tabList) {
