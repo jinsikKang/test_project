@@ -18,9 +18,6 @@
 <script>
 $(function(){
     getRouterAjax({% autoescape off %}{{ routerList }}{% endautoescape %}, "{{ csrf_token }}");
-    $(".summary").addClass("header_title_d04_click");
-    $(".summary").removeClass("header_title_d05");
-    getNetworkAjax("{{ network_id }}", "{{ csrf_token }}");
 });
 </script>
 {% endblock content %}

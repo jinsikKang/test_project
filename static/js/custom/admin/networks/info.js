@@ -96,9 +96,10 @@ $(function(){
     $("#subnet").hide();
     $("#port").hide();
     $("#DHCPagent").hide();
-    $(".summary").click(function(){
+    function tabClick(i){
         var tabList = ["summary", "subnet", "port", "DHCPagent"];
-        var tab = tabList.splice(0, 1);
+
+        var tab = tabList.splice(i, 1);
         for (j in tabList) {
             $("#" + tabList[j]).hide();
             $("." + tabList[j]).removeClass("header_title_d04_click");
@@ -107,41 +108,46 @@ $(function(){
         $("." + tab).addClass("header_title_d04_click");
         $("." + tab).removeClass("header_title_d05");
         $("#" + tab).show();
-    });
-    $(".subnet").click(function(){
-        var tabList = ["summary", "subnet", "port", "DHCPagent"];
-        var tab = tabList.splice(1, 1);
-        for (j in tabList) {
-            $("#" + tabList[j]).hide();
-            $("." + tabList[j]).removeClass("header_title_d04_click");
-            $("." + tabList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
-    $(".port").click(function(){
-        var tabList = ["summary", "subnet", "port", "DHCPagent"];
-        var tab = tabList.splice(2, 1);
-        for (j in tabList) {
-            $("#" + tabList[j]).hide();
-            $("." + tabList[j]).removeClass("header_title_d04_click");
-            $("." + tabList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
-    $(".DHCPagent").click(function(){
-        var tabList = ["summary", "subnet", "port", "DHCPagent"];
-        var tab = tabList.splice(3, 1);
-        for (j in tabList) {
-            $("#" + tabList[j]).hide();
-            $("." + tabList[j]).removeClass("header_title_d04_click");
-            $("." + tabList[j]).addClass("header_title_d05");
-        }
-        $("." + tab).addClass("header_title_d04_click");
-        $("." + tab).removeClass("header_title_d05");
-        $("#" + tab).show();
-    });
+    }
+//    $(".summary").click(function(){
+//        var tabList = ["summary", "subnet", "port", "DHCPagent"];
+//        var tab = tabList.splice(0, 1);
+//        for (j in tabList) {
+//            $("#" + tabList[j]).hide();
+//            $("." + tabList[j]).removeClass("header_title_d04_click");
+//            $("." + tabList[j]).addClass("header_title_d05");
+//        }
+//        $("." + tab).addClass("header_title_d04_click");
+//        $("." + tab).removeClass("header_title_d05");
+//        $("#" + tab).show();
+//    });
+//    $(".subnet").click(function(){
+//        var tabList = ["summary", "subnet", "port", "DHCPagent"];
+//        var tab = tabList.splice(1, 1);
+//        for (j in tabList) {
+//            $("#" + tabList[j]).hide();
+//            $("." + tabList[j]).removeClass("header_title_d04_click");
+//            $("." + tabList[j]).addClass("header_title_d05");
+//        }
+//        $("." + tab).addClass("header_title_d04_click");
+//        $("." + tab).removeClass("header_title_d05");
+//        $("#" + tab).show();
+//    });
+//    $(".port").click(function(){
+//        var tabList = ["summary", "subnet", "port", "DHCPagent"];
+//        var tab = tabList.splice(2, 1);
+//        for (j in tabList) {
+//            $("#" + tabList[j]).hide();
+//            $("." + tabList[j]).removeClass("header_title_d04_click");
+//            $("." + tabList[j]).addClass("header_title_d05");
+//        }
+//        $("." + tab).addClass("header_title_d04_click");
+//        $("." + tab).removeClass("header_title_d05");
+//        $("#" + tab).show();
+//    });
+    $(".summary").click(tabClick(0));
+    $(".subnet").click(tabClick(1));
+    $(".port").click(tabClick(2));
+    $(".DHCPagent").click(tabClick(3));
+
 });

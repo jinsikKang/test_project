@@ -74,8 +74,6 @@
 <script src='{% static "js/custom/admin/networks/info.js" %}'></script>
 <script>
 $(function(){
-    $(".summary").addClass("header_title_d04_click");
-    $(".summary").removeClass("header_title_d05");
     getNetworkAjax("{{ network_id }}", "{{ csrf_token }}");
 });
 
