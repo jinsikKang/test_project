@@ -101,10 +101,10 @@ function getNetworkAjax(id, csrf_token){
                 $("." + tab).removeClass("header_title_d05");
                 $("#" + tab).show();
             }
-            $(".summary").click(tabClick(0));
-            $(".subnet").click(tabClick(1));
-            $(".port").click(tabClick(2));
-            $(".DHCPagent").click(tabClick(3));
+            $(".summary").on("click", tabClick(0));
+            $(".subnet").on("click", tabClick(1));
+            $(".port").on("click", tabClick(2));
+            $(".DHCPagent").on("click",tabClick(3));
         }
     });
 }
