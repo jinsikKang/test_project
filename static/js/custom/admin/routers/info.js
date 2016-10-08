@@ -26,11 +26,11 @@ function getRouterAjax(id, csrf_token){
                     var external_fixed_ips = external_gateway_info.external_fixed_ips;
                     resultHtml += "<ul>";
                     for( var i = 0; i < external_fixed_ips.length; i++ ){
-                        resultHtml += "<li><strong>서브넷 ID</strong> <a href='/dashboard/project/networks/subnets/" + external_fixed_ips[i]["subnet_id"] + "'>" + external_fixed_ips[i]["subnet_id"] + "</a></li><li><strong>IP 주소</strong> " + external_fixed_ips[i]["ip_address"] + "</li>";
+                        resultHtml += "<li><strong>서브넷 ID</strong> <a href='/dashboard/admin/networks/subnets/" + external_fixed_ips[i]["subnet_id"] + "'>" + external_fixed_ips[i]["subnet_id"] + "</a></li><li><strong>IP 주소</strong> " + external_fixed_ips[i]["ip_address"] + "</li>";
                     }
                     resultHtml += "</ul>";
                 } else if ( subKey == "network_id" ) {
-                    resultHtml = "<a href='/dashboard/project/networks/" + external_gateway_info[subKey] + "'>" + external_gateway_info[subKey] + "</a>";
+                    resultHtml = "<a href='/dashboard/admin/networks/" + external_gateway_info[subKey] + "'>" + external_gateway_info[subKey] + "</a>";
                 } else {
                     resultHtml = external_gateway_info[subKey];
                 }
