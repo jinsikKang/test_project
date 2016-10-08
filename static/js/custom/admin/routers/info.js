@@ -26,9 +26,11 @@ function getRouterAjax(id, csrf_token){
                     var external_fixed_ips = external_gateway_info.external_fixed_ips;
                     resultHtml += "<ul>";
                     for( var i = 0; i < external_fixed_ips.length; i++ ){
-                        resultHtml += "<li>서브넷 ID " + external_fixed_ips[i]["subnet_id"] + "</li><li>IP주소 " + external_fixed_ips[i]["ip_address"] + "</li>";
+                        resultHtml += "<li><strong>서브넷 ID</strong> <a href='/dashboard/project/networks/subnets/" + external_fixed_ips[i]["subnet_id"] + "'>" + external_fixed_ips[i]["subnet_id"] + "</a></li><li><strong>IP 주소</strong> " + external_fixed_ips[i]["ip_address"] + "</li>";
                     }
                     resultHtml += "</ul>";
+                } else if ( subKey == "network_name" ) {
+                    resultHtml = "<a href='/dashboard/project/networks/" + external_gateway_info[subKey] + "'>" + external_gateway_info[subKey] + "</a>";
                 } else {
                     resultHtml = external_gateway_info[subKey];
                 }
@@ -41,7 +43,7 @@ function getRouterAjax(id, csrf_token){
 $(function(){
 //탭 클릭시 이벤트들
     $("#interface").hide();
-    $("#staticPath").hide();
+    $("#static_path").hide();
 
     var tabList = ["summary", "interface", "static_path"];
 
