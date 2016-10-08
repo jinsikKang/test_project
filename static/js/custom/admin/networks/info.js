@@ -96,9 +96,7 @@ $(function(){
     $("#subnet").hide();
     $("#port").hide();
     $("#DHCPagent").hide();
-    function tabClick(i){
-        var tabList = ["summary", "subnet", "port", "DHCPagent"];
-
+    function tabClick(i, tabList){
         var tab = tabList.splice(i, 1);
         for (j in tabList) {
             $("#" + tabList[j]).hide();
@@ -109,10 +107,11 @@ $(function(){
         $("." + tab).removeClass("header_title_d05");
         $("#" + tab).show();
     }
-    $(".summary").on("click", function(){tabClick(0)});
-    $(".subnet").on("click", function(){tabClick(1)});
-    $(".port").on("click", function(){tabClick(2)});
-    $(".DHCPagent").on("click",function(){tabClick(3)});
+    var tabList = ["summary", "subnet", "port", "DHCPagent"];
+    $(".summary").on("click", function(){tabClick(0, tabList)});
+    $(".subnet").on("click", function(){tabClick(1, tabList)});
+    $(".port").on("click", function(){tabClick(2, tabList)});
+    $(".DHCPagent").on("click",function(){tabClick(3, tabList)});
 //    $(".summary").click(function(){
 //        var tabList = ["summary", "subnet", "port", "DHCPagent"];
 //        var tab = tabList.splice(0, 1);
