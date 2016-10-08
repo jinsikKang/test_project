@@ -1,4 +1,3 @@
-
 function getRouterAjax(id, csrf_token){
     $.ajax({
         type:"POST",
@@ -38,3 +37,15 @@ function getRouterAjax(id, csrf_token){
         }
     });
 }
+
+$(function(){
+//탭 클릭시 이벤트들
+    $("#interface").hide();
+    $("#staticPath").hide();
+
+    var tabList = ["summary", "interface", "staticPath"];
+
+    $(".summary").on("click", function(){tabClick(0, tabList)});
+    $(".interface").on("click", function(){tabClick(1, tabList)});
+    $(".staticPath").on("click", function(){tabClick(2, tabList)});
+});
