@@ -29,7 +29,7 @@ function getRouterAjax(id, csrf_token){
                         resultHtml += "<li><strong>서브넷 ID</strong> <a href='/dashboard/project/networks/subnets/" + external_fixed_ips[i]["subnet_id"] + "'>" + external_fixed_ips[i]["subnet_id"] + "</a></li><li><strong>IP 주소</strong> " + external_fixed_ips[i]["ip_address"] + "</li>";
                     }
                     resultHtml += "</ul>";
-                } else if ( subKey == "network_name" ) {
+                } else if ( subKey == "network_id" ) {
                     resultHtml = "<a href='/dashboard/project/networks/" + external_gateway_info[subKey] + "'>" + external_gateway_info[subKey] + "</a>";
                 } else {
                     resultHtml = external_gateway_info[subKey];
