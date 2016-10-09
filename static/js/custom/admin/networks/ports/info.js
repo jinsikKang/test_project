@@ -1,4 +1,4 @@
-function getPostAjax(id, csrf_token){
+function getPortAjax(id, csrf_token){
     this.getListData = function(dataList){
         var tempList = dataList.split("\n");
         var resultList = [];
