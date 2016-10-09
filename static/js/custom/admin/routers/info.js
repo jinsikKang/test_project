@@ -17,9 +17,9 @@ function getInterfaceList(id, csrf_token){
                     "admin_state_up" : "관리자 상태",
                 },
                 "data" : data.interface
-                dataTable.showDataTable();
-                dataTable.setLink("networks/ports/");
             });
+            dataTable.showDataTable();
+            dataTable.setLink("networks/ports/");
         }
     });
 }
