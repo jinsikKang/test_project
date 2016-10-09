@@ -66,7 +66,7 @@ function getRouterAjax(id, csrf_token){
                 $("#"+subKey).html(resultHtml);
             }
 
-            getInterfaceList(id, csrf_token;
+            getInterfaceList(id, csrf_token);
         }
     });
 }
