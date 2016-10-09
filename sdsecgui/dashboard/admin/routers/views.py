@@ -39,5 +39,5 @@ def retrieveRouterById(request, router_id):
 def retrieveInterfaceListInRouter(request):
     if request.is_ajax() and request.method == 'POST':
         router_id = request.POST.dict()["id"]
-        interfaceList = getInterfaceListInRouter(router_id, "str")
+        interfaceList = getInterfaceListInRouter(router_id)
         return JsonResponse({ 'interface' : interfaceList })
