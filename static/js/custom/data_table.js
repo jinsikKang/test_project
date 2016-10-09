@@ -82,8 +82,7 @@ function DataTable (settings){
                         var mainKey = key.replace(/\.\w+/g, "");
                         var subKey = key.replace(/\w+(\..+)/g, "$1");
                         if ( this.data[i][mainKey].indexOf("\n") != -1 ) {
-                            this.data[i][mainKey].replace(/\n/g, ",");
-                            this.data[i][mainKey] = "[" + this.data[i][mainKey] + "]";
+                            this.data[i][mainKey] = "[" + this.data[i][mainKey].replace(/\n/g, ",") + "]";
                         }
                         var jsonData = JSON.parse(this.data[i][mainKey]);
                         if ( jsonData instanceof Array ) {
