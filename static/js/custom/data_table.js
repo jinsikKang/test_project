@@ -81,7 +81,7 @@ function DataTable (settings){
                     if ( key.indexOf(".") != -1 ){
                         var mainKey = key.replace(/\.\w+/g, "");
                         var subKey = key.replace(/\w+(\..+)/g, "$1");
-                        console.log(this.data[i]);
+                        console.log(this.data[i][mainKey]);
                         var jsonData = JSON.parse(this.data[i][mainKey]);
                         dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
                     } else {
