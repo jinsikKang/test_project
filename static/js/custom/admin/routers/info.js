@@ -1,9 +1,38 @@
+var router;
+
+function getInterfaceList(id){
+    $.ajax({
+        type:"POST",
+        url : '/interface',
+        data : { id : id, csrfmiddlewaretoken: csrf_token },
+        success:function(data){
+            console.write(data);
+
+        }
+    });
+    var dataTable = new DataTable({
+        "selector" : "#interface",
+        "columns" : {
+            "id" : "이름:link",
+            "fixed_ips.ip_address" : "Fixed IP",
+            "status" : "Status",
+            "gateway_ip" : "유형",
+            "admin_state_up" : "관리자 상태",
+        },
+        "data" : router.data
+    });
+    dataTable.showDataTable();
+    dataTable.setLink("networks/ports/");
+}
+
 function getRouterAjax(id, csrf_token){
     $.ajax({
         type:"POST",
         url : '',
         data : { id : id, csrfmiddlewaretoken: csrf_token },
         success:function(data){
+            router = data.router
+
             $(".header_title_d01").html(data.router.name); // header 셋팅
             for( key in data.router ){    // 데이터 넣기
                 var resultHtml = "";
@@ -36,8 +65,23 @@ function getRouterAjax(id, csrf_token){
                 }
                 $("#"+subKey).html(resultHtml);
             }
+
+            getInterfaceList(id);
         }
     });
+}
+
+
+function getStaticPath(){
+    var dataTable = new DataTable({
+        "selector" : " #static_path",
+        "columns" : {
+            "routes" : "대상 CIDR",
+            "routes.next_hop" : "다음 Hop",
+        },
+        "data" : router.data
+    });
+    dataTable.showDataTable();
 }
 
 $(function(){

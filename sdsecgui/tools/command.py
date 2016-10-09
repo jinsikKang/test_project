@@ -98,6 +98,15 @@ def getRouterList(type="json"):
         routerList = None
     return routerList
 
+def getInterfaceListInRouter(router_id, type="json"):
+    if type == "json":
+        interfaceList = json.loads(excuteCmd("neutron router-port-list " + router_id))
+    elif type == "str":
+        interfaceList = excuteCmd("neutron router-port-list " + router_id)
+    else:
+        interfaceList = None
+    return interfaceList
+
 def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username
