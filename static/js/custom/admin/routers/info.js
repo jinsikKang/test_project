@@ -19,7 +19,7 @@ function getInterfaceList(id, csrf_token){
             "gateway_ip" : "유형",
             "admin_state_up" : "관리자 상태",
         },
-        "data" : interface;
+        "data" : interface
     });
     dataTable.showDataTable();
     dataTable.setLink("networks/ports/");
