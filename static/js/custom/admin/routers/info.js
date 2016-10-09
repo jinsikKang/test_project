@@ -1,6 +1,6 @@
 var router;
 
-function getInterfaceList(id){
+function getInterfaceList(id, csrf_token){
     $.ajax({
         type:"POST",
         url : '/interface',
@@ -66,7 +66,7 @@ function getRouterAjax(id, csrf_token){
                 $("#"+subKey).html(resultHtml);
             }
 
-            getInterfaceList(id);
+            getInterfaceList(id, csrf_token;
         }
     });
 }
