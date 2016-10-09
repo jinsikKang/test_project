@@ -19,7 +19,7 @@ function getInterfaceList(id, csrf_token){
                 "data" : data.interface
             });
             dataTable.showDataTable();
-            dataTable.setLink("networks/ports/");
+            dataTable.setLink("networks/ports");
         }
     });
 }
