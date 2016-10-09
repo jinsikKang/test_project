@@ -7,22 +7,21 @@ function getInterfaceList(id, csrf_token){
         url : '/dashboard/admin/routers/interface/',
         data : { id : id, csrfmiddlewaretoken: csrf_token },
         success:function(data){
-            interface = data.interface;
+            var dataTable = new DataTable({
+                "selector" : "#interface",
+                "columns" : {
+                    "id" : "이름:link",
+                    "fixed_ips.ip_address" : "Fixed IP",
+                    "status" : "Status",
+                    "gateway_ip" : "유형",
+                    "admin_state_up" : "관리자 상태",
+                },
+                "data" : data.interface
+                dataTable.showDataTable();
+                dataTable.setLink("networks/ports/");
+            });
         }
     });
-    var dataTable = new DataTable({
-        "selector" : "#interface",
-        "columns" : {
-            "id" : "이름:link",
-            "fixed_ips.ip_address" : "Fixed IP",
-            "status" : "Status",
-            "gateway_ip" : "유형",
-            "admin_state_up" : "관리자 상태",
-        },
-        "data" : interface
-    });
-    dataTable.showDataTable();
-    dataTable.setLink("networks/ports/");
 }
 
 function getRouterAjax(id, csrf_token){
