@@ -100,9 +100,9 @@ def getRouterList(type="json"):
 
 def getInterfaceListInRouter(router_id, type="json"):
     if type == "json":
-        interfaceList = json.loads(excuteCmd("neutron router-port-list " + router_id))
+        interfaceList = json.loads(excuteCmd("neutron router-port-list " + router_id + " -f json"))
     elif type == "str":
-        interfaceList = excuteCmd("neutron router-port-list " + router_id)
+        interfaceList = excuteCmd("neutron router-port-list " + router_id + " -f json")
     else:
         interfaceList = None
     return interfaceList
