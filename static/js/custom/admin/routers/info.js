@@ -3,7 +3,7 @@ var router;
 function getInterfaceList(id, csrf_token){
     $.ajax({
         type:"POST",
-        url : '/dashboard/admin/routers/interface',
+        url : '/dashboard/admin/routers/interface/',
         data : { id : id, csrfmiddlewaretoken: csrf_token },
         success:function(data){
             console.write(data);
