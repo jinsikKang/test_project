@@ -1,13 +1,13 @@
 var router;
 
 function getInterfaceList(id, csrf_token){
+    var interface;
     $.ajax({
         type:"POST",
         url : '/dashboard/admin/routers/interface/',
         data : { id : id, csrfmiddlewaretoken: csrf_token },
         success:function(data){
-            console.write(data);
-
+            interface = data.interface;
         }
     });
     var dataTable = new DataTable({
@@ -19,7 +19,7 @@ function getInterfaceList(id, csrf_token){
             "gateway_ip" : "유형",
             "admin_state_up" : "관리자 상태",
         },
-        "data" : router.data
+        "data" : interface;
     });
     dataTable.showDataTable();
     dataTable.setLink("networks/ports/");
