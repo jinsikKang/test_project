@@ -1,4 +1,4 @@
-var service;
+var info_service;
 function getServiceAjax(csrf_token){
     $.ajax({
         type:"POST",
@@ -19,7 +19,7 @@ function getService() {
             "type" : "서비스",
             }
         },
-        "data" : service
+        "data" : info_service
     });
     dataTable.showDataTable();
 }
