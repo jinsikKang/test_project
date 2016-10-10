@@ -31,7 +31,7 @@ function Provisioning(){
     var colors = d3.scale.category10();
 
 
-    this.svg = d3.select('#vis')
+    var svg = d3.select('#vis')
         .append('svg')
         .attr('oncontextmenu', 'return false;')
         .attr('width', this.width)
@@ -76,7 +76,7 @@ function Provisioning(){
     this.focusNodeName = false;
 
     // define arrow markers for graph links
-    this.svg.append('svg:defs').append('svg:marker')
+    svg.append('svg:defs').append('svg:marker')
             .attr('id', 'end-arrow')
             .attr('viewBox', '0 -5 10 10')
             .attr('refX', 6)
@@ -87,7 +87,7 @@ function Provisioning(){
             .attr('d', 'M0,-5L10,0L0,5')
             .attr('fill', '#000');
 
-    this.svg.append('svg:defs').append('svg:marker')
+    svg.append('svg:defs').append('svg:marker')
             .attr('id', 'start-arrow')
             .attr('viewBox', '0 -5 10 10')
             .attr('refX', 4)
@@ -99,15 +99,15 @@ function Provisioning(){
             .attr('fill', '#000');
 
     // line displayed when dragging new nodes
-    this.drag_line = this.svg.append('svg:path')
+    this.drag_line = svg.append('svg:path')
         .attr('class', 'link dragline hidden')
         .attr('d', 'M0,0L0,0');
 
     // handles to link and node element groups
     // 생성순서에따라 위아래가 바뀜(태그위치)
     // 만약 gGroup 이 pathLink 보다 위에 있다면 화면에서 그룹이 링크를 가려 눌리지않음
-    this.gGroup = this.svg.append('svg:g');
-    this.pathLink = this.svg.append('svg:g').selectAll('path');
+    this.gGroup = svg.append('svg:g');
+    this.pathLink = svg.append('svg:g').selectAll('path');
     this.gCircle = this.gGroup.attr('group', '1').selectAll('g');
     this.pathGroup = this.gGroup.selectAll('path');
     // mouse event vars
@@ -339,7 +339,7 @@ function Provisioning(){
         // prevent I-bar on drag
         //d3.event.preventDefault();
         // because :active only works in WebKit?
-        this.svg.classed('active', true);
+        svg.classed('active', true);
         if(d3.event.ctrlKey || this.mousedown_node || this.mousedown_link) return;
 
         // insert new node at point
@@ -363,7 +363,7 @@ function Provisioning(){
                 .style('marker-end', '');
         }
         // because :active only works in WebKit?
-        this.svg.classed('active', false);
+        svg.classed('active', false);
         // clear mouse event vars
         resetMouseVars();
     }
@@ -388,7 +388,7 @@ function Provisioning(){
         // ctrl
         if(d3.event.keyCode === 17) {
             this.gCircle.call(this.force.drag);
-            this.svg.classed('ctrl', true);
+            svg.classed('ctrl', true);
         }
         if((!this.selected_node && !this.selected_link) || this.focusNodeName) return;
         switch(d3.event.keyCode) {
@@ -441,12 +441,12 @@ function Provisioning(){
             this.gCircle
                 .on('mousedown.drag', null)
                 .on('touchstart.drag', null);
-            this.svg.classed('ctrl', false);
+            svg.classed('ctrl', false);
         }
     }
 
     // app starts here
-    this.svg.on('mousedown', this.mousedown)
+    svg.on('mousedown', this.mousedown)
         .on('mousemove', this.mousemove)
         .on('mouseup', this.mouseup);
     d3.select(window)
