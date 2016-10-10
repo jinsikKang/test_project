@@ -446,12 +446,12 @@ function Provisioning(){
     }
 
     // app starts here
-    this.svg.on('mousedown', mousedown)
-        .on('mousemove', mousemove)
-        .on('mouseup', mouseup);
+    this.svg.on('mousedown', this.mousedown)
+        .on('mousemove', this.mousemove)
+        .on('mouseup', this.mouseup);
     d3.select(window)
-        .on('keydown', keydown)
-        .on('keyup', keyup);
+        .on('keydown', this.keydown)
+        .on('keyup', this.keyup);
 
     return this;
 }
