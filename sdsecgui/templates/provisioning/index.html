@@ -130,7 +130,7 @@
 <script src="{% static 'js/custom/provisioning/provisioning.js' %}"></script>
 <script>
     $(function(){
-        getServiceAjax();
+        getServiceAjax("{{ csrf_token }}");
     });
 </script>
 {% endblock content %}
