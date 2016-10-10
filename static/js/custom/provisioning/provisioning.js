@@ -280,7 +280,7 @@ function Provisioning(){
                     .style('marker-end', '');
                  // check for drag-to-self
                 this.mouseup_node = d;
-                if(this.mouseup_node === this.mousedown_node) { resetMouseVars(); return; }
+                if(this.mouseup_node === this.mousedown_node) { this.resetMouseVars(); return; }
                  // unenlarge target node
                 d3.select(this).attr('transform', '');
                  // add link to graph (update if exists)
@@ -344,7 +344,7 @@ function Provisioning(){
 
         // insert new node at point
         var point = d3.mouse(this);
-        insertNewNode(++this.lastNodeId, "label", point[0], point[1]);
+        this.insertNewNode(++this.lastNodeId, "label", point[0], point[1]);
         this.restart();
     }
 
@@ -365,7 +365,7 @@ function Provisioning(){
         // because :active only works in WebKit?
         svg.classed('active', false);
         // clear mouse event vars
-        resetMouseVars();
+        this.resetMouseVars();
     }
 
     this.spliceLinksForNode = function(node) {
