@@ -47,3 +47,18 @@ function getNetworkAgent(csrf_token) {
     });
 
 }
+
+
+$(function(){
+//탭 클릭시 이벤트들
+    $("#nova").hide();
+    $("#storage").hide();
+    $("#agent").hide();
+
+    var tabList = ["service", "nova", "storage", "agent"];
+
+    $(".service").on("click", function(){tabClick(0, tabList)});
+    $(".nova").on("click", function(){tabClick(1, tabList)});
+    $(".storage").on("click", function(){tabClick(2, tabList)});
+    $(".agent").on("click", function(){tabClick(3, tabList)});
+});
