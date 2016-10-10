@@ -75,7 +75,7 @@ function getNetworkAgent(csrf_token) {
 $(function(){
 //탭 클릭시 이벤트들
 
-    var tabList = ["service", "nova", "storage", "agent"];
+    var tabList = ["service", "nova_service", "storage", "agent"];
 
     $("." + tabList[0]).on("click", function(){tabClick(0, tabList)});
 
