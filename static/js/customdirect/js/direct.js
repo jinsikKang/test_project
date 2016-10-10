@@ -7,6 +7,7 @@
 // - reflexive : 가장자리 ( 굵은 검은 색 원으로 ) node 에 표시됩니다.
 //  - links are always source < target; edge directions are set by 'left' and 'right'.
 // - links 는 항상 source < target; 가장자리 방향은 '왼쪽'과 '오른쪽' 으로 설정됩니다.
+
 var nodes = [
     {id: 0, reflexive: false, x: 100, y: 100, name: "hi", fixed:true},
     {id: 1, reflexive: true , x: 200, y: 200, name: "베르나르베르베르", fixed:true},
