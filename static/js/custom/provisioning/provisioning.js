@@ -1,5 +1,11 @@
 function Provisioning(){
-    this.nodes = [];
+    this.nodes = [{id: 0, reflexive: false, x: 100, y: 100, name: "hi", fixed:true},
+    {id: 1, reflexive: true , x: 200, y: 200, name: "베르나르베르베르", fixed:true},
+    {id: 2, reflexive: false, x: 300, y: 100, name: "타나타노트"},
+    {id: 3, reflexive: true , x: 200, y: 200, name: "hello my world, kia"},
+    {id: 4, reflexive: false, x: 300, y: 100},
+    {id: 5, reflexive: false, x: 300, y: 100},
+    {id: 6, reflexive: false, x: 300, y: 100}];
     this.lastNodeId = 6;
 
     /*
@@ -7,7 +13,9 @@ function Provisioning(){
         {source: this.nodes[0], target: this.nodes[1], left: false, right: true },
         {source: this.nodes[1], target: this.nodes[2], left: false, right: true }
     */
-    this.links = [];
+    this.links = [
+    {source: nodes[0], target: nodes[1], left: false, right: true },
+    {source: nodes[1], target: nodes[2], left: false, right: true }];
 
     /*
         this.groups format
@@ -15,7 +23,9 @@ function Provisioning(){
         {id:1, nodeList:[this.nodes[3], this.nodes[4]]},
         {id:2, nodeList:[this.nodes[5]]}
     */
-    this.groups = [];
+    this.groups = [{id:0, nodeList:[nodes[0], nodes[1], nodes[2]]},
+    {id:1, nodeList:[nodes[3], nodes[4]]},
+    {id:2, nodeList:[nodes[5]]}];
     this.width  = 1280;
     this.height = 720;
     this.colors = d3.scale.category10();
@@ -73,7 +83,7 @@ function Provisioning(){
             .attr('markerWidth', 3)
             .attr('markerHeight', 3)
             .attr('orient', 'auto')
-        .append('svg:path')
+            .append('svg:path')
             .attr('d', 'M0,-5L10,0L0,5')
             .attr('fill', '#000');
 
@@ -84,7 +94,7 @@ function Provisioning(){
             .attr('markerWidth', 3)
             .attr('markerHeight', 3)
             .attr('orient', 'auto')
-        .append('svg:path')
+            .append('svg:path')
             .attr('d', 'M10,-5L0,0L10,5')
             .attr('fill', '#000');
 
