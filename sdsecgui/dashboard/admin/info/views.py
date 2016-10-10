@@ -18,7 +18,7 @@ def retrieveServiceList(request):
         return JsonResponse({ 'data' : serviceList })
         pass
     else:
-        return render(request, 'admin/services/index.html', {})
+        return render(request, 'admin/info/index.html', {})
 
 def retrieveServiceById(request, service_id):
     # logger.info("retrieveServiceById")
@@ -29,4 +29,4 @@ def retrieveServiceById(request, service_id):
         # return JsonResponse({ 'data' : service.toJSON() })
         pass
     else:
-        return render(request, 'admin/services/info.html', { 'service_id' : service_id })
+        return render(request, 'admin/info/index.html', { 'service_id' : service_id })
