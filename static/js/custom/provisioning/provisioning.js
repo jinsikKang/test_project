@@ -14,8 +14,8 @@ function Provisioning(){
         {source: this.nodes[1], target: this.nodes[2], left: false, right: true }
     */
     this.links = [
-    {source: nodes[0], target: nodes[1], left: false, right: true },
-    {source: nodes[1], target: nodes[2], left: false, right: true }];
+    {source: this.nodes[0], target: this.nodes[1], left: false, right: true },
+    {source: this.nodes[1], target: this.nodes[2], left: false, right: true }];
 
     /*
         this.groups format
@@ -23,9 +23,9 @@ function Provisioning(){
         {id:1, nodeList:[this.nodes[3], this.nodes[4]]},
         {id:2, nodeList:[this.nodes[5]]}
     */
-    this.groups = [{id:0, nodeList:[nodes[0], nodes[1], nodes[2]]},
-    {id:1, nodeList:[nodes[3], nodes[4]]},
-    {id:2, nodeList:[nodes[5]]}];
+    this.groups = [{id:0, nodeList:[this.nodes[0], this.nodes[1], this.nodes[2]]},
+    {id:1, nodeList:[this.nodes[3], this.nodes[4]]},
+    {id:2, nodeList:[this.nodes[5]]}];
     this.width  = 1280;
     this.height = 720;
     this.colors = d3.scale.category10();
@@ -37,7 +37,7 @@ function Provisioning(){
         .attr('width', this.width)
         .attr('height', this.height);
 
-    this.addNode = function(node){
+    this.addNode = function(this.node){
         /*{
             id:node.region_id,
             name:"name",
