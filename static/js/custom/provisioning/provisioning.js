@@ -28,7 +28,7 @@ function Provisioning(){
         .attr('height', this.height);
 
     this.addNode = function(node){
-        {
+        /*{
             id:node.region_id,
             name:"name",
             reflexive:false,
@@ -37,7 +37,7 @@ function Provisioning(){
             data:{
     //            vm_list = node.
             }
-        }
+        }*/
     }
 
     this.getServiceAjax = function(csrf_token) { // token, tenant_name, user_name, service_id
