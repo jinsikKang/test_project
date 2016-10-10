@@ -7,8 +7,8 @@ function getServiceAjax(csrf_token){
         success:function(data){
             service = data.serviceList;
             getService();
-            getNetworkAgent(csrf_token);
             getNovaServiceList(csrf_token);
+            getNetworkAgent(csrf_token);
         }
     });
 }
@@ -34,12 +34,12 @@ function getNovaServiceList(csrf_token){
             var dataTable = new DataTable({
                 "selector" : "#nova_service",
                 "columns" : {
-                    "Binary" : "이름",
-                    "Host" : "호스트",
-                    "Zone" : "Zone",
-                    "Status" : "Status",
-                    "State" : "State",
-                    "Updated_at" : "마지막 업데이트 됨",
+                    "binary" : "이름",
+                    "host" : "호스트",
+                    "zone" : "Zone",
+                    "status" : "Status",
+                    "state" : "State",
+                    "updated_at" : "마지막 업데이트 됨",
                 },
                 "data" : data.novaServiceList
             });
