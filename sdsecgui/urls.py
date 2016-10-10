@@ -8,6 +8,7 @@ from sdsecgui.dashboard.admin.flavors import urls as flavors_urls
 from sdsecgui.dashboard.admin.images import urls as images_urls
 from sdsecgui.dashboard.admin.networks import urls as networks_urls
 from sdsecgui.dashboard.admin.routers import urls as routers_urls
+from sdsecgui.dashboard.admin.info import urls as info_urls
 from views import postlist, test, d3test
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^dashboard/admin/images/', include(images_urls, namespace='images')),
     url(r'^dashboard/admin/networks/', include(networks_urls, namespace='networks')),
     url(r'^dashboard/admin/routers/', include(routers_urls, namespace='routers')),
+    url(r'^dashboard/admin/info/', include(info_urls, namespace='info')),
 ]

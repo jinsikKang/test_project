@@ -107,6 +107,10 @@ def getInterfaceListInRouter(router_id, type="json"):
         interfaceList = None
     return interfaceList
 
+def getServiceList():
+    serviceList = json.loads(excuteCmd("openstack service list -f json"))
+    return serviceList
+
 def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username

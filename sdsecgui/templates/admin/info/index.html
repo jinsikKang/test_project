@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header_title_d01">네트워크</div>
+{% endblock header %}
+
+{% block sub_left_menu %}
+{% include "admin/left_menu.html" %}
+{% endblock sub_left_menu %}
+
+{% block content %}
+<div id="service">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
+
+    </table>
+</div>
+<script src='{% static "js/custom/admin/info/index.js" %}'></script>
+<script>
+$(function(){
+    getServiceAjax("{{ csrf_token }}");
+});
+</script>
+
+{% endblock content%}
