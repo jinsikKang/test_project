@@ -2,6 +2,9 @@
 
 from django.shortcuts import render
 
+from skeletonLib import ControllerEngine
 
 def provisioning(request):
+    controll = ControllerEngine()
+    # controll.createMap()
     return render(request, 'provisioning/index.html', {})
