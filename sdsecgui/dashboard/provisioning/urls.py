@@ -4,4 +4,5 @@ from sdsecgui.dashboard.provisioning import views
 
 urlpatterns = [
     url(r'^$', views.provisioning, name='provisioning'),
+    url(r'^get_service$', views.provisioning, name='getService'),
 ]
