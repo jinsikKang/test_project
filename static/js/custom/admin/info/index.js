@@ -5,7 +5,7 @@ function getServiceAjax(csrf_token){
         url : '',
         data : { csrfmiddlewaretoken: csrf_token },
         success:function(data){
-            service = data.data;
+            service = data.serviceList;
             getService();
             getNetworkAgent(csrf_token);
         }

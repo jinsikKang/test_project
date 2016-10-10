@@ -15,7 +15,7 @@ def retrieveServiceList(request):
     # logger.info("retrieveServiceList")
     if request.is_ajax() and request.method == 'POST':
         serviceList = getServiceList()
-        return JsonResponse({ 'data' : serviceList })
+        return JsonResponse({ 'serviceList' : serviceList })
         pass
     else:
         return render(request, 'admin/info/index.html', {})
@@ -35,4 +35,4 @@ def retrieveAgentList(request):
 
     if request.is_ajax() and request.method == 'POST':
         agentList = getAgentList()
-        return JsonResponse({ 'data' : agentList })
+        return JsonResponse({ 'agentList' : agentList })
