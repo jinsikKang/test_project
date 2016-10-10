@@ -129,8 +129,8 @@
 <script src='http://d3js.org/d3.v3.min.js'></script>
 <script src="{% static 'js/custom/provisioning/provisioning.js' %}"></script>
 <script>
-    var provisioning = new Provisioning();
-
-    provisioning.restart();
+    $(function(){
+        getServiceAjax();
+    });
 </script>
 {% endblock content %}
