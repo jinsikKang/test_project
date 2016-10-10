@@ -15,8 +15,8 @@ function getService() {
     var dataTable = new DataTable({
         "selector" : "#service",
         "columns" : {
-            "name" : "이름",
-            "type" : "서비스",
+            "Name" : "이름",
+            "Type" : "서비스",
         },
         "data" : service
     });
