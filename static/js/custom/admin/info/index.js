@@ -65,7 +65,7 @@ function getBlockStorageServiceList(csrf_token){
                     "state" : "State",
                     "updated_at" : "마지막 업데이트 됨",
                 },
-                "data" : data.blockStorageService
+                "data" : data.blockStorageServiceList
             });
             dataTable.showDataTable();
         }
@@ -99,7 +99,7 @@ function getNetworkAgent(csrf_token) {
 $(function(){
 //탭 클릭시 이벤트들
 
-    var tabList = ["service", "nova_service", "storage", "agent"];
+    var tabList = ["service", "nova_service", "block_storage_service", "agent"];
 
     $("." + tabList[0]).on("click", function(){tabClick(0, tabList)});
 
