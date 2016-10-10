@@ -17,7 +17,6 @@ function getService() {
         "columns" : {
             "name" : "이름",
             "type" : "서비스",
-            }
         },
         "data" : info_service
     });
