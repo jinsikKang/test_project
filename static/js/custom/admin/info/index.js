@@ -19,9 +19,7 @@ function getService() {
             "type" : "서비스",
             }
         },
-        "vertical" : true,
         "data" : service
     });
     dataTable.showDataTable();
-}
 }
