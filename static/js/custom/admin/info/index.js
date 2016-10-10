@@ -8,6 +8,7 @@ function getServiceAjax(csrf_token){
             service = data.serviceList;
             getService();
             getNovaServiceList(csrf_token);
+            getBlockStorageServiceList(csrf_token);
             getNetworkAgent(csrf_token);
         }
     });
