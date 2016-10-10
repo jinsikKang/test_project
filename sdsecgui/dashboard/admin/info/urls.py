@@ -4,5 +4,5 @@ from django.conf.urls import url
 from sdsecgui.dashboard.admin.info import views
 
 urlpatterns = [
-    url(r'^$', views.retrieveServiceList(), name='serviceList'),
+    url(r'^$', views.retrieveServiceList, name='serviceList'),
 ]
