@@ -5,4 +5,5 @@ from sdsecgui.dashboard.admin.info import views
 
 urlpatterns = [
     url(r'^$', views.retrieveServiceList, name='serviceList'),
+    url(r'^agent$', views.retrieveServiceList, name='agentList'),
 ]

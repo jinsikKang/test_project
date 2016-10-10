@@ -2,6 +2,12 @@
 
 {% block header %}
 <div class="header_title_d01">시스템 정보</div>
+<div>
+    <a href="#"><div class="header_title_d04_click tab service">서비스</div></a>
+    <a href="#"><div class="header_title_d05 tab nova">Compute 서비스</div></a>
+    <a href="#"><div class="header_title_d05 tab storage">블록 스토리지 서비스</div></a>
+    <a href="#"><div class="header_title_d05 tab agent">네트워크 에이전트</div></a>
+</div>
 {% endblock header %}
 
 {% block sub_left_menu %}
@@ -10,10 +16,18 @@
 
 {% block content %}
 <div id="service">
-    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
-
-    </table>
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0"></table>
 </div>
+<div id="nova">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0"></table>
+</div>
+<div id="storage">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0"></table>
+</div>
+<div id="agent">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0"></table>
+</div>
+
 {% load staticfiles %}
 <script src='{% static "js/custom/admin/info/index.js" %}'></script>
 <script>

@@ -111,6 +111,16 @@ def getServiceList():
     serviceList = json.loads(excuteCmd("openstack service list -f json"))
     return serviceList
 
+
+def getAgentList(type="json"):
+    if type == "json":
+        interfaceList = json.loads(excuteCmd("neutron agent-list -f json"))
+    elif type == "str":
+        interfaceList = excuteCmd("neutron agent-list -f json")
+    else:
+        interfaceList = None
+    return interfaceList
+
 def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username

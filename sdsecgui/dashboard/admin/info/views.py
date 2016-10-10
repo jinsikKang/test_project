@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
-from sdsecgui.tools.command import getServiceList
+from sdsecgui.tools.command import getServiceList, getAgentList
 # from sdsecgui.cmodels.network import 
 
 # setLogDir()
@@ -30,3 +30,9 @@ def retrieveServiceById(request, service_id):
         pass
     else:
         return render(request, 'admin/info/info.html', { 'service_id' : service_id })
+
+def retrieveAgentList(request):
+
+    if request.is_ajax() and request.method == 'POST':
+        agentList = getAgentList()
+        return JsonResponse({ 'data' : agentList })
