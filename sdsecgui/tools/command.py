@@ -117,6 +117,11 @@ def getNovaServiceList():
     novaServiceList = parsingOutputToList(output)
     return novaServiceList
 
+def getBlockStorageServiceList():
+    output = excuteCmd("cinder service-list")
+    blockStorageServiceList = parsingOutputToList(output)
+    return blockStorageServiceList
+
 def getAgentList(type="json"):
     if type == "json":
         agentList = json.loads(excuteCmd("neutron agent-list -f json"))

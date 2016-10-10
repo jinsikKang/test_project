@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
-from sdsecgui.tools.command import getServiceList, getAgentList, getNovaServiceList
+from sdsecgui.tools.command import getServiceList, getNovaServiceList, getBlockStorageServiceList, getAgentList
 # from sdsecgui.cmodels.network import 
 
 # setLogDir()
@@ -16,7 +16,6 @@ def retrieveServiceList(request):
     if request.is_ajax() and request.method == 'POST':
         serviceList = getServiceList()
         return JsonResponse({ 'serviceList' : serviceList })
-        pass
     else:
         return render(request, 'admin/info/index.html', {})
 
@@ -25,6 +24,11 @@ def retrieveNovaServiceList(request):
     if request.is_ajax() and request.method == 'POST':
         novaServiceList = getNovaServiceList()
         return JsonResponse({ 'novaServiceList' : novaServiceList })
+
+def retrieveBlockStorageServiceList(request):
+    if request.is_ajax() and request.method == 'POST':
+        blockStorageServiceList = getBlockStorageServiceList()
+        return JsonResponse({ 'blockStorageServiceList' : blockStorageServiceList })
 
 def retrieveAgentList(request):
     if request.is_ajax() and request.method == 'POST':

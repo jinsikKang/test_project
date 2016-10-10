@@ -48,6 +48,29 @@ function getNovaServiceList(csrf_token){
     });
 }
 
+function getBlockStorageServiceList(csrf_token){
+    $.ajax({
+        type:"POST",
+        url : 'block_storage_service',
+        data : { csrfmiddlewaretoken: csrf_token },
+        success:function(data){
+            var dataTable = new DataTable({
+                "selector" : "#block_storage_service",
+                "columns" : {
+                    "binary" : "이름",
+                    "host" : "호스트",
+                    "zone" : "Zone",
+                    "status" : "Status",
+                    "state" : "State",
+                    "updated_at" : "마지막 업데이트 됨",
+                },
+                "data" : data.blockStorageService
+            });
+            dataTable.showDataTable();
+        }
+    });
+}
+
 function getNetworkAgent(csrf_token) {
     $.ajax({
         type:"POST",
