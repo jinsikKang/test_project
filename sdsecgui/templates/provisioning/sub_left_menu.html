@@ -17,9 +17,9 @@ $(function(){
     $(".toggle").click(function(){
         var leftMenu = $(".left_menu").offset();
         if (leftMenu.left == 0){
-            $(".left_menu").css("left", leftMenu - 100);
+            $(".left_menu").css("left", leftMenu.left - 100);
         } else {
-            $(".left_menu").css("left", leftMenu + 100);
+            $(".left_menu").css("left", leftMenu.left + 100);
         }
     });
 });
