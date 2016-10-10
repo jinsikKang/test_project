@@ -31,7 +31,7 @@ function Provisioning(){
     this.colors = d3.scale.category10();
 
 
-    var svg = d3.select('#vis')
+    this.svg = d3.select('#vis')
         .append('svg')
         .attr('oncontextmenu', 'return false;')
         .attr('width', this.width)
@@ -76,7 +76,7 @@ function Provisioning(){
     this.focusNodeName = false;
 
     // define arrow markers for graph links
-    svg.append('svg:defs').append('svg:marker')
+    this.svg.append('svg:defs').append('svg:marker')
             .attr('id', 'end-arrow')
             .attr('viewBox', '0 -5 10 10')
             .attr('refX', 6)
@@ -87,7 +87,7 @@ function Provisioning(){
             .attr('d', 'M0,-5L10,0L0,5')
             .attr('fill', '#000');
 
-    svg.append('svg:defs').append('svg:marker')
+    this.svg.append('svg:defs').append('svg:marker')
             .attr('id', 'start-arrow')
             .attr('viewBox', '0 -5 10 10')
             .attr('refX', 4)
@@ -99,15 +99,15 @@ function Provisioning(){
             .attr('fill', '#000');
 
     // line displayed when dragging new nodes
-    this.drag_line = svg.append('svg:path')
+    this.drag_line = this.svg.append('svg:path')
         .attr('class', 'link dragline hidden')
         .attr('d', 'M0,0L0,0');
 
     // handles to link and node element groups
     // 생성순서에따라 위아래가 바뀜(태그위치)
     // 만약 gGroup 이 pathLink 보다 위에 있다면 화면에서 그룹이 링크를 가려 눌리지않음
-    this.gGroup = svg.append('svg:g');
-    this.pathLink = svg.append('svg:g').selectAll('path');
+    this.gGroup = this.svg.append('svg:g');
+    this.pathLink = this.svg.append('svg:g').selectAll('path');
     this.gCircle = this.gGroup.attr('group', '1').selectAll('g');
     this.pathGroup = this.gGroup.selectAll('path');
     // mouse event vars
@@ -446,7 +446,7 @@ function Provisioning(){
     }
 
     // app starts here
-    svg.on('mousedown', mousedown)
+    this.svg.on('mousedown', mousedown)
         .on('mousemove', mousemove)
         .on('mouseup', mouseup);
     d3.select(window)
