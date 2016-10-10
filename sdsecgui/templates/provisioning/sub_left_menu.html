@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <div class="left_menu">
     <img class="left_menu_img03 toggle" src='{% static "provisioning/img/left_06.png" %}' alt="#">
-    <div>
+    <div id="left_menu">
         <img class="left_menu_img01" src='{% static "provisioning/img/left_01.png" %}' alt="#">
         <div class="left_menu_d01">서브넷</div>
         <img class="left_menu_img02" src='{% static "provisioning/img/left_02.png" %}' alt="#">
@@ -16,7 +16,7 @@
 </div>
 <script>
     $(".toggle").on("click", function(){
-
+        $("#left_menu").toggle("fast", {direction:"left"});
     });
 
 </script>
