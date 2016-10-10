@@ -163,7 +163,7 @@ function Provisioning(){
         });
         $('#nameBtn').on('click', function(){
             this.selected_node.name = nodeName.val();
-            restart();
+            this.restart();
         });
     }
 
@@ -215,7 +215,7 @@ function Provisioning(){
                 if(this.mousedown_link === this.selected_link) this.selected_link = null;
                 else this.selected_link = this.mousedown_link;
                 this.selected_node = null;
-                restart();
+                this.restart();
             });
         // remove old links
         this.pathLink.exit().remove();
@@ -270,7 +270,7 @@ function Provisioning(){
                     .style('marker-end', 'url(#end-arrow)')
                     .classed('hidden', false)
                     .attr('d', 'M' + this.mousedown_node.x + ',' + this.mousedown_node.y + 'L' + this.mousedown_node.x + ',' + this.mousedown_node.y);
-                 restart();
+                 this.restart();
             })
             .on('mouseup', function(d) {
                 if(!this.mousedown_node) return;
@@ -309,7 +309,7 @@ function Provisioning(){
                  // select new link
                 this.selected_link = link;
                 this.selected_node = null;
-                restart();
+                this.restart();
             });
         // show node IDs
         g.append('svg:text')
@@ -345,14 +345,14 @@ function Provisioning(){
         // insert new node at point
         var point = d3.mouse(this);
         insertNewNode(++this.lastNodeId, "label", point[0], point[1]);
-        restart();
+        this.restart();
     }
 
     this.mousemove = function() {
         if(!this.mousedown_node) return;
         // update drag line
         this.drag_line.attr('d', 'M' + this.mousedown_node.x + ',' + this.mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
-        restart();
+        this.restart();
     }
 
     this.mouseup = function() {
@@ -402,7 +402,7 @@ function Provisioning(){
                 }
                 this.selected_link = null;
                 this.selected_node = null;
-                restart();
+                this.restart();
                 break;
             case 66: // B
                 if(this.selected_link) {
@@ -410,7 +410,7 @@ function Provisioning(){
                     this.selected_link.left = true;
                     this.selected_link.right = true;
                 }
-                restart();
+                this.restart();
                 break;
             case 76: // L
                 if(this.selected_link) {
@@ -418,7 +418,7 @@ function Provisioning(){
                     this.selected_link.left = true;
                     this.selected_link.right = false;
                 }
-                restart();
+                this.restart();
                 break;
             case 82: // R
                 if(this.selected_node) {
@@ -429,7 +429,7 @@ function Provisioning(){
                     this.selected_link.left = false;
                     this.selected_link.right = true;
                 }
-                restart();
+                this.restart();
                 break;
         }
     }
