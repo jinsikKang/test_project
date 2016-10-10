@@ -266,7 +266,7 @@ function Provisioning(){
                 }
                 this.selected_link = null;
                  // reposition drag line
-                drag_line
+                this.drag_line
                     .style('marker-end', 'url(#end-arrow)')
                     .classed('hidden', false)
                     .attr('d', 'M' + this.mousedown_node.x + ',' + this.mousedown_node.y + 'L' + this.mousedown_node.x + ',' + this.mousedown_node.y);
@@ -275,7 +275,7 @@ function Provisioning(){
             .on('mouseup', function(d) {
                 if(!this.mousedown_node) return;
                  // needed by FF
-                drag_line
+                this.drag_line
                     .classed('hidden', true)
                     .style('marker-end', '');
                  // check for drag-to-self
@@ -339,7 +339,7 @@ function Provisioning(){
         // prevent I-bar on drag
         //d3.event.preventDefault();
         // because :active only works in WebKit?
-        svg.classed('active', true);
+        this.svg.classed('active', true);
         if(d3.event.ctrlKey || this.mousedown_node || this.mousedown_link) return;
 
         // insert new node at point
@@ -351,19 +351,19 @@ function Provisioning(){
     this.mousemove = function() {
         if(!this.mousedown_node) return;
         // update drag line
-        drag_line.attr('d', 'M' + this.mousedown_node.x + ',' + this.mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
+        this.drag_line.attr('d', 'M' + this.mousedown_node.x + ',' + this.mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
         restart();
     }
 
     this.mouseup = function() {
         if(this.mousedown_node) {
             // hide drag line
-            drag_line
+            this.drag_line
                 .classed('hidden', true)
                 .style('marker-end', '');
         }
         // because :active only works in WebKit?
-        svg.classed('active', false);
+        this.svg.classed('active', false);
         // clear mouse event vars
         resetMouseVars();
     }
@@ -388,7 +388,7 @@ function Provisioning(){
         // ctrl
         if(d3.event.keyCode === 17) {
             this.gCircle.call(this.force.drag);
-            svg.classed('ctrl', true);
+            this.svg.classed('ctrl', true);
         }
         if((!this.selected_node && !this.selected_link) || this.focusNodeName) return;
         switch(d3.event.keyCode) {
@@ -441,7 +441,7 @@ function Provisioning(){
             this.gCircle
                 .on('mousedown.drag', null)
                 .on('touchstart.drag', null);
-            svg.classed('ctrl', false);
+            this.svg.classed('ctrl', false);
         }
     }
 
