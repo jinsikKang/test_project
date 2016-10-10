@@ -128,4 +128,9 @@
 <!--<script src="{% static 'js/customdirect/js/partitions_index.js' %}"></script>-->
 <script src='http://d3js.org/d3.v3.min.js'></script>
 <script src="{% static 'js/custom/provisioning/provisioning.js' %}"></script>
+<script>
+    var provisioning = Provisioning();
+
+    provisioning.restart();
+</script>
 {% endblock content %}

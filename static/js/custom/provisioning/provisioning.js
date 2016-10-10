@@ -442,5 +442,6 @@ function Provisioning(){
     d3.select(window)
         .on('keydown', keydown)
         .on('keyup', keyup);
-    restart();
+
+    return this;
 }
