@@ -37,7 +37,7 @@ function Provisioning(){
         .attr('width', this.width)
         .attr('height', this.height);
 
-    this.addNode = function(this.node){
+    this.addNode = function(node){
         /*{
             id:node.region_id,
             name:"name",
