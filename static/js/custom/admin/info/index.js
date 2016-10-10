@@ -8,6 +8,7 @@ function getServiceAjax(csrf_token){
             service = data.serviceList;
             getService();
             getNetworkAgent(csrf_token);
+            getNovaServiceList(csrf_token);
         }
     });
 }
@@ -24,7 +25,7 @@ function getService() {
     dataTable.showDataTable();
 }
 
-function getNovaServiceList(){
+function getNovaServiceList(csrf_token){
     $.ajax({
         type:"POST",
         url : 'nova_service',
