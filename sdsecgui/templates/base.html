@@ -22,6 +22,7 @@
 <body>
 	<div class="ind_d01">
         {% block sub_left_menu %}
+        {% endblock %}
         <div class="header">
             <a href="#"><img class="head_img01" src='{% static "provisioning/img/logo.png" %}' alt="#"></a>
             <a href="/dashboard/provisioning">
@@ -57,7 +58,6 @@
             <img class="head_img03" src='{% static "provisioning/img/head_06.png" %}' alt="#">
             <div class="clear_float"></div>
         </div>
-        {% endblock %}
         <div class="header_title">
             {% block header %}
             {% endblock %}
