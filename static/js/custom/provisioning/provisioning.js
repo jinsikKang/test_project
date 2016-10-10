@@ -28,7 +28,7 @@ function Provisioning(){
     {id:2, nodeList:[this.nodes[5]]}];
     this.width  = 1280;
     this.height = 720;
-    this.colors = d3.scale.category10();
+    var colors = d3.scale.category10();
 
 
     this.svg = d3.select('#vis')
@@ -192,8 +192,8 @@ function Provisioning(){
         this.pathGroup = this.pathGroup.data(this.groups);
         this.pathGroup.enter().append('path')
             .attr('class', 'subset')
-            .style("fill", function(d) { return this.colors(d.id); })
-            .style("stroke", function(d) { return this.colors(d.id); });
+            .style("fill", function(d) { return colors(d.id); })
+            .style("stroke", function(d) { return colors(d.id); });
         this.pathGroup.exit().remove();
 
         // path (link) group
@@ -224,7 +224,7 @@ function Provisioning(){
         this.gCircle = this.gCircle.data(this.nodes, function(d) { return d.id; });
         // update existing nodes (reflexive & selected visual states)
         this.gCircle.selectAll('circle')
-            .style('fill', function(d) { return (d === this.selected_node) ? d3.rgb(this.colors(d.id)).brighter().toString() : this.colors(d.id); })
+            .style('fill', function(d) { return (d === this.selected_node) ? d3.rgb(colors(d.id)).brighter().toString() : colors(d.id); })
             .classed('reflexive', function(d) { return d.reflexive; });
         this.gCircle.selectAll('text')
             .text(function(d) { return d.name; });
@@ -233,8 +233,8 @@ function Provisioning(){
         g.append('svg:circle')
             .attr('class', 'node')
             .attr('r', this.nodesRadius)          //반지름
-            .style('fill', function(d) { return (d === this.selected_node) ? d3.rgb(this.colors(d.id)).brighter().toString() : this.colors(d.id); })
-            .style('stroke', function(d) { return d3.rgb(this.colors(d.id)).darker().toString(); })
+            .style('fill', function(d) { return (d === this.selected_node) ? d3.rgb(colors(d.id)).brighter().toString() : colors(d.id); })
+            .style('stroke', function(d) { return d3.rgb(colors(d.id)).darker().toString(); })
             .classed('reflexive', function(d) { return d.reflexive; })
             .on('mouseover', function(d) {
                 if(!this.mousedown_node || d === this.mousedown_node) return;
