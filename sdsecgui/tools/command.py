@@ -107,7 +107,7 @@ def getInterfaceListInRouter(router_id, type="json"):
         interfaceList = None
     return interfaceList
 
-def getServiceList():
+def retrieveServiceList():
     serviceList = json.loads(excuteCmd("openstack service list -f json"))
     return serviceList
 
