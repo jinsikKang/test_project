@@ -13,8 +13,12 @@ from sdsecgui.tools.command import getServiceList
 
 def retrieveServiceList(request):
     # logger.info("retrieveServiceList")
-    serviceList = getServiceList()
-    return render(request, 'admin/services/index.html', { 'serviceList' : serviceList })
+    if request.is_ajax() and request.method == 'POST':
+        serviceList = getServiceList()
+        return JsonResponse({ 'data' : serviceList })
+        pass
+    else:
+        return render(request, 'admin/services/index.html', {})
 
 def retrieveServiceById(request, service_id):
     # logger.info("retrieveServiceById")
