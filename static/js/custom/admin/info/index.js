@@ -24,6 +24,29 @@ function getService() {
     dataTable.showDataTable();
 }
 
+function getNovaServiceList(){
+    $.ajax({
+        type:"POST",
+        url : 'nova_service',
+        data : { csrfmiddlewaretoken: csrf_token },
+        success:function(data){
+            var dataTable = new DataTable({
+                "selector" : "#nova_service",
+                "columns" : {
+                    "Binary" : "이름",
+                    "Host" : "호스트",
+                    "Zone" : "Zone",
+                    "Status" : "Status",
+                    "State" : "State",
+                    "Updated_at" : "마지막 업데이트 됨",
+                },
+                "data" : data.novaServiceList
+            });
+            dataTable.showDataTable();
+        }
+    });
+}
+
 function getNetworkAgent(csrf_token) {
     $.ajax({
         type:"POST",
@@ -45,20 +68,22 @@ function getNetworkAgent(csrf_token) {
             dataTable.showDataTable();
         }
     });
-
 }
 
 
 $(function(){
 //탭 클릭시 이벤트들
-    $("#nova").hide();
-    $("#storage").hide();
-    $("#agent").hide();
 
     var tabList = ["service", "nova", "storage", "agent"];
 
-    $(".service").on("click", function(){tabClick(0, tabList)});
-    $(".nova").on("click", function(){tabClick(1, tabList)});
-    $(".storage").on("click", function(){tabClick(2, tabList)});
-    $(".agent").on("click", function(){tabClick(3, tabList)});
+    $("." + tabList[0]).on("click", function(){tabClick(0, tabList)});
+
+    $("#" + tabList[1]).hide();
+    $("." + tabList[1]).on("click", function(){tabClick(1, tabList)});
+
+    $("#" + tabList[2]).hide();
+    $("." + tabList[2]).on("click", function(){tabClick(2, tabList)});
+
+    $("#" + tabList[3]).hide();
+    $("." + tabList[3]).on("click", function(){tabClick(3, tabList)});
 });

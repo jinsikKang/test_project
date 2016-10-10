@@ -112,14 +112,19 @@ def getServiceList():
     return serviceList
 
 
+def getNovaServiceList():
+    output = excuteCmd("nova service-list")
+    novaServiceList = parsingOutputToList(output)
+    return novaServiceList
+
 def getAgentList(type="json"):
     if type == "json":
-        interfaceList = json.loads(excuteCmd("neutron agent-list -f json"))
+        agentList = json.loads(excuteCmd("neutron agent-list -f json"))
     elif type == "str":
-        interfaceList = excuteCmd("neutron agent-list -f json")
+        agentList = excuteCmd("neutron agent-list -f json")
     else:
-        interfaceList = None
-    return interfaceList
+        agentList = None
+    return agentList
 
 def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")

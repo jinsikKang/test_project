@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
-from sdsecgui.tools.command import getServiceList, getAgentList
+from sdsecgui.tools.command import getServiceList, getAgentList, getNovaServiceList
 # from sdsecgui.cmodels.network import 
 
 # setLogDir()
@@ -20,19 +20,13 @@ def retrieveServiceList(request):
     else:
         return render(request, 'admin/info/index.html', {})
 
-def retrieveServiceById(request, service_id):
-    # logger.info("retrieveServiceById")
+
+def retrieveNovaServiceList(request):
     if request.is_ajax() and request.method == 'POST':
-        # service = Service()
-        # service.setById(service_id)
-        # service.setPortList()
-        # return JsonResponse({ 'data' : service.toJSON() })
-        pass
-    else:
-        return render(request, 'admin/info/info.html', { 'service_id' : service_id })
+        novaServiceList = getNovaServiceList()
+        return JsonResponse({ 'novaServiceList' : novaServiceList })
 
 def retrieveAgentList(request):
-
     if request.is_ajax() and request.method == 'POST':
         agentList = getAgentList()
         return JsonResponse({ 'agentList' : agentList })
