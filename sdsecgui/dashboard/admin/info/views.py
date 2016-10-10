@@ -29,4 +29,4 @@ def retrieveServiceById(request, service_id):
         # return JsonResponse({ 'data' : service.toJSON() })
         pass
     else:
-        return render(request, 'admin/info/index.html', { 'service_id' : service_id })
+        return render(request, 'admin/info/info.html', { 'service_id' : service_id })
