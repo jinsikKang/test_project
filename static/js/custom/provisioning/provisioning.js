@@ -339,7 +339,7 @@ function Provisioning(){
         // prevent I-bar on drag
         //d3.event.preventDefault();
         // because :active only works in WebKit?
-        this.svg.classed('active', true);
+        svg.classed('active', true);
         if(d3.event.ctrlKey || this.mousedown_node || this.mousedown_link) return;
 
         // insert new node at point
@@ -363,7 +363,7 @@ function Provisioning(){
                 .style('marker-end', '');
         }
         // because :active only works in WebKit?
-        this.svg.classed('active', false);
+        svg.classed('active', false);
         // clear mouse event vars
         resetMouseVars();
     }
@@ -388,7 +388,7 @@ function Provisioning(){
         // ctrl
         if(d3.event.keyCode === 17) {
             this.gCircle.call(this.force.drag);
-            this.svg.classed('ctrl', true);
+            svg.classed('ctrl', true);
         }
         if((!this.selected_node && !this.selected_link) || this.focusNodeName) return;
         switch(d3.event.keyCode) {
@@ -441,12 +441,12 @@ function Provisioning(){
             this.gCircle
                 .on('mousedown.drag', null)
                 .on('touchstart.drag', null);
-            this.svg.classed('ctrl', false);
+            svg.classed('ctrl', false);
         }
     }
 
     // app starts here
-    this.svg.on('mousedown', mousedown)
+    svg.on('mousedown', mousedown)
         .on('mousemove', mousemove)
         .on('mouseup', mouseup);
     d3.select(window)
