@@ -336,7 +336,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
         data : { csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
             svg.classed('active', true);
-            addNode(jsonData.nodeList);
+            addNodes(jsonData.nodeList);
             restart();
         }
     });
