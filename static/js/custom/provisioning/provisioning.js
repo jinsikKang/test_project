@@ -62,7 +62,7 @@ function Provisioning(){
             .size([this.width, this.height])
             //.linkDistance(150)    //링크된 노드의 거리
             .charge(-1000)       //노드간의 거리
-            .on('tick', tick);
+            .on('tick', this.tick);
     this.focusNodeName = false;
 
     // define arrow markers for graph links
