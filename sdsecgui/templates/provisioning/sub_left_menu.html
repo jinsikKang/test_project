@@ -17,8 +17,9 @@
 <script>
 $(function(){
     $(".toggle").click(function(){
-        //$("#left_menu").show("slide", {direction:'left'}, 100);
-        $("#left_menu").hide("slide", {direction:'left'}, 100);
+        $("#left_menu").animate({
+            width: 'toggle'
+        });
     });
 });
 </script>
