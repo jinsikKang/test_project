@@ -327,7 +327,7 @@ function Provisioning(){
         this.force.start();
     }
 
-    this.insertNewNode = function(nodeId, name, x, y) {
+    function insertNewNode(nodeId, name, x, y) {
             var node = {id: nodeId, name: name, reflexive: false, fixed:true};  // fixed : 고정
             node.x = x;
             node.y = y;
@@ -344,7 +344,7 @@ function Provisioning(){
 
         // insert new node at point
         var point = d3.mouse(this);
-        this.insertNewNode(++this.lastNodeId, "label", point[0], point[1]);
+        insertNewNode(++this.lastNodeId, "label", point[0], point[1]);
         this.restart();
     }
 
