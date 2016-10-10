@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
 {% block sub_left_menu %}
 {% include "provisioning/sub_left_menu.html" %}
 {% endblock sub_left_menu %}
@@ -113,7 +114,6 @@
         <img src='{% static "provisioning/img/right_04.png" %}' alt="#">
     </div>
 </div>
-{% load staticfiles %}
 <link rel="stylesheet" href="{% static 'js/customdirect/css/direct.app.css' %}">
 <div id="vis"></div>
 <div id="node_info">
