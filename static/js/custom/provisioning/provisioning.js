@@ -204,7 +204,7 @@ function showNodeInfo(){
         }
     }
     else {
-        node_info_html += "<tr><td class='ind_td01>node를 선택하세요.</td></tr>";
+        node_info_html += "<tr><td class='ind_td01'>node를 선택하세요.</td></tr>";
     }
     d3.select("#infoTable").html(node_info_html);
 }
