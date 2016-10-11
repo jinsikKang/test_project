@@ -27,8 +27,8 @@ var nodes = [
   ],
   groups = [
     {id:0, nodeList:[nodes[0], nodes[1], nodes[2]]},
-    {id:1, nodeList:[nodes[3], nodes[4]]},
-    {id:2, nodeList:[nodes[5]]}
+    {id:1, nodeList:[nodes[4], nodes[5], nodes[6]]},
+    {id:2, nodeList:[nodes[3]]}
   ];
 var width  = 1280,
         height = 720,
