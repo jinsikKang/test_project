@@ -374,7 +374,7 @@ function addNodes(nodeList){
             vrouter_list      :nodeList[i].vrouter_list
         }*/
 
-    nodes.push(node);
+//    nodes.push(node);
 }
 
 function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_id
