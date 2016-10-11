@@ -184,13 +184,22 @@ function showNodeInfo(){
     if (selected_node != null) {
         var selected_nodeKeyArray = Object.keys(selected_node);
         for(var i in selected_nodeKeyArray) {
-            if (selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" && selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" ) {
+            if (selected_nodeKeyArray[i] == "data") {
+                var dataHtml = "<ul>";
+                var data = eval("selected_node." + selected_nodeKeyArray[i]);
+                for (key in data) {
+                    dataHtml += "<li><strong>" + key + ":</strong> " + data[key] + "</li>";
+                }
+                dataHtml += "</ul>";
+                node_info_html += "<tr><td>" + selected_nodeKeyArray[i] + "</td><td> " + dataHtml + "</td></tr>";
+            }
+            else if (selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" && selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" ) {
                 node_info_html += "<tr><td>" + selected_nodeKeyArray[i] + "</td><td> " + eval("selected_node." + selected_nodeKeyArray[i]) + "</td></tr>";
             }
         }
         tempCnt += 1;
         if (tempCnt / 50 == 1) {
-            console.log("selected_nod[key] : "+Object.keys(selected_node));
+            console.log("selected_nod[key] : " + Object.keys(selected_node));
             tempCnt = 0;
         }
     }
