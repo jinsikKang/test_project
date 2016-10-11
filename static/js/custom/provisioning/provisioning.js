@@ -358,8 +358,7 @@ function insertNewNode(nodeId, name, x, y) {
 }
 
 function addNodes(nodeList){
-    for (i in nodeList){
-        var node = {
+        /*var node = {
             id                :nodeList[i].region_id,
             name              :nodeList[i].name,
             reflexive         :false,
@@ -373,8 +372,7 @@ function addNodes(nodeList){
             vpn_list          :nodeList[i].vpn_list,
             firewall_list     :nodeList[i].firewall_list,
             vrouter_list      :nodeList[i].vrouter_list
-        }
-    };
+        }*/
 
     nodes.push(node);
 }
@@ -386,7 +384,32 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
         data : { csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
             svg.classed('active', true);
-            addNodes(jsonData.node_list);
+            for (key in jsonData.node_list){
+                var tempValue = nodeList[key];
+                switch(key) {
+                    case "volume_list"      :
+                        prov_volume_list = tempValue;
+                        break;
+                    case "vm_list"          :
+                        addNodes(tempValue);
+                        break;
+                    case "network_list"     :
+                        addNodes(tempValue);
+                        break;
+                    case "vrouter_list"     :
+                        addNodes(tempValue);
+                        break;
+                    case "loadbalancer_list":
+                        addNodes(tempValue);
+                        break;
+                    case "firewall_list"    :
+                        addNodes(tempValue);
+                        break;
+                    default                 :
+                        eval("prov_" + key + " = " +tempValue);
+                        break;
+                }
+            };
             restart();
         }
     });

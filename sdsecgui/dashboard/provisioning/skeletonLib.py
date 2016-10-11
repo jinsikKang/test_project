@@ -27,7 +27,7 @@ class ControllerEngine:
 	
 	
 	def createService(self, token, tenant_name, user_name, service_template_list, map_info=None):
-		result = []
+		result = {}
 		# TODO: 1) CHECK USER & TOKEN (from cookie)
 		#glance_endpoint = keystone.service_catalog.url_for(service_type='image')
 		#glance = glclient.Client(glance_endpoint, token=keystone.auth_token)     =>    checkToken()
@@ -48,19 +48,19 @@ class ControllerEngine:
         # 토큰이 유효하지 않으면 아래와 같은 에러 메시지
         #result = {'error':{'message':'The request you have made requires authentication','code':401, 'title':'Unauthorized'}}
         
-		result = [{'region_id':'region-0001','name':'template-0001','service_id':'', 'status':'CREATE_COMPLETE'}]
+		result = {'region_id':'region-0001','name':'template-0001','service_id':'', 'status':'CREATE_COMPLETE'}
 		return result
 
 
 	def modifyService(self, token, tenant_name, user_name, service_id, service_template_list):
-		result = []	
-		result = [{'region_id':'region-0001','name':'template-0001','status':'UPDATE_IN_PROGRESS'}]
+		result = {}
+		result = {'region_id':'region-0001','name':'template-0001','status':'UPDATE_IN_PROGRESS'}
 		return result
 
 
 	def deleteService(self, token, tenant_name, user_name, service_id):
-		result = []	
-		result = [{'region_id':'region-0001','name':'template-0001','status':'DELETE_COMPLETE'}]
+		result = {}
+		result = {'region_id':'region-0001','name':'template-0001','status':'DELETE_COMPLETE'}
 		return result	
 
 		
@@ -268,33 +268,33 @@ class ControllerEngine:
 
 		
 	def suspendService(self, token, tenant_name, user_name, service_id, region_id=None):
-		result = []	
-		result = [{'region_id':'region-0001','name':'template-0001','status':'SUSPEND_COMPLETE'}]
+		result = {}
+		result = {'region_id':'region-0001','name':'template-0001','status':'SUSPEND_COMPLETE'}
 		return result
 
 		
 	def resumeService(self, token, tenant_name, user_name, service_id, region_id=None):
-		result = []	
-		result = [{'region_id':'region-0001','name':'template-0001','status':'RESUME_COMPLETE'}]
+		result = {}
+		result = {'region_id':'region-0001','name':'template-0001','status':'RESUME_COMPLETE'}
 		return result
 		
 		
 	def suspendResource(self, token, tenant_name, user_name, service_id, region_id, resource_id, resource_type):
 		# RESOURCE_TYPE : VM, NETWORK, PORT, ROUTER, VOLUME, LB, FW, VPN
-		result = []	
-		result = [{'status':'SUSPENDED'}]
+		result = {}
+		result = {'status':'SUSPENDED'}
 		return result	
 			
 		
 	def resumeResource(self, token, tenant_name, user_name, service_id, region_id, resource_id, resource_type):
-		result = []	
-		result = [{'status':'ACTIVE'}]
+		result = {}
+		result = {'status':'ACTIVE'}
 		return result	
 		
 
 	def showResource(self, token, tenant_name, user_name, service_id, region_id, resource_id, resource_type):
-		result = []	
-		result = [{'status':'ACTIVE'}]
+		result = {}
+		result = {'status':'ACTIVE'}
 		return result
 		
 
