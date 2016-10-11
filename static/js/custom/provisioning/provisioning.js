@@ -9,27 +9,60 @@
 // - links 는 항상 source < target; 가장자리 방향은 '왼쪽'과 '오른쪽' 으로 설정됩니다.
 
 var nodes = [
-    {id: 0, reflexive: false, x: 100, y: 100, name: "public network", fixed:true},
-    {id: 1, reflexive: true , x: 200, y: 200, name: "vrouter", fixed:true},
-    {id: 2, reflexive: false, x: 300, y: 100, name: "vm-ubuntu"},
+    {
+        id: 0,
+        name: "public network",
+        x: 100, y: 100,
+        reflexive: false,
+        fixed:true
+    },
+    {
+        id: 1,
+        name: "vrouter",
+        x: 200, y: 200,
+        reflexive: true,
+        fixed:true
+    },
+    {
+        id: "0553b367-25d5-4285-a343-34b0a2bdda37",
+        x: 300, y: 100,
+        name: "test-vm-01",
+        reflexive: false,
+        fixed:true,
+        data:{
+            vm_name:"test-vm-01",
+            vm_id:"0553b367-25d5-4285-a343-34b0a2bdda37",
+            resource_type:"VM",
+            vnic_list:[
+                name:"test-vnic-01",
+                private_ip:"192.168.10.99",
+                floating_ip:"10.121.17.8"
+                mac:"test-vnic-01",
+            ],
+            status:"Active",
+        }
+    },
     {id: 3, reflexive: true , x: 200, y: 200, name: "window7"},
     {id: 4, reflexive: false, x: 300, y: 100, name: "ETRI"},
     {id: 5, reflexive: false, x: 300, y: 100, name: "ChironSoft"},
     {id: 6, reflexive: false, x: 300, y: 100, name: "YourSoft"}
-  ],
-  lastNodeId = 6,
-  links = [
-    {source: nodes[0], target: nodes[1], left: false, right: true },
+],
+lastNodeId = 6,
+links = [
+    {
+        source: nodes[0], target: nodes[1],
+        left: false, right: true
+    },
     {source: nodes[1], target: nodes[2], left: false, right: true },
     {source: nodes[4], target: nodes[5], left: false, right: true },
     {source: nodes[4], target: nodes[6], left: false, right: true },
     {source: nodes[5], target: nodes[6], left: true, right: true }
-  ],
-  groups = [
+],
+groups = [
     {id:0, nodeList:[nodes[0], nodes[1], nodes[2]]},
     {id:1, nodeList:[nodes[4], nodes[5], nodes[6]]},
     {id:2, nodeList:[nodes[3]]}
-  ];
+];
 var width  = 1280,
         height = 720,
         colors = d3.scale.category10();
