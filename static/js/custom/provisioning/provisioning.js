@@ -54,8 +54,8 @@ links = [
         left: false, right: true
     },
     {source: nodes[1], target: nodes[2], left: false, right: true },
-    {source: nodes[4], target: nodes[5], left: false, right: true },
-    {source: nodes[4], target: nodes[6], left: false, right: true },
+    {source: nodes[4], target: nodes[5], left: true, right: true },
+    {source: nodes[4], target: nodes[6], left: true, right: true },
     {source: nodes[5], target: nodes[6], left: true, right: true }
 ],
 groups = [
