@@ -385,7 +385,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
         success:function(jsonData){
             svg.classed('active', true);
             for (key in jsonData.node_list){
-                var tempValue = nodeList[key];
+                var tempValue = jsonData.nodeList[key];
                 switch(key) {
                     case "volume_list"      :
                         prov_volume_list = tempValue;
