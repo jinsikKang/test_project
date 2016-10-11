@@ -191,10 +191,10 @@ function showNodeInfo(){
                     dataHtml += "<li><strong>" + key + ":</strong> " + data[key] + "</li>";
                 }
                 dataHtml += "</ul>";
-                node_info_html += "<tr><td class='ind_td01>" + selected_nodeKeyArray[i] + "</td><td class='ind_td01> " + dataHtml + "</td></tr>";
+                node_info_html += "<tr><td class='ind_td01'>" + selected_nodeKeyArray[i] + "</td><td class='ind_td01'> " + dataHtml + "</td></tr>";
             }
             else if (selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" && selected_nodeKeyArray[i] != "px" && selected_nodeKeyArray[i] != "py" ) {
-                node_info_html += "<tr><td class='ind_td01>" + selected_nodeKeyArray[i] + "</td><td class='ind_td01> " + eval("selected_node." + selected_nodeKeyArray[i]) + "</td></tr>";
+                node_info_html += "<tr><td class='ind_td01'>" + selected_nodeKeyArray[i] + "</td><td class='ind_td01'> " + eval("selected_node." + selected_nodeKeyArray[i]) + "</td></tr>";
             }
         }
         tempCnt += 1;
