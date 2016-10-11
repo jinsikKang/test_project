@@ -9,18 +9,21 @@
 // - links 는 항상 source < target; 가장자리 방향은 '왼쪽'과 '오른쪽' 으로 설정됩니다.
 
 var nodes = [
-    {id: 0, reflexive: false, x: 100, y: 100, name: "hi", fixed:true},
-    {id: 1, reflexive: true , x: 200, y: 200, name: "베르나르베르베르", fixed:true},
-    {id: 2, reflexive: false, x: 300, y: 100, name: "타나타노트"},
-    {id: 3, reflexive: true , x: 200, y: 200, name: "hello my world, kia"},
-    {id: 4, reflexive: false, x: 300, y: 100},
-    {id: 5, reflexive: false, x: 300, y: 100},
-    {id: 6, reflexive: false, x: 300, y: 100}
+    {id: 0, reflexive: false, x: 100, y: 100, name: "public network", fixed:true},
+    {id: 1, reflexive: true , x: 200, y: 200, name: "vrouter", fixed:true},
+    {id: 2, reflexive: false, x: 300, y: 100, name: "vm-ubuntu"},
+    {id: 3, reflexive: true , x: 200, y: 200, name: "window7"},
+    {id: 4, reflexive: false, x: 300, y: 100, name: "ETRI"},
+    {id: 5, reflexive: false, x: 300, y: 100, name: "ChironSoft"},
+    {id: 6, reflexive: false, x: 300, y: 100, name: "YourSoft"}
   ],
   lastNodeId = 6,
   links = [
     {source: nodes[0], target: nodes[1], left: false, right: true },
-    {source: nodes[1], target: nodes[2], left: false, right: true }
+    {source: nodes[1], target: nodes[2], left: false, right: true },
+    {source: nodes[4], target: nodes[5], left: false, right: true },
+    {source: nodes[4], target: nodes[6], left: false, right: true },
+    {source: nodes[5], target: nodes[6], left: true, right: true },
   ],
   groups = [
     {id:0, nodeList:[nodes[0], nodes[1], nodes[2]]},
@@ -313,18 +316,24 @@ function insertNewNode(nodeId, name, x, y) {
 }
 
 function addNodes(nodeList){
-    /*{
-        id:node.region_id,
-        name:"name",
-        reflexive:false,
-        x:node.x,
-        y:node.y,
-        data:{
-//            vm_list = node.
-        }
-    }*/
     for (i in nodeList){
-        var node = nodeList[i];
+        var node = {
+            id                :nodeList[i].region_id,
+            name              :nodeList[i].name,
+            reflexive         :false,
+            x                 :nodeList[i].x,
+            y                 :nodeList[i].y,
+            status            :nodeList[i].status,
+            vm_list           :nodeList[i].vm_list,
+            loadbalancer_list :nodeList[i].loadbalancer_list,
+            network_list      :nodeList[i].network_list,
+            volume_list       :nodeList[i].volume_list,
+            vpn_list          :nodeList[i].vpn_list,
+            firewall_list     :nodeList[i].firewall_list,
+            vrouter_list      :nodeList[i].vrouter_list
+        }
+    };
+
         nodes.push(node);
     }
 }
@@ -336,7 +345,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
         data : { csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
             svg.classed('active', true);
-            addNodes(jsonData.nodeList);
+            addNodes(jsonData.node_list);
             restart();
         }
     });

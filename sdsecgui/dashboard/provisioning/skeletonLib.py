@@ -329,7 +329,3 @@ print
 print c1.resumeResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')	
 print
 print c1.showResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
-
-
-
-
