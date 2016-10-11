@@ -36,8 +36,8 @@ var nodes = [
             vnic_list:[{
                 name:"test-vnic-01",
                 private_ip:"192.168.10.99",
-                floating_ip:"10.121.17.8"
-                mac:"test-vnic-01",
+                floating_ip:"10.121.17.8",
+                mac:"test-vnic-01"
             }],
             status:"Active",
         }
