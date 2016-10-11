@@ -33,12 +33,12 @@ var nodes = [
             vm_name:"test-vm-01",
             vm_id:"0553b367-25d5-4285-a343-34b0a2bdda37",
             resource_type:"VM",
-            vnic_list:[
+            vnic_list:[{
                 name:"test-vnic-01",
                 private_ip:"192.168.10.99",
                 floating_ip:"10.121.17.8"
                 mac:"test-vnic-01",
-            ],
+            }],
             status:"Active",
         }
     },
