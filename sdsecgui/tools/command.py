@@ -16,7 +16,7 @@ import logging
 
 def novaCmd(command, sess):
     nova = client.Client("2.1", session=sess)
-    return nova.virtual_interfaces.list()
+    return nova.quotas.list()
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
