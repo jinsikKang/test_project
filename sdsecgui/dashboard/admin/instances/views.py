@@ -1,9 +1,6 @@
 #_*_coding:utf-8_*_
 
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
-
-from horizon import exceptions
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getInstanceList, login
