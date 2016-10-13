@@ -399,7 +399,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                 name: jsonData.service.name,
                 status: jsonData.service.status,
             };
-            for (key in jsonData.node_list) {
+            for (key in jsonData.service) {
                 if (jsonData.service[key] instanceof Array) {
                     for (i in jsonData.service[key]) {
                         var id;
