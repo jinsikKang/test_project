@@ -16,7 +16,9 @@ import logging
 
 def novaCmd(command, sess):
     nova = client.Client("2.1", session=sess)
-    return nova.quotas.list()
+    print nova.flavors.list()
+    print nova.servers.list()
+    print nova.keypairs.list()
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
@@ -148,6 +150,5 @@ def login(username, password, tenant_name, controller, auth_url):
     auth = v3.Password(auth_url=aa, username=username, password=password, project_name=tenant_name, user_domain_id='default', project_domain_id='default')
     print auth
     sess = session.Session(auth=auth)
-    list = novaCmd("",sess)
-    print list
+    novaCmd("",sess)
     return sess
