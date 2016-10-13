@@ -25,10 +25,10 @@ def novaCmd(command, sess):
 def excuteCmd(command):
     # 명령 실행, 출력 반환
     # logger.debug("excuteCmd>> "+command)
-    # print "excuteCmd>> " + command
+    print "excuteCmd>> " + command
     f = os.popen(command)
     result = f.read()
-    # print result
+    print result
     # logger.debug(result)
     return result
 
