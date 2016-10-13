@@ -454,7 +454,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                             reflexive: false,
                             fixed:true
                         }
-                        addNodes(node);
+                        nodes.push(node);
                     }
                 }
             };
