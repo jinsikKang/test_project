@@ -146,6 +146,7 @@ def login(username, password, tenant_name, controller, auth_url):
     os.environ["OS_AUTH_URL"] = "http://" + controller + auth_url
     aa = "http://" + controller + auth_url
     auth = v2.Password(aa, username, password)
+    print auth
     sess = session.Session(auth=auth)
     list = novaCmd("",sess)
     print list
