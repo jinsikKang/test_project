@@ -23,10 +23,10 @@ def novaCmd(command, sess):
 def excuteCmd(command):
     # 명령 실행, 출력 반환
     # logger.debug("excuteCmd>> "+command)
-    print "excuteCmd>> " + command
+    # print "excuteCmd>> " + command
     f = os.popen(command)
     result = f.read()
-    print result
+    # print result
     # logger.debug(result)
     return result
 
@@ -148,7 +148,7 @@ def login(username, password, tenant_name, controller, auth_url):
     os.environ["OS_AUTH_URL"] = "http://" + controller + auth_url
     aa = "http://" + controller + auth_url
     auth = v3.Password(auth_url=aa, username=username, password=password, project_name=tenant_name, user_domain_id='default', project_domain_id='default')
-    print auth
+    # print auth
     sess = session.Session(auth=auth)
     novaCmd("",sess)
     return sess
