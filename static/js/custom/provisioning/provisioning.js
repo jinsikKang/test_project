@@ -455,10 +455,10 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                             fixed:true
                         }
                         nodes.push(node);
+                        restart();
                     }
                 }
             };
-            restart();
         }
     });
 }
