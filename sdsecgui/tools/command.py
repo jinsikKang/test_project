@@ -2,6 +2,10 @@
 import json
 import os
 
+from keystoneauth1.identity import v2
+from keystoneauth1 import session
+from novaclient import client
+
 from sdsec import log_handler
 # from sdsec.log_handler import setLogDir, getLogger
 import logging
@@ -10,6 +14,9 @@ import logging
 # setLogDir()
 # logger = getLogger()
 
+def novaCmd(command, sess):
+    nova = client.Client("2.1", session=sess)
+    return nova.flavors.list()
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
@@ -137,3 +144,9 @@ def login(username, password, tenant_name, controller, auth_url):
     os.environ["OS_PASSWORD"] = password
     os.environ["OS_TENANT_NAME"] = tenant_name
     os.environ["OS_AUTH_URL"] = "http://" + controller + auth_url
+
+    auth = v2.Password("http://" + controller + auth_url, username, password, tenant_name)
+    sess = session.Session(auth=auth)
+    list = novaCmd("",sess)
+    print list
+    return sess
