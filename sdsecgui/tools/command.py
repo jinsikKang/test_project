@@ -17,8 +17,8 @@ import logging
 def novaCmd(command, sess):
     nova = client.Client("2.1", session=sess)
     flavors = nova.flavors.list()
-    for key in flavors:
-        print flavors[key]
+    for i in flavors:
+        print flavors[i]
     print nova.servers.list()
     print nova.keypairs.list()
 
