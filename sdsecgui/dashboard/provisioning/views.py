@@ -10,6 +10,6 @@ def provisioning(request):
         controll = ControllerEngine()
         token = controll.getToken("admin", "http://192.168.10.6:35357/v2.0", "admin", "chiron")
         service_detail = controll.showService(token, "admin", "admin", "firstService")
-        return JsonResponse({ 'node_list' : service_detail })
+        return JsonResponse({ 'service' : service_detail })
     else:
         return render(request, 'provisioning/index.html', {})

@@ -8,6 +8,15 @@
 //  - links are always source < target; edge directions are set by 'left' and 'right'.
 // - links 는 항상 source < target; 가장자리 방향은 '왼쪽'과 '오른쪽' 으로 설정됩니다.
 
+var VM = 0,
+    NETWORK = 1,
+    ROUTER = 2,
+    FIREWALL = 3,
+    LOADBALACNER = 4,
+    VOLUME = 5,
+    VPN = 6,
+    UNKNOWN = 999;
+
 var nodes = [
     {
         id: 0,
@@ -208,6 +217,7 @@ function showNodeInfo(){
     }
     d3.select("#infoTable").html(node_info_html);
 }
+
 var tempFlag= true;
 // update graph (called when needed)
 function restart() {
@@ -384,30 +394,68 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
         data : { csrfmiddlewaretoken : csrf_token },
         success:function(jsonData){
             svg.classed('active', true);
-            for (key in jsonData.node_list){
-                var tempValue = jsonData.node_list[key];
-                switch(key) {
-                    case "volume_list"      :
-                        prov_volume_list = tempValue;
-                        break;
-                    case "vm_list"          :
-                        addNodes(tempValue);
-                        break;
-                    case "network_list"     :
-                        addNodes(tempValue);
-                        break;
-                    case "vrouter_list"     :
-                        addNodes(tempValue);
-                        break;
-                    case "loadbalancer_list":
-                        addNodes(tempValue);
-                        break;
-                    case "firewall_list"    :
-                        addNodes(tempValue);
-                        break;
-                    default                 :
-                        eval("prov_" + key + " = " +tempValue);
-                        break;
+            service = {
+                id : jsonData.service.region_id,
+                name: jsonData.service.name,
+                status: jsonData.service.status,
+            };
+            for (key in jsonData.node_list) {
+                if (jsonData.service[key] instanceof Array) {
+                    for (i in jsonData.service[key]) {
+                        var id;
+                        var name;
+                        var type;
+                        switch(key) {
+                            case "volume_list":
+                                id = jsonData.service[key][i].volume_id;
+                                name = jsonData.service[key][i].volume_name;
+                                type = VOLUME;
+                                break;
+                            case "vm_list":
+                                id = jsonData.service[key][i].vm_id;
+                                name = jsonData.service[key][i].vm_name;
+                                type = VM;
+                                break;
+                            case "network_list":
+                                id = jsonData.service[key][i].network_id;
+                                name = jsonData.service[key][i].network_name;
+                                type = NETWORK;
+                                break;
+                            case "vrouter_list":
+                                id = jsonData.service[key][i].vrouter_id;
+                                name = jsonData.service[key][i].vrouter_name;
+                                type = ROUTER;
+                                break;
+                            case "loadbalancer_list":
+                                id = jsonData.service[key][i].lb_pool_id;
+                                name = jsonData.service[key][i].lb_name;
+                                type = LOADBALANCER;
+                                break;
+                            case "firewall_list":
+                                id = jsonData.service[key][i].fw_id;
+                                name = jsonData.service[key][i].fw_name;
+                                type = FIREWALL;
+                                break;
+                            case "vpn_list":
+                                id = jsonData.service[key][i].vpn_id;
+                                name = jsonData.service[key][i].vpn_name;
+                                type = VPN;
+                                break;
+                            default:
+                                type = UNKNOWN;
+                                break;
+                        }
+                        var node = {
+                            id: id,
+                            name: name,
+                            x: 500, y:500,
+                            data: jsonData.service[key],
+                            type: type,
+                            reflexive: false,
+                            fixed:true
+                        }
+                        addNodes(node);
+                    }
                 }
             };
             restart();
