@@ -399,9 +399,9 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                 name: jsonData.service.name,
                 status: jsonData.service.status,
             };
-            for (key in jsonData.service) {
+            for (var key in jsonData.service) {
                 if (jsonData.service[key] instanceof Array) {
-                    for (i in jsonData.service[key]) {
+                    for (var i in jsonData.service[key]) {
                         var id;
                         var name;
                         var type;
@@ -448,7 +448,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                         var node = {
                             id: id,
                             name: name,
-                            x: 500, y:500,
+                            x: 500 + i, y:500 + i,
                             data: jsonData.service[key][i],
                             type: type,
                             reflexive: false,
