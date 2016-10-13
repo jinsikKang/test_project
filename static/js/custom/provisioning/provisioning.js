@@ -448,7 +448,7 @@ function getServiceAjax(csrf_token) { // token, tenant_name, user_name, service_
                         var node = {
                             id: id,
                             name: name,
-                            x: 500 + i, y:500 + i,
+                            x: 500, y:500,
                             data: jsonData.service[key][i],
                             type: type,
                             reflexive: false,
