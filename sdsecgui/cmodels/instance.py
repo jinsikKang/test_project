@@ -1,7 +1,7 @@
 # _*_coding:utf-8_*_
 
 from sdsec.log_handler import setLogDir, getLogger
-from ..tools.command import excuteCmd, login
+from ..tools.command import excuteCmd
 
 # setLogDir()
 # logger = getLogger()
