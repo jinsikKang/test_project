@@ -71,6 +71,6 @@ function getNetworksAjax(csrf_token){
         }
     });
 }
-getNetworksAjax({{ csrf_token }});
+getNetworksAjax("{{ csrf_token }}");
 </script>
 {% endblock content %}
