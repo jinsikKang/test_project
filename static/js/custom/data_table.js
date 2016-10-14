@@ -113,7 +113,7 @@ function DataTable (settings){
         if( this.vertical ){ /* 데이터를 세로로 출력*/
             resultHtml = verticalOutput();
         }else{
-            resultHtml = HorizontalOutput();
+            resultHtml = horizontalOutput();
         }
         $(this.selector + " table").html(resultHtml);
     };
