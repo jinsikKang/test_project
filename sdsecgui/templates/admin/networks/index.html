@@ -28,7 +28,11 @@ function showNetworkList(networks){
             "status" : "Status",
             "admin_state_up" : "관리자 상태"
         },
-        "data" : networks
+        "data" : networks,
+        "subData" : {
+            "subnets":["name", "cidr"],
+            "dhcpAgents" : "count"
+        }
     });
     dataTable.showDataTable();
     dataTable.setLink("networks");
