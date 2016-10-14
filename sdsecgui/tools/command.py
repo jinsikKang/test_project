@@ -4,7 +4,8 @@ import os
 
 from keystoneauth1.identity import v3
 from keystoneauth1 import session
-from novaclient import client
+from novaclient import client as nova
+from neutronclient.v2_0 import client as neutron
 
 from sdsec import log_handler
 # from sdsec.log_handler import setLogDir, getLogger
@@ -15,12 +16,18 @@ import logging
 # logger = getLogger()
 
 def novaCmd(command, sess):
-    nova = client.Client("2.1", session=sess)
-    flavors = nova.flavors.list()
+    client = nova.Client("2.1", session=sess)
+    flavors = client.flavors.list()
     for i in flavors:
         print i
-    print nova.servers.list()
-    print nova.keypairs.list()
+    print client.servers.list()
+    print client.keypairs.list()
+
+def networkCmd(request):
+    # neutron.Client(token=request.user.token.i, auth_url=base.url_for(request, 'identity'),
+    #                           endpoint_url=base.url_for(request, 'network'),
+    #                           insecure=insecure, ca_cert=cacert)
+    pass
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
