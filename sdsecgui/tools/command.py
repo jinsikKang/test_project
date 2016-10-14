@@ -28,6 +28,7 @@ def novaCmd(command, sess):
 def networkCmd(command, sess):
     client = neutron.Client(session=sess)
     networks = client.list_networks().get("networks")
+    pprint.pprint(networks)
     for network in networks:
         subnetIdList = network.get("subnets")
         subnets = []
@@ -36,7 +37,6 @@ def networkCmd(command, sess):
         network["subnets"] = subnets
         print "dhcpAgents", client.list_dhcp_agent_hosting_networks(network["network_id"])
 
-    pprint.pprint(networks)
     return networks
 
 def subnetCmd(sess):
