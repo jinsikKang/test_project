@@ -52,11 +52,17 @@ def networkInfoCmd(id, sess):
     network["subnets"] = subnets
 
     network["dhcpAgents"] = client.list_dhcp_agent_hosting_networks(id).get("agents")
-    pprint.pprint(client.list_ports())
+    allPortList = client.list_ports().get("ports")
+    portList = []
+    for port in allPortList:
+        if port.get("network_id") == id:
+            portList.append(port)
+    network["ports"] = portList
+    # pprint.pprint(client.list_ports())
 
 
 
-    # pprint.pprint(network)
+    pprint.pprint(network)
     return network
 
 def subnetCmd(sess):
