@@ -36,7 +36,7 @@ def excuteCmd(command):
     print "excuteCmd>> " + command
     f = os.popen(command)
     result = f.read()
-    print result
+    print "result>>", result
     # logger.debug(result)
     return result
 
@@ -103,7 +103,6 @@ def getFlavorList():
 
 def getNetworkList():
     # logger.debug("getNetworkList")
-
     networkList = json.loads(excuteCmd("neutron net-list -f json"))
 
     return networkList
