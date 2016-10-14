@@ -33,7 +33,7 @@ function DataTable (settings){
                     if (this.data[key]) {
                         data += this.columns[key].dataName[dataNameKey] + " " + this.data[key][dataNameKey] + "<br/>";
                     } else {
-                        data += this.columns[key].dataName[dataNameKey] + " " + this.data[key + ":" + dataName] + "<br/>";
+                        data += this.columns[key].dataName[dataNameKey] + " " + this.data[key + ":" + dataNameKey] + "<br/>";
                     }
                 }
                 dataHtml = dataForm.replace("%D", data).replace("%K", key);
