@@ -12,9 +12,9 @@ function DataTable (settings){
         this.data = null;
     }
     this.verticalOutput = function(){
-        var columnForm = "<th class='ind_th01 %K'>%C</th>\n"
+        var columnForm = "<th class='ind_th01 %K'>%C</th>\n";
         var dataForm = "<td class='ind_td01 %K'>%D</td>\n";
-        var resultHtml = ""
+        var resultHtml = "";
         for( key in this.columns ){
             resultHtml += "<tr>\n";
             var columnHtml = "";
@@ -62,9 +62,9 @@ function DataTable (settings){
     }
     this.horizontalOutput = function (){
         /* 컬럼과 데이터 형식 */
-        var columnForm = "<th class='ind_th01 %K'>%C</th>\n"
+        var columnForm = "<th class='ind_th01 %K'>%C</th>\n";
         var dataForm = "<td class='ind_td01 %K'>%D</td>\n";
-        var resultHtml = ""
+        var resultHtml = "";
 
         var columnHtml = "<tr>";
         for( key in this.columns ){
