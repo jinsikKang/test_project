@@ -9,8 +9,8 @@
 {% endblock left_menu %}
 
 {% block content %}
-<div>
-    <table class="ind_tab01 network_list" cellpadding="0" border="0" cellspacing="0">
+<div id="network_list">
+    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
     </table>
 </div>
 <script>
@@ -39,7 +39,7 @@ function getNetworksAjax(csrf_token){
         data : { csrfmiddlewaretoken: csrf_token },
         success:function(data){
             networks = data.networkList;
-            showNetworkList(networks)
+            showNetworkList(networks);
         }
     });
 }
