@@ -13,18 +13,12 @@ from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
 
 
 def retrieveNetworkList(request):
-    sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
-    networks = networkCmd("", sess)
-    # subnetIdList = networks.get("subnets")
-    # logger.info("retrieveNetworkList")
-    # tempList = []
-    # for network in networkList:
-    #     network_id = network["id"]
-    #     network = Network()
-    #     network.setById(network_id)
-    #     tempList.append(network)
-    # networkList = tempList
-    return render(request, 'admin/networks/index.html', { 'networkList' : networks })
+    if request.is_ajax() and request.method == 'POST':
+        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        networks = networkCmd("", sess)
+        return JsonResponse({ 'networkList' : networks })
+    else:
+        return render(request, 'admin/networks/index.html', {})
 
 def retrieveNetworkById(request, network_id):
     # logger.info("retrieveNetworkById")

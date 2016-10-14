@@ -165,11 +165,11 @@ def getAgentList(type="json"):
 
 def login(username, password, project_name, auth_url):
     # logger.debug("login")
-    os.environ["OS_USERNAME"] = username
-    os.environ["OS_PASSWORD"] = password
-    os.environ["OS_TENANT_NAME"] = project_name
-    os.environ["OS_AUTH_URL"] = auth_url
-    auth = v3.Password(auth_url=auth_url, username=username, password=password, project_name=project_name, user_domain_id='default', project_domain_id='default')
+    # os.environ["OS_USERNAME"] = username
+    # os.environ["OS_PASSWORD"] = password
+    # os.environ["OS_TENANT_NAME"] = project_name
+    # os.environ["OS_AUTH_URL"] = auth_url
+    # auth = v3.Password(auth_url=auth_url, username=username, password=password, project_name=project_name, user_domain_id='default', project_domain_id='default')
     auth = identity.Password(auth_url=auth_url,
                              username=username,
                              password=password,
