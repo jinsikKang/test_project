@@ -11,7 +11,7 @@ from sdsecgui.cmodels.instance import Instance
 
 
 def retrieveInstanceList(request):
-    login("admin", "chiron", "admin", "192.168.10.6", ":35357/v3")
+    login("admin", "chiron", "admin", "192.168.10.6", ":35357/v3", "nova")
     instanceList = getInstanceList()
     return render(request, 'admin/instances/index.html', { 'instanceList' : instanceList })
 

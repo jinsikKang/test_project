@@ -149,7 +149,7 @@ def getAgentList(type="json"):
         agentList = None
     return agentList
 
-def login(username, password, tenant_name, controller, auth_url):
+def login(username, password, tenant_name, controller, auth_url, clientType):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username
     os.environ["OS_PASSWORD"] = password
@@ -159,5 +159,8 @@ def login(username, password, tenant_name, controller, auth_url):
     auth = v3.Password(auth_url=aa, username=username, password=password, project_name=tenant_name, user_domain_id='default', project_domain_id='default')
     # print auth
     sess = session.Session(auth=auth)
-    novaCmd("",sess)
+    if clientType =="nova":
+        novaCmd("",sess)
+    if clientType =="neutron":
+        novaCmd("",sess)
     return sess
