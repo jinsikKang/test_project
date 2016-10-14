@@ -106,7 +106,7 @@ function DataTable (settings){
                         dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
                     }
                 } else if ( this.data[i][key] instanceof Array && this.subData != null) {
-                    var definition = this.subData.index(key);
+                    var definition = this.subData.indexOf(key);
                     // 배열일때 ul, li태그로 묶어 출력
                     if (definition instanceof Array){
                         var data = "<ul>";
