@@ -11,7 +11,7 @@ function DataTable (settings){
     }else{
         this.data = null;
     }
-    function verticalOutput(){
+    this.verticalOutput = function(){
         var columnForm = "<th class='ind_th01 %K'>%C</th>\n"
         var dataForm = "<td class='ind_td01 %K'>%D</td>\n";
         var resultHtml = ""
@@ -60,7 +60,7 @@ function DataTable (settings){
         }
         return resultHtml;
     }
-    function horizontalOutput(){
+    this.horizontalOutput = function (){
         /* 컬럼과 데이터 형식 */
         var columnForm = "<th class='ind_th01 %K'>%C</th>\n"
         var dataForm = "<td class='ind_td01 %K'>%D</td>\n";
@@ -112,9 +112,9 @@ function DataTable (settings){
     this.showDataTable = function() {
         var resultHtml;
         if( this.vertical ){ /* 데이터를 세로로 출력*/
-            resultHtml = verticalOutput();
+            resultHtml = this.verticalOutput();
         }else{
-            resultHtml = horizontalOutput();
+            resultHtml = this.horizontalOutput();
         }
         $(this.selector + " table").html(resultHtml);
     };
