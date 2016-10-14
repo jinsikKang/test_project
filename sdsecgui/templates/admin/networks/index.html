@@ -60,17 +60,17 @@ function showNetworkList(networks){
     });
     dataTable.showDataTable();
 }
-function getNetworksAjax(id, csrf_token){
+function getNetworksAjax(csrf_token){
     $.ajax({
         type:"POST",
         url : '',
-        data : { id:id, csrfmiddlewaretoken: csrf_token },
+        data : { csrfmiddlewaretoken: csrf_token },
         success:function(data){
             networks = data.networkList;
             showNetworkList(networks)
         }
     });
 }
-getNetworksAjax(id,csrf_token);
+getNetworksAjax(csrf_token);
 </script>
 {% endblock content %}
