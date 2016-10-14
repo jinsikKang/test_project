@@ -116,7 +116,7 @@ function DataTable (settings){
                                 if (k != 0){
                                     data += " ";
                                 }
-                                data += this.data[i][key][j][k];
+                                data += this.data[i][key][j][definition[k]];
                             }
                             data += "</li>";
                         }
