@@ -27,8 +27,18 @@ def novaCmd(command, sess):
 def networkCmd(command, sess):
     client = neutron.Client(session=sess)
     networks = client.list_networks().get("networks")
+    subnetIdList = networks.get("subnets")
+    subnets = []
+    for subnetId in subnetIdList:
+        subnets.append(client.show_subnet(subnetId))
+    print subnets
+    networks["subnets"] = subnets
     print networks
     return networks
+
+def subnetCmd(sess):
+    client = neutron.Client(session=sess)
+
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환

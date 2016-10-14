@@ -15,6 +15,7 @@ from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
 def retrieveNetworkList(request):
     sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
     networks = networkCmd("", sess)
+    subnetIdList = networks.get("subnets")
     # logger.info("retrieveNetworkList")
     # tempList = []
     # for network in networkList:
