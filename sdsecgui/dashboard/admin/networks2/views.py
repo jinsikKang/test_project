@@ -26,6 +26,10 @@ def retrieveNetworkById(request, network_id):
         network = Network()
         network.setById(network_id)
         network.setPortList()
+
+        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        networks = networkInfoCmd("", sess)
+        return JsonResponse({ 'networkList' : networks })
         return JsonResponse({ 'data' : network.toJSON() })
     else:
         return render(request, 'admin/networks/info.html', { 'network_id' : network_id })

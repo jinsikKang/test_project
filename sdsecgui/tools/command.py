@@ -40,6 +40,25 @@ def networkCmd(command, sess):
     pprint.pprint(networks)
     return networks
 
+def networkInfoCmd(id, sess):
+    client = neutron.Client(session=sess)
+    network = client.show_network(id).get("network")
+    # pprint.pprint(network)
+
+    subnetIdList = network.get("subnets")
+    subnets = []
+    for subnetId in subnetIdList:
+        subnets.append(client.show_subnet(subnetId).get("subnet"))
+    network["subnets"] = subnets
+
+    network["dhcpAgents"] = client.list_dhcp_agent_hosting_networks(id).get("agents")
+    pprint.pprint(client.list_ports())
+
+
+
+    # pprint.pprint(network)
+    return network
+
 def subnetCmd(sess):
     client = neutron.Client(session=sess)
 

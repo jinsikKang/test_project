@@ -106,25 +106,27 @@ function DataTable (settings){
                         dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
                     }
                 } else if ( this.data[i][key] instanceof Array && this.subData != null) {
-                    var definition = this.subData[key];
-                    // 배열일때 ul, li태그로 묶어 출력
-                    if (definition instanceof Array){
-                        var data = "<ul>";
-                        for ( j in this.data[i][key]){
-                            data += "<li>";
-                            for ( k in definition ){
-                                if (k != 0){
-                                    data += " ";
+                    if ( this.subData[key] ){
+                        var definition = this.subData[key];
+                        // 배열일때 ul, li태그로 묶어 출력
+                        if (definition instanceof Array){
+                            var data = "<ul>";
+                            for ( j in this.data[i][key]){
+                                data += "<li>";
+                                for ( k in definition ){
+                                    if (k != 0){
+                                        data += " ";
+                                    }
+                                    data += this.data[i][key][j][definition[k]];
                                 }
-                                data += this.data[i][key][j][definition[k]];
+                                data += "</li>";
                             }
-                            data += "</li>";
+                            data += "</ul>";
+                        } else if (definition == "count") {
+                            data = this.data[i][key].length;
                         }
-                        data += "</ul>";
-                    } else if (definition == "count") {
-                        data = this.data[i][key].length;
+                        dataHtml += dataForm.replace("%D", data).replace("%K", key);
                     }
-                    dataHtml += dataForm.replace("%D", data).replace("%K", key);
                 } else {
                     dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
                 }
