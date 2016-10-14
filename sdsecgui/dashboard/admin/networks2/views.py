@@ -16,7 +16,6 @@ def retrieveNetworkList(request):
     sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
     networkCmd("", sess)
     # logger.info("retrieveNetworkList")
-    networkList = getNetworkList()
     # tempList = []
     # for network in networkList:
     #     network_id = network["id"]
@@ -24,7 +23,7 @@ def retrieveNetworkList(request):
     #     network.setById(network_id)
     #     tempList.append(network)
     # networkList = tempList
-    return render(request, 'admin/networks/index.html', { 'networkList' : networkList })
+    return render(request, 'admin/networks/index.html', { 'networkList' : {} })
 
 def retrieveNetworkById(request, network_id):
     # logger.info("retrieveNetworkById")
