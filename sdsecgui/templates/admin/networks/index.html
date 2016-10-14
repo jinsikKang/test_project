@@ -10,49 +10,21 @@
 
 {% block content %}
 <div>
-    <table class="ind_tab01" cellpadding="0" border="0" cellspacing="0">
-        <tr>
-            <th class="ind_th01">프로젝트</th>
-            <th class="ind_th01">네트워크 이름</th>
-            <th class="ind_th01">관련 서브넷</th>
-            <th class="ind_th01">DHCP 에이전트</th>
-            <th class="ind_th01">공유</th>
-            <th class="ind_th01">외부</th>
-            <th class="ind_th01">Status</th>
-            <th class="ind_th01">관리자 상태</th>
-        </tr>
-        {% for network in networkList%}
-            <tr>
-                <td class="ind_td01 project_id">{{ network.project_id }}</td>
-                <td class="ind_td01 name"><a href="/dashboard/admin/networks/{{network.id}}">{{ network.name }}</a></td>
-                <td class="ind_td01 subnets">
-                    <ul>
-                    {% for subnet in network.subnets %}
-                        <li>{{ subnet.name }} {{ subnet.cidr }}</li>
-                    {% endfor %}
-                    </ul>
-                </td>
-                <td class="ind_td01 dhcpAgents">{{ network.dhcpAgents }}</td>
-                <td class="ind_td01 shared">{{ network.shared }}</td>
-                <td class="ind_td01 external">{{ network.router.external }}</td>
-                <td class="ind_td01 status">{{ network.status }}</td>
-                <td class="ind_td01 admin_state_up">{{ network.admin_state_up }}</td>
-            </tr>
-        {% endfor %}
+    <table class="ind_tab01 network_list" cellpadding="0" border="0" cellspacing="0">
     </table>
 </div>
 <script>
 
 function showNetworkList(networks){
     var dataTable = new DataTable({
-        "selector" : "#summary",
+        "selector" : "#network_list",
         "columns" : {
             "project_id" : "프로젝트",
             "name:link" : "네트워크 이름",
             "subnets" : "관련 서브넷",
             "dhcpAgents" : "DHCP 에이전트",
             "shared" : "공유",
-            "router.external" : "외부",
+            "router:external" : "외부",
             "status" : "Status",
             "admin_state_up" : "관리자 상태"
         },
