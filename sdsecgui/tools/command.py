@@ -1,6 +1,7 @@
 #_*_coding:utf-8_*_
 import json
 import os
+import pprint
 
 from keystoneauth1.identity import v3
 from keystoneauth1 import identity
@@ -32,9 +33,10 @@ def networkCmd(command, sess):
         subnets = []
         for subnetId in subnetIdList:
             subnets.append(client.show_subnet(subnetId).get("subnet"))
-        print subnets
         network["subnets"] = subnets
-    print networks
+        print "dhcpAgents", network.dhcpAgents()
+
+    pprint.pprint(networks)
     return networks
 
 def subnetCmd(sess):
