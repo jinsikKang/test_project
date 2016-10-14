@@ -34,7 +34,7 @@ def networkCmd(command, sess):
         for subnetId in subnetIdList:
             subnets.append(client.show_subnet(subnetId).get("subnet"))
         network["subnets"] = subnets
-        print "dhcpAgents", network.dhcpAgents()
+        print "dhcpAgents", client.list_dhcp_agent_hosting_networks(network)
 
     pprint.pprint(networks)
     return networks
