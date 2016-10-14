@@ -5,7 +5,7 @@ from django.http import JsonResponse
 import json
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import getNetworkList
+from sdsecgui.tools.command import getNetworkList, login, networkCmd
 from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
 
 # setLogDir()
@@ -13,6 +13,8 @@ from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
 
 
 def retrieveNetworkList(request):
+    sess = login("admin", "chiron", "admin", "19.168.10.6", ":35357/v3")
+    networkCmd("", sess)
     # logger.info("retrieveNetworkList")
     networkList = getNetworkList()
     tempList = []

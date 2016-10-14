@@ -23,11 +23,11 @@ def novaCmd(command, sess):
     print client.servers.list()
     print client.keypairs.list()
 
-def networkCmd(request):
-    # neutron.Client(token=request.user.token.i, auth_url=base.url_for(request, 'identity'),
-    #                           endpoint_url=base.url_for(request, 'network'),
-    #                           insecure=insecure, ca_cert=cacert)
-    pass
+def networkCmd(command, sess):
+    client = neutron.Client(session=sess)
+    networks = client.list_networks()
+    for i in networks:
+        print i
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
