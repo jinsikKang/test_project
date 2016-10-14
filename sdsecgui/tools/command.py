@@ -27,6 +27,7 @@ def novaCmd(command, sess):
 def networkCmd(command, sess):
     client = neutron.Client(session=sess)
     networks = client.list_networks()
+    print networks
     for i in networks:
         print i
 
