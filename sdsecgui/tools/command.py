@@ -28,8 +28,7 @@ def networkCmd(command, sess):
     client = neutron.Client(session=sess)
     networks = client.list_networks().get("networks")
     print networks
-    for i in networks:
-        print i
+    return networks
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
