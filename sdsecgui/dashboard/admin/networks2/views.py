@@ -5,7 +5,7 @@ from django.http import JsonResponse
 import json
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import getNetworkList, login, networkCmd
+from sdsecgui.tools.command import login, networkCmd, networkInfoCmd
 from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
 
 # setLogDir()
@@ -30,7 +30,6 @@ def retrieveNetworkById(request, network_id):
         sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         networks = networkInfoCmd("", sess)
         return JsonResponse({ 'networkList' : networks })
-        return JsonResponse({ 'data' : network.toJSON() })
     else:
         return render(request, 'admin/networks/info.html', { 'network_id' : network_id })
 
