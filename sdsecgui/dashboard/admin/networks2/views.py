@@ -17,13 +17,13 @@ def retrieveNetworkList(request):
     networkCmd("", sess)
     # logger.info("retrieveNetworkList")
     networkList = getNetworkList()
-    tempList = []
-    for network in networkList:
-        network_id = network["id"]
-        network = Network()
-        network.setById(network_id)
-        tempList.append(network)
-    networkList = tempList
+    # tempList = []
+    # for network in networkList:
+    #     network_id = network["id"]
+    #     network = Network()
+    #     network.setById(network_id)
+    #     tempList.append(network)
+    # networkList = tempList
     return render(request, 'admin/networks/index.html', { 'networkList' : networkList })
 
 def retrieveNetworkById(request, network_id):
