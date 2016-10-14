@@ -310,22 +310,22 @@ sample_service_template_list.append(sample_service_template)
 
 
 
-print c1.getToken('demo', 'demo', 'admin', 'supersecret')
-print
-print c1.createService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, sample_service_template_list)
-print
-print c1.modifyService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, sample_service_template_list)
-print
-print c1.deleteService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)
-print
-print c1.suspendService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)
-print
-print c1.resumeService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)	
-print
-pprint (c1.showService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid))
-print
-print c1.suspendResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
-print
-print c1.resumeResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')	
-print
-print c1.showResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
+# print c1.getToken('demo', 'demo', 'admin', 'supersecret')
+# print
+# print c1.createService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, sample_service_template_list)
+# print
+# print c1.modifyService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, sample_service_template_list)
+# print
+# print c1.deleteService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)
+# print
+# print c1.suspendService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)
+# print
+# print c1.resumeService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid)
+# print
+# pprint (c1.showService('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid))
+# print
+# print c1.suspendResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
+# print
+# print c1.resumeResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
+# print
+# print c1.showResource('demo', '2dc5d35fc791487ebdd32ec38e2edeed', 'admin', sample_uuid, 'region-0001', '0553b367-25d5-4285-a343-34b0a2bdda37', 'VM')
