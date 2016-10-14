@@ -23,12 +23,8 @@ def retrieveNetworkList(request):
 def retrieveNetworkById(request, network_id):
     # logger.info("retrieveNetworkById")
     if request.is_ajax() and request.method == 'POST':
-        network = Network()
-        network.setById(network_id)
-        network.setPortList()
-
         sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
-        networks = networkInfoCmd("", sess)
+        networks = networkInfoCmd(network_id, sess)
         return JsonResponse({ 'networkList' : networks })
     else:
         return render(request, 'admin/networks/info.html', { 'network_id' : network_id })
