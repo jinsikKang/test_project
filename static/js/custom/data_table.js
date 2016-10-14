@@ -99,6 +99,14 @@ function DataTable (settings){
                     } else {
                         dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
                     }
+                } else if ( this.data[i][key] instanceof Array ) {
+                    // 배열일때 ul, li태그로 묶어 출력
+                    var data = "<ul>";
+                    for ( j in this.data[i][key]){
+                        data += "<li>" + this.data[i][key][j] + "</li>";
+                    }
+                    data += "</ul>";
+                    dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else {
                     dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][key] + "</td>\n";
                 }
