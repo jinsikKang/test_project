@@ -54,7 +54,11 @@ function getPort(){
             "status" : "Status",
             "admin_state_up" : "관리자 상태"
         },
-        "data" : network.ports
+        "data" : network.ports,
+        "subData" : {
+            "fixed_ips":["ip_address"],
+            "dhcpAgents" : "count"
+        }
     });
     dataTable.showDataTable();
     dataTable.setLink("networks/ports");
