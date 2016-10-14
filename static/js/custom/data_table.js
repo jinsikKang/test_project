@@ -122,7 +122,7 @@ function DataTable (settings){
                         }
                         data += "</ul>";
                     } else if (definition == "count") {
-                        data = data[i][key].length;
+                        data = this.data[i][key].length;
                     }
                     dataHtml = dataForm.replace("%D", data).replace("%K", key);
                 } else {
