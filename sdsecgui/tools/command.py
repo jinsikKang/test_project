@@ -31,7 +31,7 @@ def networkCmd(command, sess):
         subnetIdList = network.get("subnets")
         subnets = []
         for subnetId in subnetIdList:
-            subnets.append(client.show_subnet(subnetId))
+            subnets.append(client.show_subnet(subnetId).get("subnet"))
         print subnets
         network["subnets"] = subnets
     print networks
