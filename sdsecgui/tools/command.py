@@ -3,6 +3,7 @@ import json
 import os
 
 from keystoneauth1.identity import v3
+from keystoneauth1 import identity
 from keystoneauth1 import session
 from novaclient import client as nova
 from neutronclient.v2_0 import client as neutron
@@ -149,7 +150,7 @@ def getAgentList(type="json"):
         agentList = None
     return agentList
 
-def login(username, password, tenant_name, controller, auth_url, clientType):
+def login(username, password, tenant_name, controller, auth_url):
     # logger.debug("login")
     os.environ["OS_USERNAME"] = username
     os.environ["OS_PASSWORD"] = password
@@ -157,10 +158,7 @@ def login(username, password, tenant_name, controller, auth_url, clientType):
     os.environ["OS_AUTH_URL"] = "http://" + controller + auth_url
     aa = "http://" + controller + auth_url
     auth = v3.Password(auth_url=aa, username=username, password=password, project_name=tenant_name, user_domain_id='default', project_domain_id='default')
+    auth = identity.Password(auth_url=aa, username=username, password=password, project_name=tenant_name, user_domain_id='default', project_domain_id='default')
     # print auth
     sess = session.Session(auth=auth)
-    if clientType =="nova":
-        novaCmd("",sess)
-    if clientType =="neutron":
-        novaCmd("",sess)
     return sess
