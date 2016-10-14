@@ -107,6 +107,7 @@ function DataTable (settings){
         }
         resultHtml = columnHtml + dataHtml;
         resultHtml = resultHtml.replace(":link", "");
+        return resultHtml;
     }
     this.showDataTable = function() {
         var resultHtml;
