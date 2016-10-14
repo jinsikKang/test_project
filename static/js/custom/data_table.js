@@ -30,7 +30,11 @@ function DataTable (settings){
                 columnHtml = columnForm.replace("%C", this.columns[key].name).replace("%K", key);
                 var data = "";
                 for ( dataNameKey in this.columns[key].dataName ){
-                    data += this.columns[key].dataName[dataNameKey] + " " + this.data[key][dataNameKey] + "<br/>";
+                    if (this.data[key]) {
+                        data += this.columns[key].dataName[dataNameKey] + " " + this.data[key][dataNameKey] + "<br/>";
+                    } else {
+                        data += this.columns[key].dataName[dataNameKey] + " " + this.data[key + ":" + dataName] + "<br/>";
+                    }
                 }
                 dataHtml = dataForm.replace("%D", data).replace("%K", key);
             } else if ( this.data[key] instanceof Array ) {
