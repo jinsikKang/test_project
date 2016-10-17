@@ -94,20 +94,24 @@ function DataTable (settings){
                 if ( key.indexOf(".") != -1 ){
                     var mainKey = key.replace(/\.\w+/g, "");
                     var subKey = key.replace(/\w+(\..+)/g, "$1");
-                    if ( this.data[i][mainKey].indexOf("\n") != -1 ) {
-                        this.data[i][mainKey] = "[" + this.data[i][mainKey].replace(/\n/g, ",") + "]";
-                    }
-                    var jsonData = JSON.parse(this.data[i][mainKey]);
-                    if ( jsonData instanceof Array ) {
-                        // 배열일때 ul, li태그로 묶어 출력
-                        var data = "<ul>";
-                        for ( i in jsonData){
-                            data += "<li>" + eval("jsonData[" + i + "]" + subKey) + "</li>";
-                        }
-                        data += "</ul>";
-                        dataHtml += "<td class='ind_td01 " + key + link + "'>" + data + "</td>\n";
+                    if ( typeof this.data[i][mainKey] === "object" ){
+                        dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][mainKey][subKey] + "</td>\n";
                     } else {
-                        dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
+                        if ( this.data[i][mainKey].indexOf("\n") != -1 ) {
+                            this.data[i][mainKey] = "[" + this.data[i][mainKey].replace(/\n/g, ",") + "]";
+                        }
+                        var jsonData = JSON.parse(this.data[i][mainKey]);
+                        if ( jsonData instanceof Array ) {
+                            // 배열일때 ul, li태그로 묶어 출력
+                            var data = "<ul>";
+                            for ( i in jsonData){
+                                data += "<li>" + eval("jsonData[" + i + "]" + subKey) + "</li>";
+                            }
+                            data += "</ul>";
+                            dataHtml += "<td class='ind_td01 " + key + link + "'>" + data + "</td>\n";
+                        } else {
+                            dataHtml += "<td class='ind_td01 " + key + link + "'>" + eval("jsonData" + subKey) + "</td>\n";
+                        }
                     }
                 } else if ( this.data[i][key] instanceof Array && this.subData != null) {
                     if ( this.subData[key] ){
