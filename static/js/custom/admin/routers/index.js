@@ -4,7 +4,7 @@ function getRouterList(data){
         "columns" : {
             "name" : "이름:link",
             "status" : "Status",
-            "external_gateway_info.network_id" : "외부 네트워크",
+            "external_gateway_info":{"network_id" : "외부 네트워크"},
             "admin_state_up" : "관리자 상태",
             "project_id" : "프로젝트",
         },
