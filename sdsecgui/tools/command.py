@@ -212,5 +212,5 @@ def login(request, username, password, project_name, auth_url):
                              user_domain_id='default')
     # print auth
     sess = session.Session(auth=auth)
-    request.session[0] = sess
+    request.session["authSession"] = sess
     return sess
