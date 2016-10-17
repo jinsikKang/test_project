@@ -95,7 +95,7 @@ function DataTable (settings){
                     var mainKey = key.replace(/\.\w+/g, "");
                     var subKey = key.replace(/\w+(\..+)/g, "$1");
                     if ( typeof this.data[i][mainKey] === "object" ){
-                        dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][mainKey][subKey] + "</td>\n";
+                        dataHtml += "<td class='ind_td01 " + key + link + "'>" + this.data[i][mainKey][subKey.replace(".","")] + "</td>\n";
                     } else {
                         if ( this.data[i][mainKey].indexOf("\n") != -1 ) {
                             this.data[i][mainKey] = "[" + this.data[i][mainKey].replace(/\n/g, ",") + "]";
