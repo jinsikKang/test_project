@@ -15,8 +15,8 @@ from sdsecgui.cmodels.router import Router
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
-        for o in request.session:
-            print o
+        session = request.session
+        print "session >>>", session["key"]
         sess = session.Session()
         # sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         routers = routersIndexCmd(sess)
