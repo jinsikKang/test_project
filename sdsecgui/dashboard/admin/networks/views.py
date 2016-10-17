@@ -5,8 +5,8 @@ from django.http import JsonResponse
 import json
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import login, networkCmd, networkInfoCmd
-from sdsecgui.cmodels.network import Subnet, Port
+from sdsecgui.tools.command import login, networkCmd, networkInfoCmd, subnetInfoCmd
+from sdsecgui.cmodels.network import Port
 
 # setLogDir()
 # logger = getLogger()
@@ -24,17 +24,16 @@ def retrieveNetworkById(request, network_id):
     # logger.info("retrieveNetworkById")
     if request.is_ajax() and request.method == 'POST':
         sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
-        network = networkInfoCmd(network_id, sess)
+        network = networkInfoCmd(sess, network_id)
         return JsonResponse({ 'data' : network })
     else:
         return render(request, 'admin/networks/info.html', { 'network_id' : network_id })
 
 def retrieveSubnetById(request, subnet_id):
     if request.is_ajax() and request.method == 'POST':
-        # print "ajax, POST", request.is_ajax(), request.method
-        subnet = Subnet()
-        subnet.setById(subnet_id)
-        return JsonResponse({ 'subnet' : subnet.toJSON() })
+        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        subnet = subnetInfoCmd(sess, subnet_id)
+        return JsonResponse({ 'subnet' : subnet })
     else:
         # print "is ajax : ", request.is_ajax(), " method:", request.method
         return render(request, 'admin/networks/subnets/info.html', {'subnet_id': subnet_id})

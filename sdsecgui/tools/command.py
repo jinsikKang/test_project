@@ -40,7 +40,7 @@ def networkCmd(command, sess):
     pprint.pprint(networks)
     return networks
 
-def networkInfoCmd(id, sess):
+def networkInfoCmd(sess, id):
     client = neutron.Client(session=sess)
     network = client.show_network(id).get("network")
     # pprint.pprint(network)
@@ -59,14 +59,13 @@ def networkInfoCmd(id, sess):
             portList.append(port)
     network["ports"] = portList
     # pprint.pprint(client.list_ports())
-
-
-
     pprint.pprint(network)
     return network
 
-def subnetCmd(sess):
+def subnetInfoCmd(sess, id):
     client = neutron.Client(session=sess)
+    subnet = client.show_subnet(id).get("subnet")
+    return subnet
 
 
 def excuteCmd(command):
