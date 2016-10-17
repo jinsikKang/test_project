@@ -87,9 +87,11 @@ function DataTable (settings){
             dataHtml += "<tr>\n";
             for( key in this.columns ){
                 var link = "";
-                if ( typeof this.columns[key] === "string" && this.columns[key].indexOf(":link") != -1 ) {
-                    /* class 에 link 를 포함 */
-                    link = " link";
+                if (typeof this.columns[key] === "string"){
+                    if ( this.columns[key].indexOf(":link") != -1 ) {
+                        /* class 에 link 를 포함 */
+                        link = " link";
+                    }
                 }
                 if ( key.indexOf(".") != -1 ){
                     var mainKey = key.replace(/\.\w+/g, "");
