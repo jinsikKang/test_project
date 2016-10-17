@@ -87,7 +87,7 @@ function DataTable (settings){
             dataHtml += "<tr>\n";
             for( key in this.columns ){
                 var link = "";
-                if ( this.columns[key].indexOf(":link") != -1 ) {
+                if ( typeof this.columns[key] === "string" && this.columns[key].indexOf(":link") != -1 ) {
                     /* class 에 link 를 포함 */
                     link = " link";
                 }
