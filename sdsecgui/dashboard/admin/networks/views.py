@@ -44,6 +44,6 @@ def retrievePortById(request, port_id):
     if request.is_ajax() and request.method == 'POST':
         sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         port = portInfoCmd(sess, port_id)
-        return JsonResponse({ 'port' : port.portDic })
+        return JsonResponse({ 'port' : port })
     else:
         return render(request, 'admin/networks/ports/info.html', {'port_id': port_id})
