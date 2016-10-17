@@ -25,7 +25,7 @@ def novaCmd(command, sess):
     print client.servers.list()
     print client.keypairs.list()
 
-def networkCmd(command, sess):
+def networkIndexCmd(command, sess):
     client = neutron.Client(session=sess)
     networks = client.list_networks().get("networks")
     pprint.pprint(networks)
@@ -71,6 +71,11 @@ def portInfoCmd(sess, id):
     client = neutron.Client(session=sess)
     port = client.show_port(id).get("port")
     return port
+
+def routersIndexCmd(sess):
+    client = neutron.Client(session=sess)
+    routers = client.list_routers().get("routers")
+    return routers
 
 
 def excuteCmd(command):

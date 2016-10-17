@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
-from sdsecgui.tools.command import getRouterList, getInterfaceListInRouter
+from sdsecgui.tools.command import getRouterList, getInterfaceListInRouter, login, routersIndexCmd
 from sdsecgui.tools.converter import dictionaryEncodeConvert
 from sdsecgui.cmodels.router import Router
 
@@ -13,20 +13,11 @@ from sdsecgui.cmodels.router import Router
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
-        tempList = []
-        # POST.body의 데이터(QueryDic)를 dictionary 형태로 바꾸어 얻음
-        data = json.loads(request.POST.dict()["routerList"])
-        for router in data:
-            router_id = router["id"]
-            router = Router()
-            router.setById(router_id)
-            tempList.append(router.showInfoJsonById(router_id))
-        routerList = tempList
-        return JsonResponse({'data': routerList})
+        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        routers = routersIndexCmd(sess)
+        return JsonResponse({'data': routers})
     else:
-        # json.stringify 형태로 넘겨줌("str")
-        routerList = getRouterList("str")
-        return render(request, 'admin/routers/index.html', { 'routerList' : routerList })
+        return render(request, 'admin/routers/index.html', { })
 
 def retrieveRouterById(request, router_id):
     if request.is_ajax() and request.method == 'POST':

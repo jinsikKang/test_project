@@ -15,7 +15,7 @@ function getRouterList(data){
     dataTable.setLink("routers");
 }
 
-function getRouterAjax(routerList, csrf_token){
+function getRouterAjax(csrf_token){
     $.ajax({
         type:"POST",
         url : '',

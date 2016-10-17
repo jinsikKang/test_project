@@ -5,7 +5,7 @@ from django.http import JsonResponse
 import json
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import login, networkCmd, networkInfoCmd, subnetInfoCmd, portInfoCmd
+from sdsecgui.tools.command import login, networkIndexCmd, networkInfoCmd, subnetInfoCmd, portInfoCmd
 from sdsecgui.cmodels.network import Port
 
 # setLogDir()
@@ -15,7 +15,7 @@ from sdsecgui.cmodels.network import Port
 def retrieveNetworkList(request):
     if request.is_ajax() and request.method == 'POST':
         sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
-        networks = networkCmd("", sess)
+        networks = networkIndexCmd("", sess)
         return JsonResponse({ 'networkList' : networks })
     else:
         return render(request, 'admin/networks/index.html', {})
