@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
+from keystoneauth1 import session
+
 from sdsecgui.tools.command import getRouterList, getInterfaceListInRouter, login, routersIndexCmd
 from sdsecgui.tools.converter import dictionaryEncodeConvert
 from sdsecgui.cmodels.router import Router
@@ -13,7 +15,8 @@ from sdsecgui.cmodels.router import Router
 def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
-        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        sess = session.Session()
+        # sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         routers = routersIndexCmd(sess)
         return JsonResponse({'data': routers})
     else:
