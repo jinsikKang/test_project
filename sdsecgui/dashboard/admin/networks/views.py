@@ -5,7 +5,7 @@ from django.http import JsonResponse
 import json
 
 from sdsec.log_handler import setLogDir, getLogger
-from sdsecgui.tools.command import login, networkCmd, networkInfoCmd, subnetInfoCmd
+from sdsecgui.tools.command import login, networkCmd, networkInfoCmd, subnetInfoCmd, portInfoCmd
 from sdsecgui.cmodels.network import Port
 
 # setLogDir()
@@ -42,8 +42,8 @@ def retrieveSubnetById(request, subnet_id):
 
 def retrievePortById(request, port_id):
     if request.is_ajax() and request.method == 'POST':
-        port = Port()
-        port.setById(port_id)
+        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        port = portInfoCmd(sess, port_id)
         return JsonResponse({ 'port' : port.portDic })
     else:
         return render(request, 'admin/networks/ports/info.html', {'port_id': port_id})

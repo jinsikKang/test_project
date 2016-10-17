@@ -67,6 +67,11 @@ def subnetInfoCmd(sess, id):
     subnet = client.show_subnet(id).get("subnet")
     return subnet
 
+def portInfoCmd(sess, id):
+    client = neutron.Client(session=sess)
+    port = client.show_port(id).get("port")
+    return port
+
 
 def excuteCmd(command):
     # 명령 실행, 출력 반환
