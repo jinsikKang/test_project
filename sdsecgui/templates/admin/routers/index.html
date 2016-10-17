@@ -16,8 +16,9 @@
 {% load staticfiles %}
 <script src='{% static "js/custom/admin/routers/index.js" %}'></script>
 <script>
+//{% autoescape off %}{{ routerList }}{% endautoescape %},
 $(function(){
-    getRouterAjax({% autoescape off %}{{ routerList }}{% endautoescape %}, "{{ csrf_token }}");
+    getRouterAjax("{{ csrf_token }}");
 });
 </script>
 {% endblock content %}
