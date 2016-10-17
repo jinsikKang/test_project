@@ -6,7 +6,7 @@ import json
 
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import login, networkCmd, networkInfoCmd
-from sdsecgui.cmodels.network import Network, Subnet, DHCPagent, Port
+from sdsecgui.cmodels.network import Subnet, Port
 
 # setLogDir()
 # logger = getLogger()
