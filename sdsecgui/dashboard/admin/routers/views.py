@@ -16,9 +16,9 @@ def retrieveRouterList(request):
     # logger.info("retrieveRouterList")
     if request.is_ajax() and request.method == 'POST':
         session = request.session
-        print "session >>>", session["key"]
+        print "session >>>", session["authSession"]
         sess = session.Session()
-        # sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        # sess = login(request, "admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         routers = routersIndexCmd(sess)
         return JsonResponse({'data': routers})
     else:

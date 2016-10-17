@@ -14,7 +14,7 @@ from sdsecgui.cmodels.network import Port
 
 def retrieveNetworkList(request):
     if request.is_ajax() and request.method == 'POST':
-        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        sess = login(request, "admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         networks = networkIndexCmd("", sess)
         return JsonResponse({ 'networkList' : networks })
     else:
@@ -23,7 +23,7 @@ def retrieveNetworkList(request):
 def retrieveNetworkById(request, network_id):
     # logger.info("retrieveNetworkById")
     if request.is_ajax() and request.method == 'POST':
-        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        sess = login(request, "admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         network = networkInfoCmd(sess, network_id)
         return JsonResponse({ 'data' : network })
     else:
@@ -31,7 +31,7 @@ def retrieveNetworkById(request, network_id):
 
 def retrieveSubnetById(request, subnet_id):
     if request.is_ajax() and request.method == 'POST':
-        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        sess = login(request, "admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         subnet = subnetInfoCmd(sess, subnet_id)
         return JsonResponse({ 'subnet' : subnet })
     else:
@@ -42,7 +42,7 @@ def retrieveSubnetById(request, subnet_id):
 
 def retrievePortById(request, port_id):
     if request.is_ajax() and request.method == 'POST':
-        sess = login("admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
+        sess = login(request, "admin", "chiron", "admin", "http://192.168.10.6/identity/v3")
         port = portInfoCmd(sess, port_id)
         return JsonResponse({ 'port' : port })
     else:

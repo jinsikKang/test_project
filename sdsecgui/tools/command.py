@@ -197,7 +197,7 @@ def getAgentList(type="json"):
         agentList = None
     return agentList
 
-def login(username, password, project_name, auth_url):
+def login(request, username, password, project_name, auth_url):
     # logger.debug("login")
     # os.environ["OS_USERNAME"] = username
     # os.environ["OS_PASSWORD"] = password
@@ -212,4 +212,5 @@ def login(username, password, project_name, auth_url):
                              user_domain_id='default')
     # print auth
     sess = session.Session(auth=auth)
+    request.session["authSession"] = sess
     return sess
